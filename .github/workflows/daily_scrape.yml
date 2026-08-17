@@ -53,10 +53,10 @@ jobs:
           server_address: smtp.gmail.com
           server_port: 587
           secure: false
-          username: ${{ secrets.MAIL_USERNAME }}
-          password: ${{ secrets.MAIL_PASSWORD }}
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
           from: DVC Market Observer
-          to: tpcolburn@gmail.com
+          to: ${{ secrets.MY_EMAIL }}
           subject: "DVC market snapshot — ${{ env.SNAP_DATE }}"
           body: file://summary.txt
           attachments: dashboard.html
