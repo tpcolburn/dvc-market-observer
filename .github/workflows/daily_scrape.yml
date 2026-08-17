@@ -1,51 +1,62 @@
-name: Daily Price Scraper
+name: Daily DVC Market Snapshot
 
 on:
   schedule:
-    - cron: '0 2 * * *'
+    - cron: '0 9 * * *'      # 09:00 UTC ≈ 5am ET
   workflow_dispatch:
 
+concurrency:
+  group: scrape
+  cancel-in-progress: false
+
 jobs:
-  build:
+  snapshot:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     permissions:
       contents: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
+      # scrape_all.py and build_dashboard.py are standard library only.
+      # No install step means no dependency to break silently.
 
-      - name: Install Tools
-        run: pip install requests beautifulsoup4
+      - name: Stamp date
+        run: echo "SNAP_DATE=$(date -u +%Y-%m-%d)" >> "$GITHUB_ENV"
 
-      - name: Run Scraper
-        id: run_scraper
-        run: python scraper.py
+      - name: Scrape all listings
+        run: python scrape_all.py
 
-      - name: Save results
+      - name: Rebuild dashboard
+        run: python build_dashboard.py
+
+      - name: Commit snapshot
         run: |
-          git config --global user.name 'GitHub Action'
-          git config --global user.email 'action@github.com'
-          git add data/listings_history.csv
-          git commit -m "Automated daily price update" || echo "No changes to commit"
-          git push
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/listings_history.csv dashboard.html summary.txt
+          if git diff --staged --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "Market snapshot $SNAP_DATE"
+            git push
+          fi
 
-      - name: Send Email Alert
-        if: hashFiles('alerts.txt') != ''
+      - name: Email the dashboard
+        if: success()
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
-          server_port: 465
-          # Note: You will need to set up these secrets in your repo settings
-          username: ${{secrets.EMAIL_USERNAME}} 
-          password: ${{secrets.EMAIL_PASSWORD}}
-          subject: 🚨 DVC Deal Detected!
-          body: |
-            New deals found on DVC Resale Market! Check your dashboard for details.
-          to: ${{secrets.MY_EMAIL}}
-          from: DVC Price Observer
+          server_port: 587
+          secure: false
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: DVC Market Observer
+          to: tpcolburn@gmail.com
+          subject: "DVC market snapshot — ${{ env.SNAP_DATE }}"
+          body: file://summary.txt
+          attachments: dashboard.html

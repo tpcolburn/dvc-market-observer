@@ -1,0 +1,248 @@
+#!/usr/bin/env python3
+"""
+Sweep every DVC resale listing on the brokers that permit it, at every contract
+size, and append today's snapshot to data/listings_history.csv.
+
+Deed year and annual dues are read off the listing pages themselves rather than
+hardcoded, so the resort reference data stays correct on its own.
+
+Standard library only — nothing to pip install.
+"""
+
+import csv, gzip, html, re, sys, time, urllib.request, urllib.error
+from datetime import date
+from pathlib import Path
+
+BASE = Path(__file__).resolve().parent
+HISTORY = BASE / "data" / "listings_history.csv"
+UA = "dvc-observer/2.0 (personal market tracker; contact tpcolburn@gmail.com)"
+DELAY = 1.2
+
+FIELDS = ["date", "broker", "listing_id", "url", "resort", "points", "use_year",
+          "price", "price_per_point", "dues_per_point", "deed_year", "status",
+          "point_delta", "cost_per_point_year"]
+
+# broker slug -> canonical resort. Old Key West is split by deed: the 2057
+# contracts are the extended ones and are a different asset from the 2042s.
+RESORT = {
+    "animal-kingdom": "Animal Kingdom Villas", "animal-kingdom-lodge": "Animal Kingdom Villas",
+    "aulani": "Aulani", "bay-lake-tower": "Bay Lake Tower",
+    "beach-club": "Beach Club Villas", "beach-club-villas": "Beach Club Villas",
+    "boardwalk": "BoardWalk Villas", "boardwalk-villas": "BoardWalk Villas",
+    "boulder-ridge": "Boulder Ridge Villas", "wilderness-lodge": "Boulder Ridge Villas",
+    "copper-creek": "Copper Creek Villas",
+    "disneyland-hotel": "Villas at Disneyland Hotel",
+    "fort-wilderness": "Cabins at Fort Wilderness", "cabins-at-fort-wilderness": "Cabins at Fort Wilderness",
+    "grand-californian": "Grand Californian Villas",
+    "grand-floridian": "Grand Floridian Villas",
+    "hilton-head": "Hilton Head Island",
+    "old-key-west": "Old Key West", "old-key-west-2057": "Old Key West (2057)",
+    "old-key-west57": "Old Key West (2057)",
+    "polynesian": "Polynesian Villas", "polynesian-villas-and-bungalows": "Polynesian Villas",
+    "riviera": "Riviera Resort", "rivieraresort": "Riviera Resort",
+    "saratoga-springs": "Saratoga Springs", "vero-beach": "Vero Beach",
+}
+
+MONTHS = ("January February March April May June July August September "
+          "October November December").split()
+
+
+def log(m):
+    print(f"{time.strftime('%H:%M:%S')} {m}", flush=True)
+
+
+def fetch(url, retries=2):
+    req = urllib.request.Request(url, headers={
+        "User-Agent": UA, "Accept-Encoding": "gzip",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"})
+    for a in range(retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                raw = r.read()
+                if r.headers.get("Content-Encoding") == "gzip":
+                    raw = gzip.decompress(raw)
+                return raw.decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code in (404, 410):
+                return None
+            if a == retries:
+                return None
+        except Exception:
+            if a == retries:
+                return None
+        time.sleep(2 * (a + 1))
+    return None
+
+
+def flat(doc):
+    t = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", doc)
+    t = re.sub(r"(?s)<[^>]+>", " ", t)
+    return re.sub(r"[\s\xa0]+", " ", html.unescape(t))
+
+
+def num(s):
+    return float(re.sub(r"[^\d.]", "", s)) if s else None
+
+
+# --------------------------------------------------------------- per broker
+
+def p_dvcrm(t, url):
+    g = lambda p: (re.search(p, t).group(1) if re.search(p, t) else None)
+    pts, price = g(r"Points on Contract\s*([\d,]+)"), g(r"Price\s*\$([\d,]+)")
+    if not pts or not price:
+        return None
+    avail = re.findall(r"([A-Za-z]+) (\d{4}) - ([\d,]+) points", t)
+    n = int(num(pts))
+    delta = sum(int(num(p)) for _, _, p in avail) - n * len(avail) if avail else 0
+    return dict(listing_id=g(r"Listing ID\s*([A-Z0-9]+)") or url.rstrip("/").split("/")[-1].upper(),
+                points=n, price=int(num(price)),
+                price_per_point=num(g(r"Price Per Point\s*\$([\d,.]+)")),
+                use_year=g(r"Use Year\s*(" + "|".join(MONTHS) + r")"),
+                dues_per_point=num(g(r"Dues per Point\s*\$([\d.]+)")),
+                deed_year=int(num(g(r"Deed Expiration\s*(\d{4})")) or 0) or None,
+                closing=num(g(r"Closing Costs\*?\s*\$([\d,]+) for a cash")),
+                caf=num(g(r"Disney \(CAF\) Fee\s*\$([\d,]+)")), point_delta=delta)
+
+
+def p_dvcstore(t, url):
+    g = lambda p: (re.search(p, t).group(1) if re.search(p, t) else None)
+    pts, price = g(r"(\d+)\s*Point Deed"), g(r"Price\s*\$([\d,]+)")
+    if not pts or not price:
+        return None
+    n = int(num(pts))
+    coming = [int(num(x)) for x in re.findall(r"([\d,]+) points coming on", t)]
+    delta = sum(coming) - n * len(coming) if coming else 0
+    return dict(listing_id=g(r"([A-Z]{2,4}\d+[A-Z0-9-]*)") or url.rstrip("/").split("/")[-1].upper(),
+                points=n, price=int(num(price)),
+                price_per_point=num(g(r"Price Per Point\s*\$([\d,.]+)")),
+                use_year=g(r"[-–]\s*([A-Za-z]+)\s*Use Year"),
+                dues_per_point=num(g(r"Dues Per Point\s*\$([\d.]+)")),
+                deed_year=int(num(g(r"Expiration\s*(20\d\d)")) or 0) or None,
+                closing=num(g(r"Closing Costs\*?\s*\$([\d,]+)")),
+                caf=num(g(r"Disney CAF\*{0,2}\s*\$([\d,]+)")), point_delta=delta)
+
+
+def p_dvcsales(t, url):
+    g = lambda p: (re.search(p, t, re.I).group(1) if re.search(p, t, re.I) else None)
+    m = re.search(r"/(\d+)-points/", url) or re.search(r"/(\d+)-points", url)
+    pts = m.group(1) if m else g(r"([\d,]+)\s*points\b")
+    ppp = g(r"\$\s*([\d.]+)\s*(?:/|per )\s*(?:pt|point)")
+    price = g(r"(?:asking|price)[^$]{0,20}\$([\d,]{4,})")
+    if not pts or not (ppp or price):
+        return None
+    n = int(num(pts))
+    prc = int(num(price)) if price else int(round(num(ppp) * n))
+    return dict(listing_id=url.rstrip("/").split("/")[-1].upper(), points=n, price=prc,
+                price_per_point=num(ppp) if ppp else round(prc / n, 2),
+                use_year=g(r"use year[:\s]*(" + "|".join(MONTHS) + r")"),
+                dues_per_point=None,
+                deed_year=int(num(g(r"(?:expir\w*|deed)[^\d]{0,20}(20\d\d)")) or 0) or None,
+                closing=None, caf=None, point_delta=0)
+
+
+# status read from each broker's own field; whole-page keyword matching hits
+# FAQ text, testimonials and "how buying works" boilerplate
+STATUS = {
+    "dvcresalemarket": [re.compile(r"(?i)\b(sale pending|offer accepted|under contract)\b")],
+    "dvcstore": [re.compile(r"(?i)Status\s+(Sold|Sale Pending|Under Contract)\b"),
+                 re.compile(r"(?i)^\s*.{0,200}?\b(SALE PENDING)\s*-\s*[A-Z]{2,4}\d")],
+    "dvcsales": [],
+}
+
+BROKERS = [
+    dict(key="dvcresalemarket", label="DVC Resale Market",
+         sitemap="https://www.dvcresalemarket.com/listing-sitemap.xml",
+         slug=r"/listings/([a-z0-9-]+)/", parse=p_dvcrm),
+    dict(key="dvcstore", label="The DVC Store",
+         sitemap="https://www.dvcstore.com/resale-listing-sitemap.xml",
+         slug=r"/resort/([a-z0-9-]+)/[^/]+/?$", parse=p_dvcstore),
+    dict(key="dvcsales", label="DVC Sales",
+         sitemap="https://dvcsales.com/sitemap-listings.xml",
+         slug=r"/dvc-resale/([a-z0-9-]+)/", parse=p_dvcsales),
+]
+
+
+def status_of(t, key):
+    for pat in STATUS.get(key, []):
+        m = pat.search(t)
+        if m:
+            return m.group(1).title()
+    return "Available" if STATUS.get(key) else "Unverified"
+
+
+def carrying_cost(rec, today_year):
+    """Cost per point-year: the only cross-resort comparable. Needs deed + dues."""
+    if not rec.get("deed_year") or not rec.get("dues_per_point") or not rec.get("points"):
+        return None
+    yrs = rec["deed_year"] - today_year
+    if yrs <= 0:
+        return None
+    closing = rec.get("closing") if rec.get("closing") is not None else 95 + 2 * rec["points"]
+    caf = rec.get("caf") if rec.get("caf") is not None else 500
+    acq = rec["price"] + closing + caf - (rec.get("point_delta") or 0) * 19
+    return round((acq / yrs + rec["points"] * rec["dues_per_point"]) / rec["points"], 3)
+
+
+def main():
+    today = date.today()
+    rows, seen = [], set()
+    for b in BROKERS:
+        doc = fetch(b["sitemap"])
+        urls = re.findall(r"<loc>\s*(?:<!\[CDATA\[)?\s*(https?://[^\s<\]]+)", doc or "")
+        targets = []
+        for u in urls:
+            m = re.search(b["slug"], u)
+            if m and m.group(1) in RESORT:
+                targets.append((u, RESORT[m.group(1)]))
+        log(f"{b['label']}: {len(urls)} urls, {len(targets)} listings")
+        ok = 0
+        for i, (u, resort) in enumerate(targets, 1):
+            doc = fetch(u)
+            time.sleep(DELAY)
+            if not doc:
+                continue
+            t = flat(doc)
+            rec = b["parse"](t, u)
+            if not rec or not rec.get("points") or not rec.get("price"):
+                continue
+            key = (b["key"], rec["listing_id"])
+            if key in seen:
+                continue
+            seen.add(key)
+            rec["cost_per_point_year"] = carrying_cost(rec, today.year)
+            rows.append({"date": today.isoformat(), "broker": b["label"],
+                         "url": u, "resort": resort, "status": status_of(t, b["key"]),
+                         **{k: rec.get(k) for k in
+                            ["listing_id", "points", "use_year", "price", "price_per_point",
+                             "dues_per_point", "deed_year", "point_delta", "cost_per_point_year"]}})
+            ok += 1
+            if i % 50 == 0:
+                log(f"  {i}/{len(targets)} ({ok} parsed)")
+        log(f"  {ok}/{len(targets)} parsed")
+
+    if not rows:
+        log("no rows scraped — aborting so history is not corrupted")
+        return 1
+
+    HISTORY.parent.mkdir(parents=True, exist_ok=True)
+    existing, header_ok = [], False
+    if HISTORY.exists():
+        with open(HISTORY, newline="") as f:
+            r = csv.DictReader(f)
+            header_ok = r.fieldnames == FIELDS
+            if header_ok:
+                existing = [x for x in r if x.get("date") != today.isoformat()]
+    with open(HISTORY, "w", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=FIELDS)
+        w.writeheader()
+        for x in existing:
+            w.writerow(x)
+        for x in rows:
+            w.writerow({k: ("" if x.get(k) is None else x.get(k)) for k in FIELDS})
+    log(f"wrote {len(rows)} rows for {today} ({len(existing)} historical rows kept"
+        f"{'' if header_ok else '; old schema replaced'})")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
