@@ -44,6 +44,7 @@ jobs:
 
       - name: Email the dashboard
         if: success()
+        continue-on-error: true
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
