@@ -15,7 +15,7 @@ from statistics import median
 
 BASE = Path(__file__).resolve().parent
 HISTORY = BASE / "data" / "listings_history.csv"
-OUT = BASE / "dashboard.html"
+OUT = BASE / "index.html"
 
 # Resale points at these resorts can only book that same resort (plus Interval),
 # never the wider DVC system. It is the reason they trade cheap, and no

@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/listings_history.csv dashboard.html summary.txt
+          git add data/listings_history.csv index.html summary.txt
           if git diff --staged --quiet; then
             echo "nothing changed"
           else
@@ -59,4 +59,4 @@ jobs:
           to: ${{ secrets.MY_EMAIL }}
           subject: "DVC market snapshot — ${{ env.SNAP_DATE }}"
           body: file://summary.txt
-          attachments: dashboard.html
+          attachments: index.html
