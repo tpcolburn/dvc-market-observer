@@ -1,10 +1,10 @@
-481 live listings across 17 resorts, 3 days of history.
+478 live listings across 17 resorts, 3 days of history.
 
 Best carrying cost, unrestricted resorts:
-  Copper Creek Villas          $13.12/pt-yr   median $149/pt   deed 2068
-  Polynesian Villas            $13.29/pt-yr   median $174/pt   deed 2066
-  Bay Lake Tower               $13.41/pt-yr   median $143/pt   deed 2060
-  Grand Floridian Villas       $13.46/pt-yr   median $171/pt   deed 2064
-  Saratoga Springs             $13.72/pt-yr   median $108/pt   deed 2054
+  Copper Creek Villas          $13.13/pt-yr   median $149/pt   deed 2068
+  Polynesian Villas            $13.28/pt-yr   median $174/pt   deed 2066
+  Bay Lake Tower               $13.33/pt-yr   median $144/pt   deed 2060
+  Grand Floridian Villas       $13.46/pt-yr   median $172/pt   deed 2064
+  Saratoga Springs             $13.75/pt-yr   median $108/pt   deed 2054
 
 Full detail in the attached dashboard — open it in any browser.
