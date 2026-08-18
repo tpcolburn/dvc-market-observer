@@ -950,6 +950,7 @@ date,broker,listing_id,url,resort,points,use_year,price,price_per_point,dues_per
 2026-08-17,DVC Sales,999,https://dvcsales.com/dvc-resale/disneyland-hotel/65-points/999,Villas at Disneyland Hotel,65,,10075,155.0,,2074,Unverified,0,
 2026-08-17,DVC Sales,1193,https://dvcsales.com/dvc-resale/disneyland-hotel/75-points/1193,Villas at Disneyland Hotel,75,,11625,155.0,,2074,Unverified,0,
 2026-08-17,DVC Sales,1539,https://dvcsales.com/dvc-resale/disneyland-hotel/150-points/1539,Villas at Disneyland Hotel,150,,24750,165.0,,2074,Unverified,0,
+2026-08-18,DVC Resale Market,AU83417,https://www.dvcresalemarket.com/listings/aulani/au83417/,Aulani,170,August,16320,96.0,10.96,2062,Offer Accepted,-92,14.17
 2026-08-18,DVC Resale Market,RR62320,https://www.dvcresalemarket.com/listings/rivieraresort/rr62320/,Riviera Resort,200,June,22600,113.0,9.46,2070,Offer Accepted,-399,13.052
 2026-08-18,DVC Resale Market,HHF1791,https://www.dvcresalemarket.com/listings/hilton-head/hhf1791/,Hilton Head Island,25,June,2150,86.0,12.86,2042,Sale Pending,0,21.27
 2026-08-18,DVC Resale Market,BWB3401,https://www.dvcresalemarket.com/listings/boardwalk/bwb3401/,BoardWalk Villas,50,April,8500,170.0,9.67,2042,Available,0,21.819
@@ -966,7 +967,6 @@ date,broker,listing_id,url,resort,points,use_year,price,price_per_point,dues_per
 2026-08-18,DVC Resale Market,OK24978,https://www.dvcresalemarket.com/listings/old-key-west/ok24978/,Old Key West,220,December,20240,92.0,11.21,2042,Sale Pending,0,17.36
 2026-08-18,DVC Resale Market,AK86192,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak86192/,Animal Kingdom Villas,150,September,18600,124.0,10.16,2057,Offer Accepted,150,13.846
 2026-08-18,DVC Resale Market,CC92988,https://www.dvcresalemarket.com/listings/copper-creek/cc92988/,Copper Creek Villas,55,February,8745,159.0,9.02,2068,Available,-40,13.662
-2026-08-18,DVC Resale Market,AU83417,https://www.dvcresalemarket.com/listings/aulani/au83417/,Aulani,170,August,16320,96.0,10.96,2062,Offer Accepted,-92,14.17
 2026-08-18,DVC Resale Market,BL83547,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl83547/,Bay Lake Tower,160,October,22880,143.0,8.74,2060,Sale Pending,160,12.65
 2026-08-18,DVC Resale Market,VBG2606,https://www.dvcresalemarket.com/listings/vero-beach/vbg2606/,Vero Beach,25,October,1675,67.0,14.89,2042,Available,-25,23.062
 2026-08-18,DVC Resale Market,SS88451,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88451/,Saratoga Springs,215,August,22790,106.0,9.19,2054,Sale Pending,0,13.213
