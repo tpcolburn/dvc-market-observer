@@ -42,7 +42,20 @@ jobs:
             git push
           fi
 
+      - name: Check mail secrets are present
+        run: |
+          missing=
+          [ -z "${{ secrets.EMAIL_USERNAME }}" ] && missing="$missing EMAIL_USERNAME"
+          [ -z "${{ secrets.EMAIL_PASSWORD }}" ] && missing="$missing EMAIL_PASSWORD"
+          [ -z "${{ secrets.MY_EMAIL }}"       ] && missing="$missing MY_EMAIL"
+          if [ -n "$missing" ]; then
+            echo "::warning::Mail secrets missing:$missing — the digest will not be delivered."
+          else
+            echo "all mail secrets present"
+          fi
+
       - name: Email the dashboard
+        id: email
         if: success()
         continue-on-error: true
         uses: dawidd6/action-send-mail@v3
@@ -57,3 +70,14 @@ jobs:
           subject: "DVC market snapshot — ${{ env.SNAP_DATE }}"
           body: file://summary.txt
           attachments: index.html
+
+      # continue-on-error reports a failed step as "success" in the run summary,
+      # so surface the real outcome as a warning annotation instead of hiding it
+      - name: Report mail outcome
+        if: always()
+        run: |
+          if [ "${{ steps.email.outcome }}" = "failure" ]; then
+            echo "::warning::Dashboard email FAILED to send. Snapshot data was still committed."
+          else
+            echo "dashboard emailed"
+          fi
