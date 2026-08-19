@@ -2,10 +2,8 @@
 """
 Turn data/listings_history.csv into index.html and the email body.
 
-Every visible element is rendered here, in Python, as real HTML. Mail clients
-(iOS Mail in particular) do not execute JavaScript in attachment previews, so a
-page that assembles itself client-side shows up blank. JavaScript is used only
-to add sorting and filtering on top of markup that is already complete.
+Everything visible is rendered here as real HTML — mail clients and no-JS
+contexts get the complete page. JavaScript only adds sorting and filtering.
 """
 
 import csv, html, json, sys
@@ -21,13 +19,17 @@ SUMMARY = BASE / "summary.txt"
 SUMMARY_HTML = BASE / "summary.html"
 HEALTH = BASE / "data" / "source_health.json"
 
-# Resale points at these resorts can only book that same resort, never the wider
-# DVC system. It is why they trade cheap, and no cost metric can see it.
-RESTRICTED = {"Riviera Resort", "Villas at Disneyland Hotel", "Cabins at Fort Wilderness"}
-
-# Resorts worth reading line by line; everything else is summarised as counts.
+# Resorts read line-by-line; everything else is summarised.
 FOCUS = ["Copper Creek Villas", "Boulder Ridge Villas",
          "Animal Kingdom Villas", "Saratoga Springs"]
+
+# Resale points at these resorts can only book that same resort.
+RESTRICTED = {"Riviera Resort", "Villas at Disneyland Hotel", "Cabins at Fort Wilderness"}
+
+# The 2026-01-10 rows are a sparse archive from the original scraper — a useful
+# baseline for "vs January" deltas, but plotting them on a daily-trend axis puts
+# a 7-month gap next to a 1-day gap. Charts start at the continuous window.
+CHART_START = "2026-08-01"
 
 SOLD_LIKE = {"Sold"}
 UNDER_OFFER = {"Offer Accepted", "Sale Pending", "Under Contract"}
@@ -65,10 +67,8 @@ def load_health():
 
 
 def diff(rows, latest, prev, dead=()):
-    """What changed between the two most recent snapshots.
-
-    Brokers whose scrape failed are skipped entirely: they have no rows today,
-    so every listing they carry would otherwise be reported as withdrawn."""
+    """Changes between the two most recent snapshots. Brokers whose scrape
+    failed are skipped entirely so their inventory doesn't read as withdrawn."""
     now = {key(r): r for r in rows if r["date"] == latest and r["broker"] not in dead}
     was = ({key(r): r for r in rows if r["date"] == prev and r["broker"] not in dead}
            if prev else {})
@@ -100,42 +100,102 @@ def money(v, d=0):
     return "—" if v is None else f"${v:,.{d}f}"
 
 
-def listing_rows(items, extra=None):
+def listing_rows(items, extra=None, status_col=False):
     out = []
     for r in items:
+        focus = ' <span class="dot"></span>' if r["resort"] in FOCUS else ""
         badge = ' <span class="tag r">restricted</span>' if r["resort"] in RESTRICTED else ""
         note = ""
         if extra == "drop":
-            note = f'<span class="was">was ${r["_was"]:,.0f}</span>'
+            note = f' <span class="was">was ${r["_was"]:,.0f}</span>'
         elif extra == "from":
-            note = f'<span class="was">from {e(r["_from"])}</span>'
+            note = f' <span class="was">{e(r["_from"])} → {e(r["status"])}</span>'
         delta = r["point_delta"] or 0
         dtxt = (f'<span class="pos">+{delta}</span>' if delta > 0
                 else f'<span class="neg">{delta}</span>' if delta < 0 else "—")
         url = r.get("url") or ""
         name = f'<a href="{e(url)}">{e(r["resort"])}</a>' if url else e(r["resort"])
+        status_td = f'<td class="n mh">{e(r["status"] or "—")}</td>' if status_col else ""
         out.append(f"""<tr>
-<td>{name}{badge}<div class="sub">{e(r['broker'])} · {e(r['listing_id'])} · {e(r['use_year'] or '?')} UY</div></td>
+<td class="c">{name}{focus}{badge}<div class="sub">{e(r['broker'])} · {e(r['listing_id'])} · {e(r['use_year'] or '?')} UY{note}</div></td>
 <td class="n">{r['points']}</td>
-<td class="n"><b>{money(r['price_per_point'])}</b> {note}</td>
-<td class="n">{money(r['price'])}</td>
+<td class="n"><b>{money(r['price_per_point'])}</b></td>
+<td class="n mh">{money(r['price'])}</td>
 <td class="n"><b>{money(r['cost_per_point_year'],2)}</b></td>
-<td class="n">{r['deed_year'] or '—'}</td>
-<td class="n">{dtxt}</td>
-<td class="n">{e(r['status'] or '—')}</td></tr>""")
+<td class="n mh">{r['deed_year'] or '—'}</td>
+<td class="n mh">{dtxt}</td>{status_td}</tr>""")
     return "\n".join(out)
 
 
-TH = ("""<tr><th>Contract</th><th class="n">Pts</th><th class="n">$/pt</th><th class="n">Price</th>"""
-      """<th class="n">$/pt-yr</th><th class="n">Deed</th><th class="n">Banked</th><th class="n">Status</th></tr>""")
+def thead(status_col=False):
+    s = '<th class="n mh">Status</th>' if status_col else ""
+    return ('<tr><th class="c">Contract</th><th class="n">Pts</th><th class="n">$/pt</th>'
+            '<th class="n mh">Price</th><th class="n">$/pt-yr</th><th class="n mh">Deed</th>'
+            f'<th class="n mh">Banked</th>{s}</tr>')
 
 
-def section(title, blurb, items, extra=None, cls=""):
-    if not items:
-        return f'<h2>{e(title)} <span class="count">0</span></h2><p class="none">Nothing today.</p>'
-    return (f'<h2 class="{cls}">{e(title)} <span class="count">{len(items)}</span></h2>'
-            f'<p class="blurb">{e(blurb)}</p>'
-            f'<div class="scroll"><table><thead>{TH}</thead><tbody>{listing_rows(items, extra)}</tbody></table></div>')
+def section(title, blurb, items, extra=None, cls="", collapsed=False):
+    n = len(items)
+    if not n:
+        return (f'<h2 class="{cls}">{e(title)} <span class="count">0</span></h2>'
+                '<p class="none">Nothing today.</p>')
+    body = (f'<p class="blurb">{e(blurb)}</p>'
+            f'<div class="scroll"><table><thead>{thead()}</thead>'
+            f'<tbody>{listing_rows(items, extra)}</tbody></table></div>')
+    if collapsed:
+        return (f'<details class="fold"><summary><h2 class="{cls} inl">{e(title)} '
+                f'<span class="count">{n}</span></h2></summary>{body}</details>')
+    return f'<h2 class="{cls}">{e(title)} <span class="count">{n}</span></h2>{body}'
+
+
+PAL = ["#4493f8", "#3fb950", "#d29922", "#db6d28"]   # one per focus resort, stable
+
+
+def svg_chart(series, dates, yfmt="${v:.0f}"):
+    """Focus resorts drawn in color; every other resort as a thin gray line.
+    Time-scaled x. Rendered inside a horizontal-scroll container so axis text
+    stays readable on a phone instead of scaling down."""
+    days = [d for d in dates if d >= CHART_START]
+    names = [k for k in series if sum(1 for d in days if d in series[k]) > 1]
+    if len(days) < 2 or not names:
+        return '<p class="none">Trend lines need at least two days of history.</p>'
+    W, H, P = 760, 270, dict(t=12, r=14, b=26, l=48)
+    o = [date.fromisoformat(d).toordinal() for d in days]
+    lo_x, hi_x = min(o), max(o)
+    vals = [v for n in names for d, v in series[n].items() if d in days]
+    lo, hi = min(vals) * .95, max(vals) * 1.05
+    if hi - lo < 1e-9:
+        hi = lo + 1
+    X = lambda d: P["l"] + (date.fromisoformat(d).toordinal() - lo_x) * (W - P["l"] - P["r"]) / max(1, hi_x - lo_x)
+    Y = lambda v: P["t"] + (hi - v) * (H - P["t"] - P["b"]) / (hi - lo)
+    g = [f'<svg viewBox="0 0 {W} {H}" class="chart">']
+    for i in range(5):
+        v = lo + (hi - lo) * i / 4
+        g.append(f'<line x1="{P["l"]}" y1="{Y(v):.1f}" x2="{W-P["r"]}" y2="{Y(v):.1f}" class="grid"/>'
+                 f'<text x="{P["l"]-6}" y="{Y(v)+4:.1f}" class="ax" text-anchor="end">{yfmt.format(v=v)}</text>')
+    for d in days:
+        g.append(f'<text x="{X(d):.1f}" y="{H-7}" class="ax" text-anchor="middle">{d[5:]}</text>')
+    legend = []
+    order = [n for n in names if n not in FOCUS] + [f for f in FOCUS if f in names]
+    for n in order:
+        pts = [f"{X(d):.1f},{Y(series[n][d]):.1f}" for d in days if d in series[n]]
+        if len(pts) < 2:
+            continue
+        if n in FOCUS:
+            c = PAL[FOCUS.index(n) % len(PAL)]
+            g.append(f'<polyline points="{" ".join(pts)}" fill="none" stroke="{c}" stroke-width="2.5"/>')
+            x, y = pts[-1].split(",")
+            g.append(f'<circle cx="{x}" cy="{y}" r="3" fill="{c}"/>')
+        else:
+            g.append(f'<polyline points="{" ".join(pts)}" fill="none" stroke="currentColor" '
+                     'stroke-opacity=".18" stroke-width="1"/>')
+    for f in FOCUS:
+        if f in names:
+            c = PAL[FOCUS.index(f) % len(PAL)]
+            legend.append(f'<span><i style="background:{c}"></i>{e(f)}</span>')
+    legend.append('<span><i class="gray"></i>all other resorts</span>')
+    return ('<div class="chartwrap">' + "".join(g) + "</svg></div>"
+            + f'<div class="legend">{"".join(legend)}</div>')
 
 
 def build(rows):
@@ -147,16 +207,26 @@ def build(rows):
     ch = diff(rows, latest, prev, dead)
     live = [r for r in rows if r["date"] == latest and r["status"] not in SOLD_LIKE]
 
-    # median $/pt per resort per day
-    series = defaultdict(dict)
+    # per-resort daily series: median $/pt and inventory on market
+    ppp_series, inv_series = defaultdict(dict), defaultdict(dict)
     for d in dates:
         by = defaultdict(list)
         for r in rows:
-            if r["date"] == d and r["price_per_point"]:
-                by[r["resort"]].append(r["price_per_point"])
-        for k, v in by.items():
-            if len(v) >= 2:
-                series[k][d] = round(median(v), 2)
+            if r["date"] == d and r["status"] not in SOLD_LIKE:
+                by[r["resort"]].append(r)
+        for resort, rs in by.items():
+            p = [x["price_per_point"] for x in rs if x["price_per_point"]]
+            if len(p) >= 2:
+                ppp_series[resort][d] = round(median(p), 2)
+            inv_series[resort][d] = len(rs)
+
+    # January baseline for the ranking table
+    jan = {}
+    for resort in set(r["resort"] for r in rows if r["date"] == dates[0]):
+        p = [r["price_per_point"] for r in rows
+             if r["date"] == dates[0] and r["resort"] == resort and r["price_per_point"]]
+        if len(p) >= 2:
+            jan[resort] = median(p)
 
     by_resort = defaultdict(list)
     for r in live:
@@ -167,58 +237,47 @@ def build(rows):
         cpy = [r["cost_per_point_year"] for r in rs if r["cost_per_point_year"]]
         deeds = [r["deed_year"] for r in rs if r["deed_year"]]
         dues = [r["dues_per_point"] for r in rs if r["dues_per_point"]]
-        summary.append(dict(resort=resort, n=len(rs), restricted=resort in RESTRICTED,
-                            ppp=round(median(ppp), 2) if ppp else None,
-                            cpy=round(median(cpy), 2) if cpy else None,
-                            deed=max(set(deeds), key=deeds.count) if deeds else None,
-                            dues=round(median(dues), 4) if dues else None))
+        med = round(median(ppp), 2) if ppp else None
+        prev_inv = inv_series[resort].get(prev) if prev else None
+        summary.append(dict(
+            resort=resort, n=len(rs), restricted=resort in RESTRICTED,
+            focus=resort in FOCUS,
+            inv_delta=(len(rs) - prev_inv) if prev_inv is not None else None,
+            ppp=med,
+            jan_delta=(round(med - jan[resort], 2) if med and resort in jan else None),
+            cpy=round(median(cpy), 2) if cpy else None,
+            deed=max(set(deeds), key=deeds.count) if deeds else None,
+            dues=round(median(dues), 4) if dues else None))
     summary.sort(key=lambda s: (s["cpy"] is None, s["cpy"] or 0))
-
-    # ---- chart, drawn here rather than in the browser
-    names = [k for k in series if len(series[k]) > 1]
-    if len(dates) > 1 and names:
-        W, H, P = 1100, 300, dict(t=12, r=12, b=26, l=46)
-        vals = [v for n in names for v in series[n].values()]
-        lo, hi = min(vals) * .97, max(vals) * 1.03
-        X = lambda i: P["l"] + i * (W - P["l"] - P["r"]) / max(1, len(dates) - 1)
-        Y = lambda v: P["t"] + (hi - v) * (H - P["t"] - P["b"]) / (hi - lo or 1)
-        pal = ["#4493f8", "#3fb950", "#d29922", "#db6d28", "#a371f7", "#f778ba", "#56d4dd",
-               "#7ee787", "#ffa657", "#79c0ff", "#d2a8ff", "#ff7b72", "#8ddb8c", "#bc8cff",
-               "#e6edf3", "#9198a1", "#58a6ff"]
-        g = [f'<svg viewBox="0 0 {W} {H}" class="chart">']
-        for i in range(5):
-            v = lo + (hi - lo) * i / 4
-            g.append(f'<line x1="{P["l"]}" y1="{Y(v):.1f}" x2="{W-P["r"]}" y2="{Y(v):.1f}" class="grid"/>'
-                     f'<text x="{P["l"]-6}" y="{Y(v)+4:.1f}" class="ax" text-anchor="end">${v:.0f}</text>')
-        step = max(1, len(dates) // 8)
-        for i, d in enumerate(dates):
-            if i % step == 0 or i == len(dates) - 1:
-                g.append(f'<text x="{X(i):.1f}" y="{H-7}" class="ax" text-anchor="middle">{d[5:]}</text>')
-        legend = []
-        for k, n in enumerate(sorted(names)):
-            pts = [f"{X(i):.1f},{Y(series[n][d]):.1f}" for i, d in enumerate(dates) if d in series[n]]
-            if len(pts) > 1:
-                c = pal[k % len(pal)]
-                g.append(f'<polyline points="{" ".join(pts)}" fill="none" stroke="{c}" stroke-width="2"/>')
-                legend.append(f'<span><i style="background:{c}"></i>{e(n)}</span>')
-        chart = "".join(g) + "</svg>" + f'<div class="legend">{"".join(legend)}</div>'
-    else:
-        chart = '<p class="none">Trend lines need at least two days of history.</p>'
 
     _sr = []
     for s in summary:
         tag = ' <span class="tag r">restricted</span>' if s["restricted"] else ""
-        _sr.append("<tr><td>" + e(s["resort"]) + tag + "</td>"
-                   + '<td class="n">' + str(s["n"]) + "</td>"
+        dot = ' <span class="dot"></span>' if s["focus"] else ""
+        if s["inv_delta"] is None:
+            inv = str(s["n"])
+        elif s["inv_delta"] == 0:
+            inv = f'{s["n"]} <span class="was">±0</span>'
+        else:
+            cls = "pos" if s["inv_delta"] > 0 else "neg"
+            inv = f'{s["n"]} <span class="{cls}">{s["inv_delta"]:+d}</span>'
+        if s["jan_delta"] is None:
+            janc = "—"
+        else:
+            cls = "neg" if s["jan_delta"] > 0 else "pos"
+            janc = f'<span class="{cls}">{s["jan_delta"]:+,.0f}</span>'
+        _sr.append("<tr><td class=\"c\">" + e(s["resort"]) + dot + tag + "</td>"
+                   + '<td class="n">' + inv + "</td>"
                    + '<td class="n">' + money(s["ppp"]) + "</td>"
-                   + '<td class="n">' + money(s["dues"], 2) + "</td>"
-                   + '<td class="n">' + (str(s["deed"]) if s["deed"] else "—") + "</td>"
+                   + '<td class="n mh">' + janc + "</td>"
+                   + '<td class="n mh">' + money(s["dues"], 2) + "</td>"
+                   + '<td class="n mh">' + (str(s["deed"]) if s["deed"] else "—") + "</td>"
                    + '<td class="n"><b>' + money(s["cpy"], 2) + "</b></td></tr>")
     srows = "\n".join(_sr)
 
     unres = [s for s in summary if s["cpy"] and not s["restricted"]]
     cards = [("Live listings", f"{len(live):,}"), ("New today", str(len(ch["new"]))),
-             ("Newly under offer", str(len(ch["accepted"]))), ("Price drops", str(len(ch["drops"]))),
+             ("Under offer", str(len(ch["accepted"]))), ("Price drops", str(len(ch["drops"]))),
              ("Best unrestricted", money(unres[0]["cpy"], 2) if unres else "—",
               unres[0]["resort"] if unres else "")]
     _ch = []
@@ -229,32 +288,36 @@ def build(rows):
     cardhtml = "".join(_ch)
 
     if dead:
-        detail = "; ".join(
-            f'{b}: {health[b]["parsed"]}/{health[b]["targets"]} parsed' for b in sorted(dead))
-        banner = ('<div class="alert"><b>Incomplete sweep.</b> '
-                  + e(detail)
+        detail = "; ".join(f'{b}: {health[b]["parsed"]}/{health[b]["targets"]} parsed'
+                           for b in sorted(dead))
+        banner = ('<div class="alert"><b>Incomplete sweep.</b> ' + e(detail)
                   + " — these brokers' listings are missing from today's snapshot and are "
-                    "excluded from the change sections below, so nothing here is a real withdrawal "
+                    "excluded from the change sections, so nothing here is a real withdrawal "
                     "for them.</div>")
     else:
         banner = ""
 
+    chips = "".join(f'<button class="chip" data-q="{e(f)}">{e(f.replace(" Villas",""))}</button>'
+                    for f in FOCUS) + '<button class="chip" data-q="">All</button>'
+
     page = TEMPLATE.format(
-        banner=banner,
-        latest=latest, prev=prev or "—", ndates=len(dates), nrows=len(rows),
+        banner=banner, latest=latest, prev=prev or "—", ndates=len(dates), nrows=len(rows),
         cards=cardhtml,
         new=section("Newly listed", "On the market since the previous sweep.", ch["new"]),
         accepted=section("New offers accepted", "Moved to Offer Accepted, Sale Pending or Under Contract.",
                          ch["accepted"], "from", "warn"),
-        drops=section("Price drops", "Asking price per point fell since the previous sweep.",
-                      ch["drops"], "drop", "good"),
         relisted=section("Back on the market", "Returned to Available after being under offer — failed "
                          "ROFR or financing. Often the best prices.", ch["relisted"], "from", "good"),
-        sold=section("Sold", "Left the market as sold.", ch["sold"]),
-        gone=section("Withdrawn", "Present in the previous sweep, absent now, and not marked sold.", ch["gone"]),
-        chart=chart, srows=srows,
-        alltable=f'<div class="scroll tall"><table id="all"><thead>{TH}</thead>'
-                 f'<tbody>{listing_rows(sorted(live, key=lambda r: (r["cost_per_point_year"] is None, r["cost_per_point_year"] or 0)))}</tbody></table></div>',
+        drops=section("Price drops", "Asking price per point fell since the previous sweep.",
+                      ch["drops"], "drop", "good"),
+        sold=section("Sold", "Left the market as sold.", ch["sold"], collapsed=True),
+        gone=section("Withdrawn", "Present in the previous sweep, absent now, not marked sold.",
+                     ch["gone"], collapsed=True),
+        ppp_chart=svg_chart(ppp_series, dates, "${v:.0f}"),
+        inv_chart=svg_chart(inv_series, dates, "{v:.0f}"),
+        srows=srows, chips=chips,
+        alltable=f'<div class="scroll tall"><table id="all"><thead>{thead(True)}</thead>'
+                 f'<tbody>{listing_rows(sorted(live, key=lambda r: (r["cost_per_point_year"] is None, r["cost_per_point_year"] or 0)), status_col=True)}</tbody></table></div>',
         nlive=len(live))
     OUT.write_text(page)
 
@@ -419,69 +482,106 @@ font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}}
 .wrap{{max-width:1200px;margin:0 auto}}
 h1{{font-size:21px;margin:0 0 3px}}
 h2{{font-size:15px;margin:30px 0 3px;border-top:1px solid var(--line);padding-top:20px}}
+h2.inl{{display:inline;border:0;padding:0;margin:0}}
 h2.good{{color:var(--good)}} h2.warn{{color:var(--warn)}}
 .count{{font-size:12px;color:var(--muted);font-weight:400}}
-.sub,.blurb,.none{{color:var(--muted);font-size:12.5px}}
-.blurb,.none{{margin:2px 0 10px}}
-.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:18px 0}}
-.card{{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:12px}}
+.sub{{color:var(--muted);font-size:12px;margin-top:1px}}
+.blurb,.none{{color:var(--muted);font-size:12.5px;margin:2px 0 10px}}
+.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:18px 0}}
+.card{{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 12px}}
 .card .l{{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}}
-.card .v{{font-size:21px;font-weight:650;margin-top:4px}}
+.card .v{{font-size:20px;font-weight:650;margin-top:3px}}
 .card .s{{font-size:11px;color:var(--muted)}}
 table{{width:100%;border-collapse:collapse;font-size:13px;background:var(--card)}}
 th,td{{padding:7px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}}
 th{{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;
-position:sticky;top:0;background:var(--card);cursor:pointer}}
+position:sticky;top:0;background:var(--card);cursor:pointer;white-space:nowrap;z-index:1}}
 td.n,th.n{{text-align:right;white-space:nowrap}}
+td.c{{min-width:185px}}
 .scroll{{overflow:auto;border:1px solid var(--line);border-radius:9px;max-height:460px}}
 .scroll.tall{{max-height:700px}}
 a{{color:var(--accent);text-decoration:none}} a:hover{{text-decoration:underline}}
-.tag{{font-size:10px;padding:1px 6px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}}
+.tag{{font-size:10px;padding:1px 6px;border-radius:20px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}}
 .tag.r{{border-color:var(--bad);color:var(--bad)}}
+.dot{{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);
+vertical-align:1px;margin-left:3px}}
 .was{{font-size:11px;color:var(--muted)}}
 .pos{{color:var(--good)}} .neg{{color:var(--bad)}}
-.chart{{width:100%;height:auto;color:var(--ink)}}
+.chartwrap{{overflow-x:auto;border:1px solid var(--line);border-radius:9px;background:var(--card);padding:8px}}
+.chart{{min-width:640px;width:100%;height:auto;color:var(--ink);display:block}}
 .grid{{stroke:currentColor;stroke-opacity:.13}}
-.ax{{font-size:11px;fill:currentColor;opacity:.55}}
+.ax{{font-size:12px;fill:currentColor;opacity:.55}}
 .legend{{display:flex;gap:12px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:8px}}
 .legend i{{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px}}
-.ctrl{{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}}
-input,select{{background:var(--card);color:var(--ink);border:1px solid var(--line);
+.legend i.gray{{background:currentColor;opacity:.25}}
+.ctrl{{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;align-items:center}}
+input{{background:var(--card);color:var(--ink);border:1px solid var(--line);
 border-radius:7px;padding:6px 9px;font:inherit;font-size:13px}}
-.alert{{background:var(--card);border:1px solid var(--bad);border-left:4px solid var(--bad);border-radius:9px;padding:12px;margin:16px 0;font-size:13px;line-height:1.6}}
+.chip{{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:20px;
+padding:4px 11px;font:inherit;font-size:12px;cursor:pointer}}
+.chip:hover{{border-color:var(--accent);color:var(--accent)}}
+details.fold{{margin-top:26px;border-top:1px solid var(--line);padding-top:18px}}
+details.fold summary{{cursor:pointer;list-style:none}}
+details.fold summary::before{{content:"▸ ";color:var(--muted)}}
+details.fold[open] summary::before{{content:"▾ "}}
+details.fold[open] summary{{margin-bottom:8px}}
+.alert{{background:var(--card);border:1px solid var(--bad);border-left:4px solid var(--bad);
+border-radius:9px;padding:12px;margin:16px 0;font-size:13px;line-height:1.6}}
 .note{{background:var(--card);border:1px solid var(--line);border-radius:9px;
 padding:13px;margin-top:26px;color:var(--muted);font-size:12px;line-height:1.65}}
+th.sorted-a::after{{content:" ▲";font-size:9px}}
+th.sorted-d::after{{content:" ▼";font-size:9px}}
+@media (max-width:640px){{
+  body{{padding:12px}}
+  .mh{{display:none}}
+  td.c{{min-width:150px}}
+  h1{{font-size:19px}}
+  .card .v{{font-size:18px}}
+  th,td{{padding:6px 7px}}
+}}
 </style></head><body><div class="wrap">
 <h1>DVC Resale Market</h1>
-<div class="sub">Snapshot {latest} · compared with {prev} · {ndates} days, {nrows:,} rows</div>
+<div class="blurb">Snapshot {latest} · compared with {prev} · {ndates} days, {nrows:,} rows</div>
 {banner}<div class="cards">{cards}</div>
-{new}{accepted}{relisted}{drops}{sold}{gone}
-<h2>Median price per point over time</h2>
-<p class="blurb">Resorts with at least two listings that day. Sticker price only — it ignores dues and deed length.</p>
-{chart}
+{new}{accepted}{relisted}{drops}
+<h2>Listings on the market</h2>
+<p class="blurb">Inventory per resort per day — how fast contracts arrive versus get absorbed.
+<span class="dot"></span> focus resorts in color; a dip can also mean a broker failed to scrape that day.</p>
+{inv_chart}
+<h2>Median price per point</h2>
+<p class="blurb">Resorts with at least two listings that day. Sticker price only — it ignores dues and
+deed length. The January 2026 baseline appears as the "vs Jan" column below rather than on this axis.</p>
+{ppp_chart}
 <h2>Resorts ranked by carrying cost</h2>
-<p class="blurb">Cost per point-year = (price + closing + $500 Disney CAF − banked points at $19) ÷ years left on deed, plus annual dues, ÷ points.</p>
-<div class="scroll"><table><thead><tr><th>Resort</th><th class="n">Listings</th><th class="n">Median $/pt</th><th class="n">Dues/pt</th><th class="n">Deed</th><th class="n">Median $/pt-yr</th></tr></thead><tbody>{srows}</tbody></table></div>
+<p class="blurb">Cost per point-year = (price + closing + $500 Disney CAF − banked points at $19)
+÷ years left on deed, plus annual dues, ÷ points. Inventory column shows change versus the previous day.</p>
+<div class="scroll"><table><thead><tr><th class="c">Resort</th><th class="n">Inventory</th>
+<th class="n">Median $/pt</th><th class="n mh">vs Jan</th><th class="n mh">Dues/pt</th>
+<th class="n mh">Deed</th><th class="n">$/pt-yr</th></tr></thead><tbody>{srows}</tbody></table></div>
+{sold}{gone}
 <h2>All live listings <span class="count">{nlive}</span></h2>
-<div class="ctrl"><input id="q" placeholder="Search resort, use year, broker, ID…" style="flex:1;min-width:190px"></div>
+<div class="ctrl"><input id="q" placeholder="Search resort, use year, broker, ID…" style="flex:1;min-width:160px">{chips}</div>
 {alltable}
 <div class="note">
+<span class="dot"></span> marks the focus resorts (Copper Creek, Boulder Ridge, Animal Kingdom, Saratoga Springs).<br>
 <b>Resale-restricted</b> resorts (Riviera, Villas at Disneyland Hotel, Cabins at Fort Wilderness) score well
-<i>because</i> their resale points can only book that one resort. Treat their ranking as a warning.<br>
+<i>because</i> their resale points can only book that one resort — treat their ranking as a warning.<br>
 <b>ROFR is not modelled</b> — Disney can take an aggressively priced contract regardless of its score.<br>
 <b>DVC Sales</b> publishes no machine-readable status, so its rows show <i>Unverified</i>.<br>
 Sources: DVC Resale Market, The DVC Store, DVC Sales, via published listing sitemaps. Fidelity Real Estate
-and DVC Resale Experts are not included.
+and DVC Resale Experts are not included. On phones, tap any row's link for the full listing; hidden
+columns (price, deed, banked) are on the broker page and the desktop view.
 </div></div>
 <script>
-// progressive enhancement only — the tables above are already complete without it
 document.querySelectorAll("table").forEach(function(t){{
   t.querySelectorAll("th").forEach(function(th,i){{
     th.onclick=function(){{
       var tb=t.tBodies[0],rows=[].slice.call(tb.rows),d=th.dataset.d==="1"?-1:1;
       th.dataset.d=d===1?"1":"";
+      t.querySelectorAll("th").forEach(function(o){{o.classList.remove("sorted-a","sorted-d")}});
+      th.classList.add(d===1?"sorted-a":"sorted-d");
       rows.sort(function(a,b){{
-        var x=a.cells[i].innerText.replace(/[$,]/g,""),y=b.cells[i].innerText.replace(/[$,]/g,"");
+        var x=a.cells[i].innerText.replace(/[$,±+]/g,""),y=b.cells[i].innerText.replace(/[$,±+]/g,"");
         var nx=parseFloat(x),ny=parseFloat(y);
         if(!isNaN(nx)&&!isNaN(ny))return (nx-ny)*d;
         return x.localeCompare(y)*d;
@@ -491,17 +591,21 @@ document.querySelectorAll("table").forEach(function(t){{
   }});
 }});
 var q=document.getElementById("q");
-if(q)q.addEventListener("input",function(){{
+function filt(){{
   var v=q.value.toLowerCase(),tb=document.getElementById("all").tBodies[0];
   [].slice.call(tb.rows).forEach(function(r){{
     r.style.display=r.innerText.toLowerCase().indexOf(v)>-1?"":"none";
   }});
+}}
+if(q)q.addEventListener("input",filt);
+document.querySelectorAll(".chip").forEach(function(c){{
+  c.onclick=function(){{q.value=c.dataset.q;filt();
+    document.getElementById("all").scrollIntoView({{behavior:"smooth"}});}};
 }});
 </script></body></html>"""
 
 
 if __name__ == "__main__":
     s = build(load())
-    print(f"wrote {OUT.name} and {SUMMARY.name} — {s['live']} live, "
-          f"{s['new']} new, {s['accepted']} under offer, {s['drops']} drops, "
-          f"{s['relisted']} relisted, {s['gone']} withdrawn")
+    print(f"wrote {OUT.name} — {s['live']} live, {s['new']} new, {s['accepted']} under offer, "
+          f"{s['drops']} drops, {s['relisted']} relisted, {s['gone']} withdrawn")
