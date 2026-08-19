@@ -1,10 +1,44 @@
-412 live listings across 17 resorts, 4 days of history.
+19 new · 20 newly under offer · 4 price drops · 1 back on market
+(412 live listings, 4 days of history, vs 2026-08-18)
 
-Best carrying cost, unrestricted resorts:
-  Copper Creek Villas          $13.14/pt-yr   median $149/pt   deed 2068
-  Polynesian Villas            $13.29/pt-yr   median $175/pt   deed 2066
-  Bay Lake Tower               $13.41/pt-yr   median $143/pt   deed 2060
-  Grand Floridian Villas       $13.46/pt-yr   median $174/pt   deed 2064
-  Saratoga Springs             $13.76/pt-yr   median $110/pt   deed 2054
+NEWLY LISTED (19)
+  Copper Creek Villas         175pt Feb $ 149/pt  $13.22/pt-yr  DVC Resale Market
+  Saratoga Springs            225pt Dec $ 126/pt  $13.34/pt-yr  DVC Resale Market
+  Bay Lake Tower              100pt Aug $ 138/pt  $13.41/pt-yr  DVC Resale Market
+  Polynesian Villas           150pt Feb $ 175/pt  $13.43/pt-yr  DVC Resale Market
+  Grand Floridian Villas      150pt Aug $ 174/pt  $13.61/pt-yr  DVC Resale Market
+  Saratoga Springs            100pt Aug $ 114/pt  $13.72/pt-yr  DVC Resale Market
+  Copper Creek Villas          50pt Feb $ 155/pt  $13.73/pt-yr  DVC Resale Market
+  Animal Kingdom Villas       200pt Dec $ 123/pt  $13.79/pt-yr  DVC Resale Market
+  Saratoga Springs            120pt Dec $ 123/pt  $13.98/pt-yr  DVC Resale Market
+  Aulani                      175pt Dec $  99/pt  $14.15/pt-yr  DVC Resale Market
+  Animal Kingdom Villas       220pt Jun $ 118/pt  $14.18/pt-yr  DVC Resale Market
+  Animal Kingdom Villas       160pt Sep $ 113/pt  $14.29/pt-yr  DVC Resale Market
+  … and 7 more
 
-Full detail in the attached dashboard — open it in any browser.
+NEW OFFERS ACCEPTED (20)
+  Riviera Resort              175pt $ 140/pt  Available -> Sale Pending
+  Saratoga Springs            210pt $ 100/pt  Available -> Sale Pending
+  Saratoga Springs            175pt $ 114/pt  Available -> Sale Pending
+  Polynesian Villas           100pt $ 167/pt  Available -> Offer Accepted
+  Riviera Resort              405pt $ 117/pt  Available -> Sale Pending
+  Saratoga Springs            160pt $ 113/pt  Available -> Offer Accepted
+  Saratoga Springs            200pt $  96/pt  Available -> Sale Pending
+  Copper Creek Villas          55pt $ 159/pt  Available -> Offer Accepted
+  Animal Kingdom Villas       180pt $ 105/pt  Available -> Offer Accepted
+  Saratoga Springs             50pt $ 123/pt  Available -> Offer Accepted
+  Saratoga Springs             50pt $ 123/pt  Available -> Offer Accepted
+  Old Key West (2057)         110pt $ 107/pt  Available -> Sale Pending
+  … and 8 more
+
+BACK ON MARKET (1)
+  Copper Creek Villas          50pt $ 162/pt  (was Offer Accepted)
+
+PRICE DROPS (4)
+  Aulani                      100pt $110 -> $105/pt
+  Old Key West                270pt $105 -> $100/pt
+  Hilton Head Island          165pt $72 -> $69/pt
+  Vero Beach                  135pt $65 -> $55/pt
+
+Full detail in the attached dashboard, or:
+https://tpcolburn.github.io/dvc-market-observer/
