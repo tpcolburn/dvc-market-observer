@@ -1,3 +1,6 @@
+!! INCOMPLETE SWEEP — DVC Sales failed to scrape.
+   Their listings are missing today and excluded from the counts below.
+
 19 new · 20 newly under offer · 4 price drops · 1 back on market
 (412 live listings, 4 days of history, vs 2026-08-18)
 

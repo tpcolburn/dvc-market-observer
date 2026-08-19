@@ -8,7 +8,7 @@ page that assembles itself client-side shows up blank. JavaScript is used only
 to add sorting and filtering on top of markup that is already complete.
 """
 
-import csv, html, sys
+import csv, html, json, sys
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -18,6 +18,7 @@ BASE = Path(__file__).resolve().parent
 HISTORY = BASE / "data" / "listings_history.csv"
 OUT = BASE / "index.html"
 SUMMARY = BASE / "summary.txt"
+HEALTH = BASE / "data" / "source_health.json"
 
 # Resale points at these resorts can only book that same resort, never the wider
 # DVC system. It is why they trade cheap, and no cost metric can see it.
@@ -49,10 +50,23 @@ def key(r):
     return f"{r['broker']}|{r['listing_id']}"
 
 
-def diff(rows, latest, prev):
-    """What changed between the two most recent snapshots."""
-    now = {key(r): r for r in rows if r["date"] == latest}
-    was = {key(r): r for r in rows if r["date"] == prev} if prev else {}
+def load_health():
+    if HEALTH.exists():
+        try:
+            return json.loads(HEALTH.read_text()).get("brokers", {})
+        except Exception:
+            pass
+    return {}
+
+
+def diff(rows, latest, prev, dead=()):
+    """What changed between the two most recent snapshots.
+
+    Brokers whose scrape failed are skipped entirely: they have no rows today,
+    so every listing they carry would otherwise be reported as withdrawn."""
+    now = {key(r): r for r in rows if r["date"] == latest and r["broker"] not in dead}
+    was = ({key(r): r for r in rows if r["date"] == prev and r["broker"] not in dead}
+           if prev else {})
     out = dict(new=[], accepted=[], sold=[], drops=[], relisted=[], gone=[])
     for k, r in now.items():
         old = was.get(k)
@@ -123,7 +137,9 @@ def build(rows):
     dates = sorted({r["date"] for r in rows})
     latest = dates[-1]
     prev = dates[-2] if len(dates) > 1 else None
-    ch = diff(rows, latest, prev)
+    health = load_health()
+    dead = {b for b, v in health.items() if not v.get("ok")}
+    ch = diff(rows, latest, prev, dead)
     live = [r for r in rows if r["date"] == latest and r["status"] not in SOLD_LIKE]
 
     # median $/pt per resort per day
@@ -207,7 +223,19 @@ def build(rows):
                    + '<div class="v">' + c[1] + "</div>" + sub + "</div>")
     cardhtml = "".join(_ch)
 
+    if dead:
+        detail = "; ".join(
+            f'{b}: {health[b]["parsed"]}/{health[b]["targets"]} parsed' for b in sorted(dead))
+        banner = ('<div class="alert"><b>Incomplete sweep.</b> '
+                  + e(detail)
+                  + " — these brokers' listings are missing from today's snapshot and are "
+                    "excluded from the change sections below, so nothing here is a real withdrawal "
+                    "for them.</div>")
+    else:
+        banner = ""
+
     page = TEMPLATE.format(
+        banner=banner,
         latest=latest, prev=prev or "—", ndates=len(dates), nrows=len(rows),
         cards=cardhtml,
         new=section("Newly listed", "On the market since the previous sweep.", ch["new"]),
@@ -226,7 +254,12 @@ def build(rows):
     OUT.write_text(page)
 
     # ---- email body: what changed, not a standing leaderboard
-    L = [f"{len(ch['new'])} new · {len(ch['accepted'])} newly under offer · "
+    L = []
+    if dead:
+        L.append("!! INCOMPLETE SWEEP — " + ", ".join(sorted(dead)) + " failed to scrape.")
+        L.append("   Their listings are missing today and excluded from the counts below.")
+        L.append("")
+    L += [f"{len(ch['new'])} new · {len(ch['accepted'])} newly under offer · "
          f"{len(ch['drops'])} price drops · {len(ch['relisted'])} back on market",
          f"({len(live)} live listings, {len(dates)} days of history, vs {prev or 'n/a'})", ""]
 
@@ -301,12 +334,13 @@ a{{color:var(--accent);text-decoration:none}} a:hover{{text-decoration:underline
 .ctrl{{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}}
 input,select{{background:var(--card);color:var(--ink);border:1px solid var(--line);
 border-radius:7px;padding:6px 9px;font:inherit;font-size:13px}}
+.alert{{background:var(--card);border:1px solid var(--bad);border-left:4px solid var(--bad);border-radius:9px;padding:12px;margin:16px 0;font-size:13px;line-height:1.6}}
 .note{{background:var(--card);border:1px solid var(--line);border-radius:9px;
 padding:13px;margin-top:26px;color:var(--muted);font-size:12px;line-height:1.65}}
 </style></head><body><div class="wrap">
 <h1>DVC Resale Market</h1>
 <div class="sub">Snapshot {latest} · compared with {prev} · {ndates} days, {nrows:,} rows</div>
-<div class="cards">{cards}</div>
+{banner}<div class="cards">{cards}</div>
 {new}{accepted}{relisted}{drops}{sold}{gone}
 <h2>Median price per point over time</h2>
 <p class="blurb">Resorts with at least two listings that day. Sticker price only — it ignores dues and deed length.</p>

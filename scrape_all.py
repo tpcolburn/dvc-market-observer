@@ -122,6 +122,16 @@ def p_dvcstore(t, url):
                 caf=num(g(r"Disney CAF\*{0,2}\s*\$([\d,]+)")), point_delta=delta)
 
 
+def _uy(abbr):
+    """dvcsales prints the use year as a three-letter abbreviation."""
+    if not abbr:
+        return None
+    for m in MONTHS:
+        if m.upper().startswith(abbr.upper()):
+            return m
+    return None
+
+
 def p_dvcsales(t, url):
     g = lambda p: (re.search(p, t, re.I).group(1) if re.search(p, t, re.I) else None)
     m = re.search(r"/(\d+)-points/", url) or re.search(r"/(\d+)-points", url)
@@ -134,8 +144,8 @@ def p_dvcsales(t, url):
     prc = int(num(price)) if price else int(round(num(ppp) * n))
     return dict(listing_id=url.rstrip("/").split("/")[-1].upper(), points=n, price=prc,
                 price_per_point=num(ppp) if ppp else round(prc / n, 2),
-                use_year=g(r"use year[:\s]*(" + "|".join(MONTHS) + r")"),
-                dues_per_point=None,
+                use_year=_uy(g(r"Use Year\s+([A-Z]{3})\b")) or g(r"use year[:\s]*(" + "|".join(MONTHS) + r")"),
+                dues_per_point=num(g(r"Annual Dues\s*\$([\d.]+)")),
                 deed_year=int(num(g(r"(?:expir\w*|deed)[^\d]{0,20}(20\d\d)")) or 0) or None,
                 closing=None, caf=None, point_delta=0)
 
@@ -185,7 +195,7 @@ def carrying_cost(rec, today_year):
 
 def main():
     today = date.today()
-    rows, seen = [], set()
+    rows, seen, health = [], set(), {}
     for b in BROKERS:
         doc = fetch(b["sitemap"])
         urls = re.findall(r"<loc>\s*(?:<!\[CDATA\[)?\s*(https?://[^\s<\]]+)", doc or "")
@@ -194,6 +204,12 @@ def main():
             m = re.search(b["slug"], u)
             if m and m.group(1) in RESORT:
                 targets.append((u, RESORT[m.group(1)]))
+        if not urls:
+            # a sitemap that returns nothing is a failure, never a legitimately
+            # empty inventory — say so loudly instead of silently losing a broker
+            log(f"::error::{b['label']}: sitemap returned 0 urls — source unreachable")
+            health[b["label"]] = dict(ok=False, urls=0, targets=0, parsed=0)
+            continue
         log(f"{b['label']}: {len(urls)} urls, {len(targets)} listings")
         ok = 0
         for i, (u, resort) in enumerate(targets, 1):
@@ -219,10 +235,21 @@ def main():
             if i % 50 == 0:
                 log(f"  {i}/{len(targets)} ({ok} parsed)")
         log(f"  {ok}/{len(targets)} parsed")
+        rate = ok / len(targets) if targets else 0
+        health[b["label"]] = dict(ok=rate >= 0.5, urls=len(urls), targets=len(targets), parsed=ok)
+        if rate < 0.5:
+            log(f"::error::{b['label']}: only {ok}/{len(targets)} parsed — parser may be broken")
 
     if not rows:
-        log("no rows scraped — aborting so history is not corrupted")
+        log("::error::no rows scraped at all — aborting so history is not corrupted")
         return 1
+    import json as _json
+    (HISTORY.parent / "source_health.json").write_text(
+        _json.dumps({"date": today.isoformat(), "brokers": health}, indent=1))
+    dead = [k for k, v in health.items() if not v["ok"]]
+    if dead:
+        log(f"::warning::sources failed this run: {', '.join(dead)} — "
+            f"their listings are excluded from change detection")
 
     HISTORY.parent.mkdir(parents=True, exist_ok=True)
     existing, header_ok = [], False
