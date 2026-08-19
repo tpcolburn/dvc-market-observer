@@ -1,7 +1,5 @@
-!! INCOMPLETE SWEEP - DVC Sales failed to scrape.
-
 DVC Resale Market - 2026-08-19
-19 new | 20 offers accepted | 4 price drops
+20 new | 20 offers accepted | 6 price drops
 471 live listings
 
 COPPER CREEK VILLAS
@@ -31,8 +29,8 @@ SARATOGA SPRINGS
   [off] 50pt Dec $123/pt Offer Accepted
 
 ALL OTHERS
-  10 new listings
+  11 new listings
   12 offers accepted
-  4 price drops
+  6 price drops
 
 https://tpcolburn.github.io/dvc-market-observer/
