@@ -5,6 +5,10 @@ on:
     - cron: '0 9 * * *'      # 09:00 UTC ≈ 5am ET
   workflow_dispatch:
 
+concurrency:
+  group: dvc-snapshot
+  cancel-in-progress: false
+
 jobs:
   snapshot:
     runs-on: ubuntu-latest
@@ -34,13 +38,23 @@ jobs:
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/listings_history.csv index.html summary.txt
+          git add data/listings_history.csv data/source_health.json index.html summary.txt
           if git diff --staged --quiet; then
             echo "nothing changed"
-          else
-            git commit -m "Market snapshot $SNAP_DATE"
-            git push
+            exit 0
           fi
+          git commit -m "Market snapshot $SNAP_DATE"
+          # the scrape takes ~15 minutes, so main may well have moved underneath us
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "push attempt $attempt failed; retrying"
+            sleep $((attempt * 10))
+          done
+          echo "::error::could not push snapshot after 3 attempts"
+          exit 1
 
       - name: Check mail secrets are present
         run: |
