@@ -18,11 +18,16 @@ BASE = Path(__file__).resolve().parent
 HISTORY = BASE / "data" / "listings_history.csv"
 OUT = BASE / "index.html"
 SUMMARY = BASE / "summary.txt"
+SUMMARY_HTML = BASE / "summary.html"
 HEALTH = BASE / "data" / "source_health.json"
 
 # Resale points at these resorts can only book that same resort, never the wider
 # DVC system. It is why they trade cheap, and no cost metric can see it.
 RESTRICTED = {"Riviera Resort", "Villas at Disneyland Hotel", "Cabins at Fort Wilderness"}
+
+# Resorts worth reading line by line; everything else is summarised as counts.
+FOCUS = ["Copper Creek Villas", "Boulder Ridge Villas",
+         "Animal Kingdom Villas", "Saratoga Springs"]
 
 SOLD_LIKE = {"Sold"}
 UNDER_OFFER = {"Offer Accepted", "Sale Pending", "Under Contract"}
@@ -253,41 +258,150 @@ def build(rows):
         nlive=len(live))
     OUT.write_text(page)
 
-    # ---- email body: what changed, not a standing leaderboard
-    L = []
-    if dead:
-        L.append("!! INCOMPLETE SWEEP — " + ", ".join(sorted(dead)) + " failed to scrape.")
-        L.append("   Their listings are missing today and excluded from the counts below.")
-        L.append("")
-    L += [f"{len(ch['new'])} new · {len(ch['accepted'])} newly under offer · "
-         f"{len(ch['drops'])} price drops · {len(ch['relisted'])} back on market",
-         f"({len(live)} live listings, {len(dates)} days of history, vs {prev or 'n/a'})", ""]
-
-    def block(title, items, fmt):
-        if not items:
-            return
-        L.append(f"{title} ({len(items)})")
-        for r in items[:12]:
-            L.append("  " + fmt(r))
-        if len(items) > 12:
-            L.append(f"  … and {len(items)-12} more")
-        L.append("")
-
-    block("NEWLY LISTED", ch["new"], lambda r:
-          f"{r['resort'][:26]:<26} {r['points']:>4}pt {str(r['use_year'] or '?')[:3]:<3} "
-          f"${r['price_per_point']:>4.0f}/pt  ${r['cost_per_point_year'] or 0:>5.2f}/pt-yr  {r['broker'][:18]}")
-    block("NEW OFFERS ACCEPTED", ch["accepted"], lambda r:
-          f"{r['resort'][:26]:<26} {r['points']:>4}pt ${r['price_per_point']:>4.0f}/pt  "
-          f"{r['_from']} -> {r['status']}")
-    block("BACK ON MARKET", ch["relisted"], lambda r:
-          f"{r['resort'][:26]:<26} {r['points']:>4}pt ${r['price_per_point']:>4.0f}/pt  (was {r['_from']})")
-    block("PRICE DROPS", ch["drops"], lambda r:
-          f"{r['resort'][:26]:<26} {r['points']:>4}pt ${r['_was']:.0f} -> ${r['price_per_point']:.0f}/pt")
-    L.append("Full detail in the attached dashboard, or:")
-    L.append("https://tpcolburn.github.io/dvc-market-observer/")
-    SUMMARY.write_text("\n".join(L))
+    write_email(ch, live, dates, prev, dead, health)
     return dict(live=len(live), dates=len(dates), rows=len(rows),
                 **{k: len(v) for k, v in ch.items()})
+
+
+ACCENT = {"new": "#0969da", "accepted": "#9a6700", "drops": "#1a7f37"}
+LABEL = {"new": "New listings", "accepted": "Offers accepted", "drops": "Price drops"}
+
+
+def _card(r, kind):
+    """One listing, stacked rather than tabular — a phone has no room for columns."""
+    bits = []
+    if kind == "drops":
+        bits.append('<span style="color:#1a7f37;font-weight:600">${:,.0f}/pt</span>'
+                    ' <span style="color:#8b949e;text-decoration:line-through">${:,.0f}</span>'
+                    .format(r["price_per_point"], r["_was"]))
+    else:
+        bits.append('<span style="font-weight:600">${:,.0f}/pt</span>'.format(r["price_per_point"]))
+    line2 = "{} &middot; {}".format(money(r["price"]),
+                                    money(r["cost_per_point_year"], 2) + "/pt-yr"
+                                    if r["cost_per_point_year"] else "no score")
+    meta = "{} &middot; {}".format(e(r["broker"]), e(r["listing_id"]))
+    if kind == "accepted":
+        meta = "{} &rarr; {} &middot; {}".format(e(r["_from"]), e(r["status"]), meta)
+    if (r["point_delta"] or 0) != 0:
+        d = r["point_delta"]
+        line2 += ' &middot; <span style="color:{}">{}{} pts</span>'.format(
+            "#1a7f37" if d > 0 else "#b35900", "+" if d > 0 else "", d)
+    head = "{} pts &middot; {} UY &middot; {}".format(r["points"], e(r["use_year"] or "?"), bits[0])
+    url = r.get("url") or ""
+    if url:
+        head = '<a href="{}" style="color:#0969da;text-decoration:none">{}</a>'.format(e(url), head)
+    return (
+        '<div style="border-left:3px solid {};background:#f6f8fa;border-radius:0 6px 6px 0;'
+        'padding:9px 11px;margin:7px 0">'
+        '<div style="font-size:15px;line-height:1.35">{}</div>'
+        '<div style="font-size:13px;color:#57606a;margin-top:2px">{}</div>'
+        '<div style="font-size:11.5px;color:#8b949e;margin-top:2px">{}</div>'
+        "</div>"
+    ).format(ACCENT[kind], head, line2, meta)
+
+
+def write_email(ch, live, dates, prev, dead, health):
+    latest = dates[-1]
+    kinds = ["new", "accepted", "drops"]
+    focus_rows = {f: {k: [r for r in ch[k] if r["resort"] == f] for k in kinds} for f in FOCUS}
+    other = {k: [r for r in ch[k] if r["resort"] not in FOCUS] for k in kinds}
+
+    H = ['<div style="margin:0;padding:0;background:#ffffff">',
+         '<div style="max-width:620px;margin:0 auto;padding:16px 14px;'
+         'font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',system-ui,sans-serif;'
+         'color:#1f2328;background:#ffffff">']
+    H.append('<div style="font-size:19px;font-weight:650">DVC Resale Market</div>')
+    H.append('<div style="font-size:13px;color:#57606a;margin-top:2px">{} &middot; vs {} &middot; '
+             '{:,} live listings</div>'.format(latest, prev or "n/a", len(live)))
+
+    if dead:
+        detail = "; ".join("{}: {}/{}".format(b, health[b]["parsed"], health[b]["targets"] or 0)
+                           for b in sorted(dead))
+        H.append('<div style="border:1px solid #b35900;border-left:4px solid #b35900;'
+                 'background:#fff8f0;border-radius:6px;padding:10px 12px;margin:14px 0;font-size:13px">'
+                 '<b>Incomplete sweep.</b> {} failed to scrape ({}). Their listings are missing '
+                 "today and excluded from everything below.</div>".format(", ".join(sorted(dead)), e(detail)))
+
+    tot = {k: len(ch[k]) for k in kinds}
+    H.append('<div style="margin:14px 0 4px;font-size:13px;color:#57606a">'
+             '<b style="color:#1f2328">{}</b> new &nbsp;&middot;&nbsp; <b style="color:#1f2328">{}</b> '
+             "offers accepted &nbsp;&middot;&nbsp; <b style=\"color:#1f2328\">{}</b> price drops"
+             "</div>".format(tot["new"], tot["accepted"], tot["drops"]))
+
+    for f in FOCUS:
+        blocks = focus_rows[f]
+        n = sum(len(v) for v in blocks.values())
+        H.append('<div style="margin-top:22px;padding-top:12px;border-top:2px solid #1f2328">'
+                 '<span style="font-size:16px;font-weight:650">{}</span>'
+                 '<span style="font-size:12px;color:#8b949e"> &nbsp;{} change{}</span></div>'
+                 .format(e(f), n, "" if n == 1 else "s"))
+        if not n:
+            H.append('<div style="font-size:13px;color:#8b949e;padding:6px 0">No movement today.</div>')
+            continue
+        for k in kinds:
+            items = blocks[k]
+            if not items:
+                continue
+            H.append('<div style="font-size:11.5px;font-weight:650;letter-spacing:.05em;'
+                     'text-transform:uppercase;color:{};margin:12px 0 2px">{} ({})</div>'
+                     .format(ACCENT[k], LABEL[k], len(items)))
+            for r in items:                      # every one, no truncation
+                H.append(_card(r, k))
+
+    on = sum(len(v) for v in other.values())
+    H.append('<div style="margin-top:22px;padding-top:12px;border-top:2px solid #1f2328">'
+             '<span style="font-size:16px;font-weight:650">All other resorts</span>'
+             '<span style="font-size:12px;color:#8b949e"> &nbsp;{} change{}</span></div>'
+             .format(on, "" if on == 1 else "s"))
+    if on:
+        H.append('<div style="font-size:13.5px;color:#57606a;line-height:1.9;padding:6px 0">')
+        for k in kinds:
+            if other[k]:
+                best = other[k][0]
+                H.append('<div><b style="color:#1f2328">{}</b> {} &nbsp;<span style="color:#8b949e">'
+                         "best: {} {}pt ${:,.0f}/pt</span></div>"
+                         .format(len(other[k]), LABEL[k].lower(), e(best["resort"]),
+                                 best["points"], best["price_per_point"]))
+        H.append("</div>")
+    else:
+        H.append('<div style="font-size:13px;color:#8b949e;padding:6px 0">No movement today.</div>')
+
+    H.append('<div style="margin-top:24px;padding-top:14px;border-top:1px solid #e3e6ea;'
+             'font-size:13px"><a href="https://tpcolburn.github.io/dvc-market-observer/" '
+             'style="color:#0969da;text-decoration:none">Open the full dashboard &rarr;</a>'
+             '<div style="font-size:11.5px;color:#8b949e;margin-top:8px;line-height:1.6">'
+             "Sorted by cost per point-year within each group. Attached dashboard has every listing, "
+             "trends and the resort ranking.</div></div>")
+    H.append("</div></div>")
+    SUMMARY_HTML.write_text("\n".join(H))
+
+    # plain-text alternative, short lines so phones do not wrap them
+    T = []
+    if dead:
+        T += ["!! INCOMPLETE SWEEP - " + ", ".join(sorted(dead)) + " failed to scrape.", ""]
+    T += ["DVC Resale Market - {}".format(latest),
+          "{} new | {} offers accepted | {} price drops".format(tot["new"], tot["accepted"], tot["drops"]),
+          "{:,} live listings".format(len(live)), ""]
+    for f in FOCUS:
+        blocks = focus_rows[f]
+        T.append(f.upper())
+        if not sum(len(v) for v in blocks.values()):
+            T += ["  no movement", ""]
+            continue
+        for k in kinds:
+            for r in blocks[k]:
+                extra = ("was ${:,.0f}".format(r["_was"]) if k == "drops"
+                         else r["status"] if k == "accepted" else "")
+                T.append("  [{}] {}pt {} ${:,.0f}/pt {}".format(
+                    LABEL[k][:3].lower(), r["points"], (r["use_year"] or "?")[:3],
+                    r["price_per_point"], extra).rstrip())
+        T.append("")
+    T.append("ALL OTHERS")
+    for k in kinds:
+        if other[k]:
+            T.append("  {} {}".format(len(other[k]), LABEL[k].lower()))
+    T += ["", "https://tpcolburn.github.io/dvc-market-observer/"]
+    SUMMARY.write_text("\n".join(T))
 
 
 TEMPLATE = """<!doctype html>

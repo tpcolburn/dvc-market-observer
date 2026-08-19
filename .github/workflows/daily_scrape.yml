@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/listings_history.csv data/source_health.json index.html summary.txt
+          git add data/listings_history.csv data/source_health.json index.html summary.txt summary.html
           if git diff --staged --quiet; then
             echo "nothing changed"
             exit 0
@@ -83,6 +83,7 @@ jobs:
           to: ${{ secrets.MY_EMAIL }}
           subject: "DVC market snapshot — ${{ env.SNAP_DATE }}"
           body: file://summary.txt
+          html_body: file://summary.html
           attachments: index.html
 
       # continue-on-error reports a failed step as "success" in the run summary,
