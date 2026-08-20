@@ -3,9 +3,9 @@
  "brokers": {
   "DVC Resale Market": {
    "ok": true,
-   "urls": 334,
-   "targets": 334,
-   "parsed": 334
+   "urls": 329,
+   "targets": 329,
+   "parsed": 329
   },
   "The DVC Store": {
    "ok": true,
