@@ -323,8 +323,8 @@ def build(rows):
 
     import alerts as alerts_mod
     acfg = alerts_mod.load_config()
-    my_alerts, _ = alerts_mod.score_all(live, acfg)
-    write_email(ch, live, dates, prev, dead, health, my_alerts, acfg)
+    my_alerts, _, restricted_ref = alerts_mod.score_all(live, acfg)
+    write_email(ch, live, dates, prev, dead, health, my_alerts, acfg, restricted_ref)
 
     # one subject line for the single daily email; the workflow reads this file
     if my_alerts:
@@ -380,7 +380,7 @@ def _card(r, kind):
 BAND_COLOR = {"ACT NOW": "#1a7f37", "WATCH": "#9a6700", "NOTABLE": "#57606a"}
 
 
-def alert_block(alerts, cfg):
+def alert_block(alerts, cfg, ref=None):
     """Your buy list, at the top of the email. This replaced the separate 7:15am
     local monitor on 2026-08-20 — same scoring, but on the snapshot the scraper
     just wrote instead of a clone that could silently fall a day behind."""
@@ -391,11 +391,13 @@ def alert_block(alerts, cfg):
     H = ['<div style="margin:16px 0 4px;font-size:11.5px;font-weight:650;letter-spacing:.05em;'
          'text-transform:uppercase;color:#57606a">Your candidates &nbsp;({}&ndash;{} pts)</div>'
          .format(lo, hi)]
-    for r in alerts:
+    shown = [r for r in alerts if r["band"] in ("ACT NOW", "WATCH")]
+    rest = [r for r in alerts if r["band"] == "NOTABLE"]
+    for r in shown:
         note = ""
         if r["notes"]:
             note = ('<div style="font-size:12px;color:#8b949e;margin-top:3px">{}</div>'
-                    .format(e(" &middot; ".join(r["notes"]))))
+                    .format(" &middot; ".join(e(n) for n in r["notes"])))
         name = "{} &middot; {} pts &middot; {} UY".format(
             e(r["resort"]), r["points"], e(r.get("use_year") or "?"))
         if r.get("url"):
@@ -414,12 +416,46 @@ def alert_block(alerts, cfg):
                 c=BAND_COLOR[r["band"]], band=r["band"], name=name,
                 ppp=r.get("price_per_point") or 0, cpy=r["cpy"], cash=r["cash"],
                 yrs=r["years_left"],
-                src=e("{} &middot; {}".format(r["broker"], r.get("listing_id") or "")),
+                src="{} &middot; {}".format(e(r["broker"]), e(r.get("listing_id") or "")),
                 note=note))
+
+    if rest:
+        agg = {}
+        for r in rest:
+            cur = agg.get(r["resort"])
+            if cur is None or r["cpy"] < cur["cpy"]:
+                agg[r["resort"]] = r
+        counts = {}
+        for r in rest:
+            counts[r["resort"]] = counts.get(r["resort"], 0) + 1
+        H.append('<div style="margin:16px 0 4px;font-size:11.5px;font-weight:650;'
+                 'letter-spacing:.05em;text-transform:uppercase;color:#57606a">'
+                 'Also notable &nbsp;({})</div>'.format(len(rest)))
+        H.append('<div style="font-size:13px;color:#57606a;line-height:1.9">')
+        for res, b in sorted(agg.items(), key=lambda kv: kv[1]["cpy"]):
+            H.append('<div><b style="color:#1f2328">{}</b> {} &nbsp;'
+                     '<span style="color:#8b949e">best {}pt ${:,.0f}/pt &middot; '
+                     '${:.2f}/pt-yr</span></div>'.format(
+                         counts[res], e(res), b["points"],
+                         b.get("price_per_point") or 0, b["cpy"]))
+        H.append("</div>")
+
+    if ref:
+        H.append('<div style="margin:16px 0 4px;font-size:11.5px;font-weight:650;'
+                 'letter-spacing:.05em;text-transform:uppercase;color:#57606a">'
+                 'Restricted resorts &nbsp;(reference only)</div>')
+        H.append('<div style="font-size:12.5px;color:#8b949e;line-height:1.8">')
+        for res, r in sorted(ref.items(), key=lambda kv: kv[1]["cpy"]):
+            H.append('<div>{} &mdash; best {}pt ${:,.0f}/pt &middot; '
+                     '<b>{:.2f}</b>/pt-yr after ${:.2f} restriction penalty '
+                     '<span style="color:#c9d1d9">({:.2f} before)</span></div>'.format(
+                         e(res), r["points"], r.get("price_per_point") or 0,
+                         r["cpy"], cfg["restriction_penalty"], r["raw_cpy"]))
+        H.append("</div>")
     return "".join(H)
 
 
-def write_email(ch, live, dates, prev, dead, health, alerts=None, alert_cfg=None):
+def write_email(ch, live, dates, prev, dead, health, alerts=None, alert_cfg=None, ref=None):
     latest = dates[-1]
     kinds = ["new", "accepted", "drops"]
     focus_rows = {f: {k: [r for r in ch[k] if r["resort"] == f] for k in kinds} for f in FOCUS}
@@ -448,7 +484,7 @@ def write_email(ch, live, dates, prev, dead, health, alerts=None, alert_cfg=None
              "</div>".format(tot["new"], tot["accepted"], tot["drops"]))
 
     if alerts is not None:
-        H.append(alert_block(alerts, alert_cfg))
+        H.append(alert_block(alerts, alert_cfg, ref))
 
     H.append('<div style="margin-top:26px;padding-top:12px;border-top:2px solid #1f2328">'
              '<span style="font-size:16px;font-weight:650">Market changes</span></div>')

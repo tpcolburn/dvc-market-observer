@@ -19,7 +19,6 @@ RENTAL_CREDIT = 19            # $/point that banked points are worth if rented o
 # Non-sensitive defaults. Which resorts someone watches is mild; what they will
 # pay is not, so no thresholds or budgets live in this file.
 DEFAULTS = {
-    "focus_resorts": ["Copper Creek Villas"],
     "priority_resorts": ["Copper Creek Villas", "Boulder Ridge Villas",
                          "Animal Kingdom Villas", "Saratoga Springs"],
     "restricted_resorts": ["Riviera Resort", "Villas at Disneyland Hotel",
@@ -27,7 +26,14 @@ DEFAULTS = {
     "point_band": [100, 225],
     "relative_alert": {"discount_vs_median": 0.06, "strong_discount": 0.10,
                        "min_sample": 4},
-    "focus_percentile": {"act_now": 0.10, "watch": 0.25, "notable": 0.40},
+    "global_percentile": {"act_now": 0.01, "watch": 0.05, "notable": 0.15},
+    # Resale points at a restricted resort book only that resort. Staying
+    # elsewhere means renting your points out and renting others in, and the
+    # round trip leaks: you are taxed on the income but get no deduction on the
+    # personal travel. At ~50% of trips off-home, $19 out taxed ~24%, $22 in:
+    #   0.50 x (22 - 19*0.76) = $3.78  -> $3.75
+    # Sensitive almost entirely to the tax treatment; untaxed it is $1.00.
+    "restriction_penalty": 3.75,
     "thresholds_cost_per_point_year": None,   # supplied via ALERT_CONFIG
     "sticker_override": {},
     "cash_budget": None,
@@ -52,7 +58,7 @@ def closing_estimate(points):
     return 95 + 2 * points
 
 
-def cost_per_point_year(row, today_year):
+def cost_per_point_year(row, today_year, penalty=0.0):
     """Dues plus acquisition amortized over the remaining deed, with banked
     points credited and stripped points charged. The only figure that compares
     a 2068 deed against a 2042 one honestly."""
@@ -64,7 +70,7 @@ def cost_per_point_year(row, today_year):
     dues = row.get("dues_per_point") or 9.5
     surplus = row.get("point_delta") or 0
     acq = row["price"] + closing_estimate(pts) + CAF - surplus * RENTAL_CREDIT
-    return (acq / years + pts * dues) / pts, surplus
+    return (acq / years + pts * dues) / pts + penalty, surplus
 
 
 def percentile(vals, q):
@@ -81,6 +87,7 @@ def score_all(rows, cfg, today_year=None):
     lo, hi = cfg["point_band"]
     lock = cfg.get("lock") or {}
 
+    restricted = set(cfg["restricted_resorts"])
     scored = []
     for r in rows:
         if r.get("status") in ("Sold", "Archived"):
@@ -88,7 +95,8 @@ def score_all(rows, cfg, today_year=None):
         pts = r.get("points")
         if not pts or not (lo <= pts <= hi):
             continue
-        cpy, surplus = cost_per_point_year(r, today_year)
+        pen = cfg["restriction_penalty"] if r.get("resort") in restricted else 0.0
+        cpy, surplus = cost_per_point_year(r, today_year, pen)
         if cpy is None:
             continue
         rec = dict(r)
@@ -98,25 +106,21 @@ def score_all(rows, cfg, today_year=None):
         rec["years_left"] = max(1, (r.get("deed_year") or 2050) - today_year)
         scored.append(rec)
 
-    # median cost/pt-yr per resort, among in-band listings, as the yardstick for
-    # everywhere that is not a focus resort
     by_resort = {}
     for rec in scored:
         by_resort.setdefault(rec["resort"], []).append(rec["cpy"])
     minn = cfg["relative_alert"]["min_sample"]
     baselines = {k: percentile(v, 0.5) for k, v in by_resort.items() if len(v) >= minn}
 
-    # focus bands: explicit thresholds if configured, else percentiles of the
-    # resort's own live distribution
+    # One absolute band table for every resort. Cost per point-year already
+    # normalises deed length and dues, so it compares resorts honestly; banding
+    # each resort against its own median would rank a 15.82 BoardWalk above a
+    # 12.40 Copper Creek purely for being less bad than its neighbours.
     th = cfg.get("thresholds_cost_per_point_year")
-    focus_bands = {}
-    for f in cfg["focus_resorts"]:
-        vals = by_resort.get(f, [])
-        if th:
-            focus_bands[f] = th
-        elif len(vals) >= minn:
-            p = cfg["focus_percentile"]
-            focus_bands[f] = {k: percentile(vals, p[k]) for k in ("act_now", "watch", "notable")}
+    if not th:
+        allv = [r["cpy"] for r in scored]
+        gp = cfg["global_percentile"]
+        th = {k: percentile(allv, gp[k]) for k in ("act_now", "watch", "notable")}
 
     alerts = []
     for rec in scored:
@@ -129,25 +133,22 @@ def score_all(rows, cfg, today_year=None):
 
         notes = []
         band = "PASS"
-        if resort in focus_bands:
-            b = focus_bands[resort]
-            ppp = rec.get("price_per_point") or 0
-            over = (cfg.get("sticker_override") or {}).get(resort)
-            if rec["cpy"] <= b["act_now"] or (over and ppp and ppp <= over):
-                band = "ACT NOW"
-            elif rec["cpy"] <= b["watch"]:
-                band = "WATCH"
-            elif rec["cpy"] <= b["notable"]:
-                band = "NOTABLE"
-        elif resort in baselines:
-            base = baselines[resort]
-            disc = (base - rec["cpy"]) / base
-            ra = cfg["relative_alert"]
-            if disc >= ra["strong_discount"]:
-                band = "WATCH"
-            elif disc >= ra["discount_vs_median"]:
-                band = "NOTABLE"
-            if band != "PASS":
+        ppp = rec.get("price_per_point") or 0
+        over = (cfg.get("sticker_override") or {}).get(resort)
+        if rec["cpy"] <= th["act_now"] or (over and ppp and ppp <= over):
+            band = "ACT NOW"
+        elif rec["cpy"] <= th["watch"]:
+            band = "WATCH"
+        elif rec["cpy"] <= th["notable"]:
+            band = "NOTABLE"
+
+        # Cheap for its own resort is worth seeing but it is not a buy signal,
+        # so it can raise a listing to NOTABLE and no further.
+        if resort in baselines:
+            disc = (baselines[resort] - rec["cpy"]) / baselines[resort]
+            if disc >= cfg["relative_alert"]["discount_vs_median"]:
+                if band == "PASS":
+                    band = "NOTABLE"
                 notes.append(f"{disc * 100:.0f}% below resort median")
         if band == "PASS":
             continue
@@ -156,19 +157,33 @@ def score_all(rows, cfg, today_year=None):
             notes.append(f"stripped {abs(rec['surplus'])} pts")
         elif rec["surplus"] > 0:
             notes.append(f"+{rec['surplus']} pts banked/current")
-        if resort in cfg["restricted_resorts"]:
-            notes.append("resale-restricted")
+        if resort in restricted:
+            notes.append(f"resale-restricted (+${cfg['restriction_penalty']:.2f} penalty applied)")
         if rec.get("status") == "Unverified":
             notes.append("status not published")
+        # Most contracts exceed the cash budget, so "over" is not information.
+        # The scarce, actionable fact is which ones he can actually pay for.
         budget = cfg.get("cash_budget")
-        if budget and rec["cash"] > budget:
-            notes.append("over cash budget")
+        if budget and rec["cash"] <= budget:
+            notes.append(f"within ${budget:,.0f} cash budget")
 
         rec["band"] = band
         rec["notes"] = notes
         alerts.append(rec)
 
+    # Restricted resorts rarely survive the penalty, but Travis still wants eyes
+    # on them — carried out separately rather than smuggled into the buy list.
+    ref = {}
+    for rec in scored:
+        if rec["resort"] not in restricted:
+            continue
+        cur = ref.get(rec["resort"])
+        if cur is None or rec["cpy"] < cur["cpy"]:
+            raw, _ = cost_per_point_year(rec, today_year, 0.0)
+            rec = dict(rec, raw_cpy=round(raw, 2))
+            ref[rec["resort"]] = rec
+
     prio = {r: i for i, r in enumerate(cfg["priority_resorts"])}
     order = {"ACT NOW": 0, "WATCH": 1, "NOTABLE": 2}
     alerts.sort(key=lambda r: (order[r["band"]], prio.get(r["resort"], 99), r["cpy"]))
-    return alerts, baselines
+    return alerts, baselines, ref
