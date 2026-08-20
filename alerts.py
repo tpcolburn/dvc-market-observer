@@ -34,6 +34,14 @@ DEFAULTS = {
     #   0.50 x (22 - 19*0.76) = $3.78  -> $3.75
     # Sensitive almost entirely to the tax treatment; untaxed it is $1.00.
     "restriction_penalty": 3.75,
+    # Desirability. Cost per point-year answers "what does this cost to carry",
+    # not "would I enjoy owning it". Ranked resorts get a credit against their
+    # cost, best-first. The curve is convex rather than linear because taste
+    # falls off faster than rank does: linear spacing promoted a #6 resort into
+    # ACT NOW purely because it started 17 cents away, which is not a preference
+    # being expressed, just a coincidence being rewarded.
+    "resort_rank": [],
+    "desirability_premium_top": 0.60,
     "thresholds_cost_per_point_year": None,   # supplied via ALERT_CONFIG
     "sticker_override": {},
     "cash_budget": None,
@@ -73,6 +81,17 @@ def cost_per_point_year(row, today_year, penalty=0.0):
     return (acq / years + pts * dues) / pts + penalty, surplus
 
 
+def desirability(cfg):
+    """{resort: $/pt-yr credit}. Rank 1 gets the full premium, last gets zero,
+    unranked resorts get zero — silence is neutrality, not dislike."""
+    rank = cfg.get("resort_rank") or []
+    n = len(rank)
+    if n < 2:
+        return {}
+    top = cfg.get("desirability_premium_top", 0.0)
+    return {r: round(top * (((n - i - 1) / (n - 1)) ** 2), 3) for i, r in enumerate(rank)}
+
+
 def percentile(vals, q):
     if not vals:
         return None
@@ -88,6 +107,7 @@ def score_all(rows, cfg, today_year=None):
     lock = cfg.get("lock") or {}
 
     restricted = set(cfg["restricted_resorts"])
+    prem = desirability(cfg)
     scored = []
     for r in rows:
         if r.get("status") in ("Sold", "Archived"):
@@ -96,11 +116,15 @@ def score_all(rows, cfg, today_year=None):
         if not pts or not (lo <= pts <= hi):
             continue
         pen = cfg["restriction_penalty"] if r.get("resort") in restricted else 0.0
+        pen -= prem.get(r.get("resort"), 0.0)
         cpy, surplus = cost_per_point_year(r, today_year, pen)
         if cpy is None:
             continue
         rec = dict(r)
         rec["cpy"] = round(cpy, 2)
+        rec["desirability"] = prem.get(r.get("resort"), 0.0)
+        raw, _ = cost_per_point_year(r, today_year, 0.0)
+        rec["raw_cpy"] = round(raw, 2)
         rec["surplus"] = surplus
         rec["cash"] = round(r["price"] + closing_estimate(pts) + CAF)
         # Sticker price lies when points are stripped or loaded. A $139/pt
@@ -169,6 +193,9 @@ def score_all(rows, cfg, today_year=None):
                          f"→ ${rec['effective_ppp']:,.0f}/pt effective")
         if resort in restricted:
             notes.append(f"resale-restricted (+${cfg['restriction_penalty']:.2f} penalty applied)")
+        if rec["desirability"] >= 0.10:
+            notes.append(f"{rec['raw_cpy']:.2f} before ${rec['desirability']:.2f} "
+                         f"desirability credit")
         if rec.get("status") == "Unverified":
             notes.append("status not published")
         # Most contracts exceed the cash budget, so "over" is not information.
