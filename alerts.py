@@ -103,6 +103,13 @@ def score_all(rows, cfg, today_year=None):
         rec["cpy"] = round(cpy, 2)
         rec["surplus"] = surplus
         rec["cash"] = round(r["price"] + closing_estimate(pts) + CAF)
+        # Sticker price lies when points are stripped or loaded. A $139/pt
+        # contract missing a full year of points really costs $158/pt for what
+        # you receive; a loaded one costs less than it asks. The cost/pt-yr
+        # figure already credits this — the sticker override did not, and was
+        # promoting stripped contracts to ACT NOW on asking price alone.
+        rec["effective_ppp"] = round(
+            (r["price"] - surplus * RENTAL_CREDIT) / pts, 2)
         rec["years_left"] = max(1, (r.get("deed_year") or 2050) - today_year)
         scored.append(rec)
 
@@ -133,9 +140,9 @@ def score_all(rows, cfg, today_year=None):
 
         notes = []
         band = "PASS"
-        ppp = rec.get("price_per_point") or 0
+        eppp = rec["effective_ppp"]
         over = (cfg.get("sticker_override") or {}).get(resort)
-        if rec["cpy"] <= th["act_now"] or (over and ppp and ppp <= over):
+        if rec["cpy"] <= th["act_now"] or (over and eppp <= over):
             band = "ACT NOW"
         elif rec["cpy"] <= th["watch"]:
             band = "WATCH"
@@ -153,10 +160,13 @@ def score_all(rows, cfg, today_year=None):
         if band == "PASS":
             continue
 
+        sticker = rec.get("price_per_point") or 0
         if rec["surplus"] < 0:
-            notes.append(f"stripped {abs(rec['surplus'])} pts")
+            notes.append(f"stripped {abs(rec['surplus'])} pts "
+                         f"→ ${rec['effective_ppp']:,.0f}/pt effective")
         elif rec["surplus"] > 0:
-            notes.append(f"+{rec['surplus']} pts banked/current")
+            notes.append(f"+{rec['surplus']} pts banked/current "
+                         f"→ ${rec['effective_ppp']:,.0f}/pt effective")
         if resort in restricted:
             notes.append(f"resale-restricted (+${cfg['restriction_penalty']:.2f} penalty applied)")
         if rec.get("status") == "Unverified":
