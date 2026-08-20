@@ -321,8 +321,22 @@ def build(rows):
         nlive=len(live))
     OUT.write_text(page)
 
-    write_email(ch, live, dates, prev, dead, health)
-    return dict(live=len(live), dates=len(dates), rows=len(rows),
+    import alerts as alerts_mod
+    acfg = alerts_mod.load_config()
+    my_alerts, _ = alerts_mod.score_all(live, acfg)
+    write_email(ch, live, dates, prev, dead, health, my_alerts, acfg)
+
+    # one subject line for the single daily email; the workflow reads this file
+    if my_alerts:
+        b = my_alerts[0]
+        subj = "DVC {} — {} {}pt ${:,.0f}/pt ({})".format(
+            b["band"], b["resort"], b["points"], b.get("price_per_point") or 0, dates[-1])
+    else:
+        subj = "DVC {} — {} new, {} accepted, {} drops".format(
+            dates[-1], len(ch["new"]), len(ch["accepted"]), len(ch["drops"]))
+    (BASE / "subject.txt").write_text(subj + "\n")
+
+    return dict(live=len(live), dates=len(dates), rows=len(rows), alerts=len(my_alerts),
                 **{k: len(v) for k, v in ch.items()})
 
 
@@ -363,7 +377,49 @@ def _card(r, kind):
     ).format(ACCENT[kind], head, line2, meta)
 
 
-def write_email(ch, live, dates, prev, dead, health):
+BAND_COLOR = {"ACT NOW": "#1a7f37", "WATCH": "#9a6700", "NOTABLE": "#57606a"}
+
+
+def alert_block(alerts, cfg):
+    """Your buy list, at the top of the email. This replaced the separate 7:15am
+    local monitor on 2026-08-20 — same scoring, but on the snapshot the scraper
+    just wrote instead of a clone that could silently fall a day behind."""
+    if not alerts:
+        return ('<div style="margin:14px 0;padding:12px 14px;background:#f6f8fa;border-radius:8px;'
+                'font-size:13px;color:#57606a">No contracts clear your bands today.</div>')
+    lo, hi = cfg["point_band"]
+    H = ['<div style="margin:16px 0 4px;font-size:11.5px;font-weight:650;letter-spacing:.05em;'
+         'text-transform:uppercase;color:#57606a">Your candidates &nbsp;({}&ndash;{} pts)</div>'
+         .format(lo, hi)]
+    for r in alerts:
+        note = ""
+        if r["notes"]:
+            note = ('<div style="font-size:12px;color:#8b949e;margin-top:3px">{}</div>'
+                    .format(e(" &middot; ".join(r["notes"]))))
+        name = "{} &middot; {} pts &middot; {} UY".format(
+            e(r["resort"]), r["points"], e(r.get("use_year") or "?"))
+        if r.get("url"):
+            name = '<a href="{}" style="color:#0969da;text-decoration:none">{}</a>'.format(
+                e(r["url"]), name)
+        H.append(
+            '<div style="border-left:3px solid {c};background:#f6f8fa;border-radius:0 6px 6px 0;'
+            'padding:9px 11px;margin:7px 0">'
+            '<div style="font-size:11px;font-weight:700;letter-spacing:.04em;color:{c}">{band}</div>'
+            '<div style="font-size:14.5px;font-weight:600;margin-top:2px">{name}</div>'
+            '<div style="font-size:13px;color:#57606a;margin-top:3px">'
+            '<b style="color:#1f2328">${ppp:,.0f}</b>/pt &middot; '
+            '<b style="color:#1f2328">${cpy:.2f}</b>/pt-yr &middot; '
+            '${cash:,.0f} all-in &middot; {yrs}y left</div>'
+            '<div style="font-size:12px;color:#8b949e;margin-top:2px">{src}</div>{note}</div>'.format(
+                c=BAND_COLOR[r["band"]], band=r["band"], name=name,
+                ppp=r.get("price_per_point") or 0, cpy=r["cpy"], cash=r["cash"],
+                yrs=r["years_left"],
+                src=e("{} &middot; {}".format(r["broker"], r.get("listing_id") or "")),
+                note=note))
+    return "".join(H)
+
+
+def write_email(ch, live, dates, prev, dead, health, alerts=None, alert_cfg=None):
     latest = dates[-1]
     kinds = ["new", "accepted", "drops"]
     focus_rows = {f: {k: [r for r in ch[k] if r["resort"] == f] for k in kinds} for f in FOCUS}
@@ -390,6 +446,12 @@ def write_email(ch, live, dates, prev, dead, health):
              '<b style="color:#1f2328">{}</b> new &nbsp;&middot;&nbsp; <b style="color:#1f2328">{}</b> '
              "offers accepted &nbsp;&middot;&nbsp; <b style=\"color:#1f2328\">{}</b> price drops"
              "</div>".format(tot["new"], tot["accepted"], tot["drops"]))
+
+    if alerts is not None:
+        H.append(alert_block(alerts, alert_cfg))
+
+    H.append('<div style="margin-top:26px;padding-top:12px;border-top:2px solid #1f2328">'
+             '<span style="font-size:16px;font-weight:650">Market changes</span></div>')
 
     for f in FOCUS:
         blocks = focus_rows[f]

@@ -33,12 +33,14 @@ jobs:
 
       - name: Rebuild dashboard
         run: python build_dashboard.py
+        env:
+          ALERT_CONFIG: ${{ secrets.ALERT_CONFIG }}
 
       - name: Commit snapshot
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add data/listings_history.csv data/source_health.json index.html summary.txt summary.html
+          git add data/listings_history.csv data/source_health.json index.html summary.txt summary.html subject.txt
           if git diff --staged --quiet; then
             echo "nothing changed"
             exit 0
@@ -68,6 +70,10 @@ jobs:
             echo "all mail secrets present"
           fi
 
+      - name: Read subject line
+        id: subj
+        run: echo "line=$(head -1 subject.txt)" >> "$GITHUB_OUTPUT"
+
       - name: Email the dashboard
         id: email
         if: success()
@@ -81,7 +87,7 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           from: DVC Market Observer
           to: ${{ secrets.MY_EMAIL }}
-          subject: "DVC market snapshot — ${{ env.SNAP_DATE }}"
+          subject: ${{ steps.subj.outputs.line }}
           body: file://summary.txt
           html_body: file://summary.html
           attachments: index.html
