@@ -41,7 +41,11 @@ DEFAULTS = {
     # ACT NOW purely because it started 17 cents away, which is not a preference
     # being expressed, just a coincidence being rewarded.
     "resort_rank": [],
-    "desirability_premium_top": 0.60,
+    # Sized against the band width, not chosen freely: ACT NOW to NOTABLE spans
+    # $0.70, so a $0.60 credit moves a top-tier resort almost a whole band and
+    # drags its stripped contracts across with the clean ones. $0.40 promotes
+    # the good ones and leaves the depleted ones behind.
+    "desirability_premium_top": 0.40,
     "thresholds_cost_per_point_year": None,   # supplied via ALERT_CONFIG
     "sticker_override": {},
     "cash_budget": None,
@@ -82,14 +86,26 @@ def cost_per_point_year(row, today_year, penalty=0.0):
 
 
 def desirability(cfg):
-    """{resort: $/pt-yr credit}. Rank 1 gets the full premium, last gets zero,
-    unranked resorts get zero — silence is neutrality, not dislike."""
+    """{resort: $/pt-yr credit}. Top tier gets the full premium, bottom gets
+    zero, unranked resorts get zero — silence is neutrality, not dislike.
+
+    resort_rank accepts either a flat list ("A", "B", ...) or tiers of genuine
+    ties (["A", "B"], ["C"], ...). Ties matter: Travis rates Polynesian,
+    Boulder Ridge and Copper Creek as one group, and forcing an order on them
+    would invent a preference he does not hold.
+    """
     rank = cfg.get("resort_rank") or []
-    n = len(rank)
+    tiers = [t if isinstance(t, list) else [t] for t in rank]
+    n = len(tiers)
     if n < 2:
         return {}
     top = cfg.get("desirability_premium_top", 0.0)
-    return {r: round(top * (((n - i - 1) / (n - 1)) ** 2), 3) for i, r in enumerate(rank)}
+    out = {}
+    for i, tier in enumerate(tiers):
+        credit = round(top * (((n - i - 1) / (n - 1)) ** 2), 3)
+        for resort in tier:
+            out[resort] = credit
+    return out
 
 
 def percentile(vals, q):
