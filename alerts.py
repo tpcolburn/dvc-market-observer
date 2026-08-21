@@ -65,9 +65,12 @@ def load_config():
 
 
 def closing_estimate(points):
-    """Brokers rarely publish closing. This bracket matches what the three that
-    do have quoted all year; DVC495 lists $668 on a 100-pointer, we get $695."""
-    return 95 + 2 * points
+    """Brokers rarely publish closing, so this is fitted to the quotes we do
+    have: $642 and $586 (DVC Store, 100pt), $668 (DVC495, 100pt). The old
+    95 + 2*points gave $295 on a 100-pointer and understated every all-in
+    cash figure in the digest by roughly $350 — enough to put a contract
+    inside a budget it actually misses."""
+    return 450 + 2 * points
 
 
 def cost_per_point_year(row, today_year, penalty=0.0):
