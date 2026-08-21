@@ -1,8 +1,9 @@
 DVC Resale Market - 2026-08-21
-17 new | 9 offers accepted | 4 price drops
-478 live listings
+21 new | 10 offers accepted | 4 price drops
+477 live listings
 
 COPPER CREEK VILLAS
+  [new] 150pt Jun $132/pt
   [new] 50pt Feb $146/pt
   [off] 100pt Dec $149/pt Offer Accepted
   [pri] 185pt Dec $157/pt was $160
@@ -25,8 +26,8 @@ SARATOGA SPRINGS
   [off] 225pt Dec $126/pt Sale Pending
 
 ALL OTHERS
-  8 new listings
-  6 offers accepted
+  11 new listings
+  7 offers accepted
   3 price drops
 
 https://tpcolburn.github.io/dvc-market-observer/
