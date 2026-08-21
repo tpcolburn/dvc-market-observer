@@ -279,7 +279,9 @@ def build(rows):
     unres = [s for s in summary if s["cpy"] and not s["restricted"]]
     cards = [("Live listings", f"{len(live):,}"), ("New today", str(len(ch["new"]))),
              ("Under offer", str(len(ch["accepted"]))), ("Price drops", str(len(ch["drops"]))),
-             ("Best unrestricted", money(unres[0]["cpy"], 2) if unres else "—",
+             # per-resort MEDIAN, not a single listing — the old "Best
+             # unrestricted" label read like a contract you could go buy
+             ("Cheapest resort (median)", money(unres[0]["cpy"], 2) if unres else "—",
               unres[0]["resort"] if unres else "")]
     _ch = []
     for c in cards:
