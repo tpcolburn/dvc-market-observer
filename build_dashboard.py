@@ -110,8 +110,9 @@ def listing_rows(items, extra=None, status_col=False):
             note = f' <span class="was">was ${r["_was"]:,.0f}</span>'
         elif extra == "from":
             note = f' <span class="was">{e(r["_from"])} → {e(r["status"])}</span>'
-        delta = r["point_delta"] or 0
-        dtxt = (f'<span class="pos">+{delta}</span>' if delta > 0
+        delta = r["point_delta"]
+        dtxt = ('<span class="mut">n/a</span>' if delta is None
+                else f'<span class="pos">+{delta}</span>' if delta > 0
                 else f'<span class="neg">{delta}</span>' if delta < 0 else "—")
         url = r.get("url") or ""
         name = f'<a href="{e(url)}">{e(r["resort"])}</a>' if url else e(r["resort"])
@@ -359,7 +360,9 @@ def _card(r, kind):
     meta = "{} &middot; {}".format(e(r["broker"]), e(r["listing_id"]))
     if kind == "accepted":
         meta = "{} &rarr; {} &middot; {}".format(e(r["_from"]), e(r["status"]), meta)
-    if (r["point_delta"] or 0) != 0:
+    if r["point_delta"] is None:
+        line2 += ' &middot; <span style="color:#8b949e">pts n/a</span>'
+    elif r["point_delta"] != 0:
         d = r["point_delta"]
         line2 += ' &middot; <span style="color:{}">{}{} pts</span>'.format(
             "#1a7f37" if d > 0 else "#b35900", "+" if d > 0 else "", d)
@@ -604,7 +607,8 @@ a{{color:var(--accent);text-decoration:none}} a:hover{{text-decoration:underline
 .dot{{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);
 vertical-align:1px;margin-left:3px}}
 .was{{font-size:11px;color:var(--muted)}}
-.pos{{color:var(--good)}} .neg{{color:var(--bad)}}
+.pos{{color:var(--good)}} .mut{{color:#8b949e}}
+.neg{{color:var(--bad)}}
 .chartwrap{{overflow-x:auto;border:1px solid var(--line);border-radius:9px;background:var(--card);padding:8px}}
 .chart{{min-width:640px;width:100%;height:auto;color:var(--ink);display:block}}
 .grid{{stroke:currentColor;stroke-opacity:.13}}

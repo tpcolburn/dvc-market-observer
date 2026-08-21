@@ -80,7 +80,11 @@ def cost_per_point_year(row, today_year, penalty=0.0):
     deed = row.get("deed_year") or 2050
     years = max(1, deed - today_year)
     dues = row.get("dues_per_point") or 9.5
-    surplus = row.get("point_delta") or 0
+    # None means the broker published no points breakdown. Scoring it as 0 is
+    # what let a contract missing a full year read as unstripped; carry the
+    # uncertainty forward instead so the caller can refuse to call it a buy.
+    raw_delta = row.get("point_delta")
+    surplus = 0 if raw_delta is None else raw_delta
     acq = row["price"] + closing_estimate(pts) + CAF - surplus * RENTAL_CREDIT
     return (acq / years + pts * dues) / pts + penalty, surplus
 
@@ -139,6 +143,7 @@ def score_all(rows, cfg, today_year=None):
         rec = dict(r)
         rec["cpy"] = round(cpy, 2)
         rec["desirability"] = prem.get(r.get("resort"), 0.0)
+        rec["points_unknown"] = r.get("point_delta") is None
         raw, _ = cost_per_point_year(r, today_year, 0.0)
         rec["raw_cpy"] = round(raw, 2)
         rec["surplus"] = surplus
@@ -189,6 +194,12 @@ def score_all(rows, cfg, today_year=None):
         elif rec["cpy"] <= th["notable"]:
             band = "NOTABLE"
 
+        # Never call a contract a definite buy when nobody has published what
+        # points come with it — that is precisely how WLCC100-04-0817 read as
+        # unstripped while missing an entire use year.
+        if rec["points_unknown"] and band == "ACT NOW":
+            band = "WATCH"
+
         # Cheap for its own resort is worth seeing but it is not a buy signal,
         # so it can raise a listing to NOTABLE and no further.
         if resort in baselines:
@@ -200,8 +211,9 @@ def score_all(rows, cfg, today_year=None):
         if band == "PASS":
             continue
 
-        sticker = rec.get("price_per_point") or 0
-        if rec["surplus"] < 0:
+        if rec["points_unknown"]:
+            notes.append("points breakdown not published — verify before offering")
+        elif rec["surplus"] < 0:
             notes.append(f"stripped {abs(rec['surplus'])} pts "
                          f"→ ${rec['effective_ppp']:,.0f}/pt effective")
         elif rec["surplus"] > 0:

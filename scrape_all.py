@@ -86,6 +86,44 @@ def num(s):
 
 # --------------------------------------------------------------- per broker
 
+def current_uy_year(use_year, today=None):
+    """The use year that is running right now. An April use year opened on
+    1 Apr 2026 and runs to 31 Mar 2027, so in August 2026 the current one is
+    2026. Needed because a listing that mentions only future years is not
+    unstripped — it is missing the current year entirely, which is the most
+    expensive kind of stripping there is."""
+    today = today or date.today()
+    if not use_year or use_year not in MONTHS:
+        return None
+    m = MONTHS.index(use_year) + 1
+    return today.year if today.month >= m else today.year - 1
+
+
+def points_delta(n, use_year, by_year, current_avail=None):
+    """Surplus/deficit against a clean contract, anchored at the CURRENT use
+    year rather than at whichever year the broker happened to list first.
+
+    by_year: {year: points}. current_avail: points left in the running use year,
+    if the listing states it. Returns None when we cannot tell — an unknown
+    deficit must not be recorded as zero, which is the bug this replaces.
+    """
+    if not by_year and current_avail is None:
+        return None
+    cy = current_uy_year(use_year)
+    years = dict(by_year)
+    if cy is not None:
+        # the running year counts even when the listing says nothing about it
+        years.setdefault(cy, current_avail if current_avail is not None else 0)
+    elif current_avail is not None:
+        years.setdefault(min(years) - 1 if years else 0, current_avail)
+    if not years:
+        return None
+    span = max(years) - min(years) + 1
+    for y in range(min(years), max(years) + 1):
+        years.setdefault(y, 0)
+    return sum(years.values()) - n * span
+
+
 def p_dvcrm(t, url):
     g = lambda p: (re.search(p, t).group(1) if re.search(p, t) else None)
     pts, price = g(r"Points on Contract\s*([\d,]+)"), g(r"Price\s*\$([\d,]+)")
@@ -93,7 +131,8 @@ def p_dvcrm(t, url):
         return None
     avail = re.findall(r"([A-Za-z]+) (\d{4}) - ([\d,]+) points", t)
     n = int(num(pts))
-    delta = sum(int(num(p)) for _, _, p in avail) - n * len(avail) if avail else 0
+    uy = g(r"Use Year\s*(" + "|".join(MONTHS) + r")")
+    delta = points_delta(n, uy, {int(y): int(num(p)) for _, y, p in avail})
     return dict(listing_id=g(r"Listing ID\s*([A-Z0-9]+)") or url.rstrip("/").split("/")[-1].upper(),
                 points=n, price=int(num(price)),
                 price_per_point=num(g(r"Price Per Point\s*\$([\d,.]+)")),
@@ -110,8 +149,13 @@ def p_dvcstore(t, url):
     if not pts or not price:
         return None
     n = int(num(pts))
-    coming = [int(num(x)) for x in re.findall(r"([\d,]+) points coming on", t)]
-    delta = sum(coming) - n * len(coming) if coming else 0
+    uy = g(r"[-–]\s*([A-Za-z]+)\s*Use Year")
+    by_year, m2 = {}, re.findall(r"([\d,]+) points? coming on \d{1,2}/\d{1,2}/(\d{2,4})", t)
+    for p_, y_ in m2:
+        y_ = int(y_)
+        by_year[y_ + 2000 if y_ < 100 else y_] = int(num(p_))
+    cur = re.search(r"([\d,]+) points? currently available", t)
+    delta = points_delta(n, uy, by_year, int(num(cur.group(1))) if cur else None)
     return dict(listing_id=g(r"([A-Z]{2,4}\d+[A-Z0-9-]*)") or url.rstrip("/").split("/")[-1].upper(),
                 points=n, price=int(num(price)),
                 price_per_point=num(g(r"Price Per Point\s*\$([\d,.]+)")),
@@ -147,7 +191,7 @@ def p_dvcsales(t, url):
                 use_year=_uy(g(r"Use Year\s+([A-Z]{3})\b")) or g(r"use year[:\s]*(" + "|".join(MONTHS) + r")"),
                 dues_per_point=num(g(r"Annual Dues\s*\$([\d.]+)")),
                 deed_year=int(num(g(r"(?:expir\w*|deed)[^\d]{0,20}(20\d\d)")) or 0) or None,
-                closing=None, caf=None, point_delta=0)
+                closing=None, caf=None, point_delta=None)
 
 
 # status read from each broker's own field; whole-page keyword matching hits
