@@ -394,7 +394,11 @@ def alert_block(alerts, cfg, ref=None):
     H = ['<div style="margin:16px 0 4px;font-size:11.5px;font-weight:650;letter-spacing:.05em;'
          'text-transform:uppercase;color:#57606a">Your candidates &nbsp;({}&ndash;{} pts)</div>'
          .format(lo, hi)]
-    shown = [r for r in alerts if r["band"] in ("ACT NOW", "WATCH")]
+    # Only ACT NOW earns a full card. WATCH became 36 listings once the
+    # point-delta fix widened the distribution, and 36 cards is not a buy list,
+    # it is a spreadsheet.
+    shown = [r for r in alerts if r["band"] == "ACT NOW"]
+    mid = [r for r in alerts if r["band"] == "WATCH"]
     rest = [r for r in alerts if r["band"] == "NOTABLE"]
     for r in shown:
         note = ""
@@ -421,6 +425,22 @@ def alert_block(alerts, cfg, ref=None):
                 yrs=r["years_left"],
                 src="{} &middot; {}".format(e(r["broker"]), e(r.get("listing_id") or "")),
                 note=note))
+
+    if mid:
+        H.append('<div style="margin:16px 0 6px;font-size:11.5px;font-weight:650;'
+                 'letter-spacing:.05em;text-transform:uppercase;color:#57606a">'
+                 'Watch &nbsp;({})</div>'.format(len(mid)))
+        H.append('<div style="font-size:13px;line-height:1.75;color:#1f2328">')
+        for r in mid:
+            d = r["point_delta"]
+            pts = ("pts n/a" if d is None else "+{}".format(d) if d > 0
+                   else "{}".format(d) if d < 0 else "clean")
+            H.append('<div style="padding:3px 0;border-bottom:1px solid #f0f2f4">'
+                     '<b>{}</b> <span style="color:#57606a">{}pt {} &middot; ${:,.0f}/pt &middot; '
+                     '{} &middot; <b style="color:#1f2328">${:.2f}</b>/pt-yr &middot; ${:,.0f}</span></div>'
+                     .format(e(r["resort"]), r["points"], e((r.get("use_year") or "?")[:3]),
+                             r.get("price_per_point") or 0, pts, r["cpy"], r["cash"]))
+        H.append("</div>")
 
     if rest:
         agg = {}
