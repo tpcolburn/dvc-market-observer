@@ -4435,3 +4435,586 @@ date,broker,listing_id,url,resort,points,use_year,price,price_per_point,dues_per
 2026-08-23,DVC Sales,1557,https://dvcsales.com/dvc-resale/saratoga-springs/200-points/1557,Saratoga Springs,200,October,21800,109.0,9.19,2054,Unverified,,13.261
 2026-08-23,DVC Sales,1559,https://dvcsales.com/dvc-resale/beach-club/150-points/1559,Beach Club Villas,150,February,21900,146.0,9.81,2042,Unverified,,19.308
 2026-08-23,DVC Sales,1560,https://dvcsales.com/dvc-resale/beach-club/150-points/1560,Beach Club Villas,150,February,21300,142.0,9.81,2042,Unverified,,19.058
+2026-08-24,DVC Resale Market,GF23278,https://www.dvcresalemarket.com/listings/grand-floridian/gf23278/,Grand Floridian Villas,58,December,9918,171.0,8.31,2064,Available,-58,13.872
+2026-08-24,DVC Resale Market,SS28466,https://www.dvcresalemarket.com/listings/saratoga-springs/ss28466/,Saratoga Springs,360,September,35640,99.0,9.19,2054,Sale Pending,-714,14.237
+2026-08-24,DVC Resale Market,BC22516,https://www.dvcresalemarket.com/listings/beach-club/bc22516/,Beach Club Villas,200,December,27200,136.0,9.81,2042,Sale Pending,-400,21.157
+2026-08-24,DVC Resale Market,OK34999,https://www.dvcresalemarket.com/listings/old-key-west/ok34999/,Old Key West,300,September,26100,87.0,11.21,2042,Available,-430,18.66
+2026-08-24,DVC Resale Market,PL34610,https://www.dvcresalemarket.com/listings/polynesian/pl34610/,Polynesian Villas,150,September,23850,159.0,8.33,2066,Available,-254,13.349
+2026-08-24,DVC Resale Market,GFA3229,https://www.dvcresalemarket.com/listings/grand-floridian/gfa3229/,Grand Floridian Villas,160,August,25920,162.0,8.31,2064,Offer Accepted,-33,12.918
+2026-08-24,DVC Resale Market,BCB2556,https://www.dvcresalemarket.com/listings/beach-club/bcb2556/,Beach Club Villas,150,October,22950,153.0,9.81,2042,Offer Accepted,-77,20.578
+2026-08-24,DVC Resale Market,BWA3310,https://www.dvcresalemarket.com/listings/boardwalk/bwa3310/,BoardWalk Villas,220,August,29480,134.0,9.67,2042,Offer Accepted,187,17.476
+2026-08-24,DVC Resale Market,BL23739,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl23739/,Bay Lake Tower,100,August,14100,141.0,8.74,2060,Available,-39,13.499
+2026-08-24,DVC Resale Market,BWA3311,https://www.dvcresalemarket.com/listings/boardwalk/bwa3311/,BoardWalk Villas,173,August,23355,135.0,9.67,2042,Offer Accepted,173,17.44
+2026-08-24,DVC Resale Market,RR32304,https://www.dvcresalemarket.com/listings/rivieraresort/rr32304/,Riviera Resort,175,December,20650,118.0,9.46,2070,Sale Pending,-176,12.759
+2026-08-24,DVC Resale Market,BLB3720,https://www.dvcresalemarket.com/listings/bay-lake-tower/blb3720/,Bay Lake Tower,108,December,15012,139.0,8.74,2060,Offer Accepted,-118,13.806
+2026-08-24,DVC Resale Market,BWB3376,https://www.dvcresalemarket.com/listings/boardwalk/bwb3376/,BoardWalk Villas,400,October,46800,117.0,9.67,2042,Offer Accepted,-556,18.911
+2026-08-24,DVC Resale Market,SS98508,https://www.dvcresalemarket.com/listings/saratoga-springs/ss98508/,Saratoga Springs,150,December,18000,120.0,9.19,2054,Offer Accepted,-150,14.485
+2026-08-24,DVC Resale Market,BLF3742,https://www.dvcresalemarket.com/listings/bay-lake-tower/blf3742/,Bay Lake Tower,400,March,60800,152.0,8.74,2060,Available,0,13.358
+2026-08-24,DVC Resale Market,AKB6252,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/akb6252/,Animal Kingdom Villas,160,December,20320,127.0,10.16,2057,Available,0,14.513
+2026-08-24,DVC Resale Market,PL34383,https://www.dvcresalemarket.com/listings/polynesian/pl34383/,Polynesian Villas,200,December,34200,171.0,8.33,2066,Offer Accepted,0,12.812
+2026-08-24,DVC Resale Market,PL34568,https://www.dvcresalemarket.com/listings/polynesian/pl34568/,Polynesian Villas,100,December,17600,176.0,8.33,2066,Offer Accepted,0,13.075
+2026-08-24,DVC Resale Market,OK34989,https://www.dvcresalemarket.com/listings/old-key-west/ok34989/,Old Key West,150,September,14250,95.0,11.21,2042,Available,-150,18.893
+2026-08-24,DVC Resale Market,AU83417,https://www.dvcresalemarket.com/listings/aulani/au83417/,Aulani,170,August,16320,96.0,10.96,2062,Offer Accepted,-92,14.17
+2026-08-24,DVC Resale Market,AK66365,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak66365/,Animal Kingdom Villas,160,September,18080,113.0,10.16,2057,Offer Accepted,-214,14.905
+2026-08-24,DVC Resale Market,AU83462,https://www.dvcresalemarket.com/listings/aulani/au83462/,Aulani,330,April,32010,97.0,10.96,2062,Offer Accepted,0,13.787
+2026-08-24,DVC Resale Market,BC92548,https://www.dvcresalemarket.com/listings/beach-club/bc92548/,Beach Club Villas,150,February,23250,155.0,9.81,2042,Offer Accepted,0,20.097
+2026-08-24,DVC Resale Market,BCA2547,https://www.dvcresalemarket.com/listings/beach-club/bca2547/,Beach Club Villas,220,March,31240,142.0,9.81,2042,Sale Pending,-283,20.667
+2026-08-24,DVC Resale Market,PL24596,https://www.dvcresalemarket.com/listings/polynesian/pl24596/,Polynesian Villas,125,August,21875,175.0,8.33,2066,Offer Accepted,-132,13.49
+2026-08-24,DVC Resale Market,PL74604,https://www.dvcresalemarket.com/listings/polynesian/pl74604/,Polynesian Villas,200,September,37000,185.0,8.33,2066,Available,0,13.166
+2026-08-24,DVC Resale Market,BWE3405,https://www.dvcresalemarket.com/listings/boardwalk/bwe3405/,BoardWalk Villas,135,September,19575,145.0,9.67,2042,Offer Accepted,-135,20.568
+2026-08-24,DVC Resale Market,PLE4592,https://www.dvcresalemarket.com/listings/polynesian/ple4592/,Polynesian Villas,100,December,17500,175.0,8.33,2066,Offer Accepted,-200,14.0
+2026-08-24,DVC Resale Market,BL83546,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl83546/,Bay Lake Tower,160,October,22880,143.0,8.74,2060,Sale Pending,0,13.209
+2026-08-24,DVC Resale Market,SSE8509,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8509/,Saratoga Springs,160,December,18560,116.0,9.19,2054,Offer Accepted,0,13.643
+2026-08-24,DVC Resale Market,PLA4454,https://www.dvcresalemarket.com/listings/polynesian/pla4454/,Polynesian Villas,200,August,35000,175.0,8.33,2066,Available,78,12.728
+2026-08-24,DVC Resale Market,SSE8376,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8376/,Saratoga Springs,180,March,19440,108.0,9.19,2054,Sale Pending,0,13.325
+2026-08-24,DVC Resale Market,OK84993,https://www.dvcresalemarket.com/listings/old-key-west/ok84993/,Old Key West,50,October,5400,108.0,11.21,2042,Available,-50,20.596
+2026-08-24,DVC Resale Market,OK84992,https://www.dvcresalemarket.com/listings/old-key-west/ok84992/,Old Key West,50,October,5400,108.0,11.21,2042,Available,-50,20.596
+2026-08-24,DVC Resale Market,AK76303,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak76303/,Animal Kingdom Villas,160,October,18880,118.0,10.16,2057,Sale Pending,-154,14.836
+2026-08-24,DVC Resale Market,OK84960,https://www.dvcresalemarket.com/listings/old-key-west/ok84960/,Old Key West,50,October,5400,108.0,11.21,2042,Available,-50,20.596
+2026-08-24,DVC Resale Market,BCC2555,https://www.dvcresalemarket.com/listings/beach-club/bcc2555/,Beach Club Villas,50,August,7250,145.0,9.81,2042,Offer Accepted,-50,21.559
+2026-08-24,DVC Resale Market,GF63321,https://www.dvcresalemarket.com/listings/grand-floridian/gf63321/,Grand Floridian Villas,200,August,34400,172.0,8.31,2064,Available,-206,13.57
+2026-08-24,DVC Resale Market,OK84984,https://www.dvcresalemarket.com/listings/old-key-west/ok84984/,Old Key West,100,March,12200,122.0,11.21,2057,Offer Accepted,0,15.568
+2026-08-24,DVC Resale Market,SS28538,https://www.dvcresalemarket.com/listings/saratoga-springs/ss28538/,Saratoga Springs,90,April,10080,112.0,9.19,2054,Sale Pending,-135,14.711
+2026-08-24,DVC Resale Market,BLA3638,https://www.dvcresalemarket.com/listings/bay-lake-tower/bla3638/,Bay Lake Tower,175,August,25200,144.0,8.74,2060,Available,175,12.663
+2026-08-24,DVC Resale Market,BCA2558,https://www.dvcresalemarket.com/listings/beach-club/bca2558/,Beach Club Villas,25,October,4375,175.0,9.81,2042,Offer Accepted,-25,24.782
+2026-08-24,DVC Resale Market,GFC3144,https://www.dvcresalemarket.com/listings/grand-floridian/gfc3144/,Grand Floridian Villas,200,October,35000,175.0,8.31,2064,Offer Accepted,-323,13.942
+2026-08-24,DVC Resale Market,BCA2557,https://www.dvcresalemarket.com/listings/beach-club/bca2557/,Beach Club Villas,100,October,15000,150.0,9.81,2042,Available,-200,22.403
+2026-08-24,DVC Resale Market,PLA4506,https://www.dvcresalemarket.com/listings/polynesian/pla4506/,Polynesian Villas,75,December,13575,181.0,8.33,2066,Offer Accepted,-64,13.703
+2026-08-24,DVC Resale Market,CC62983,https://www.dvcresalemarket.com/listings/copper-creek/cc62983/,Copper Creek Villas,100,March,14900,149.0,9.02,2068,Sale Pending,-31,13.027
+2026-08-24,DVC Resale Market,SS78487,https://www.dvcresalemarket.com/listings/saratoga-springs/ss78487/,Saratoga Springs,100,August,12000,120.0,9.19,2054,Sale Pending,0,13.943
+2026-08-24,DVC Resale Market,SSE8389,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8389/,Saratoga Springs,160,December,18560,116.0,9.19,2054,Offer Accepted,0,13.643
+2026-08-24,DVC Resale Market,BLA3735,https://www.dvcresalemarket.com/listings/bay-lake-tower/bla3735/,Bay Lake Tower,160,December,23040,144.0,8.74,2060,Sale Pending,0,13.24
+2026-08-24,DVC Resale Market,SSE8438,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8438/,Saratoga Springs,210,February,19530,93.0,9.19,2054,Available,-420,14.106
+2026-08-24,DVC Resale Market,AK26406,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak26406/,Animal Kingdom Villas,160,April,18240,114.0,10.16,2057,Available,-143,14.665
+2026-08-24,DVC Resale Market,BL23743,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl23743/,Bay Lake Tower,180,September,25380,141.0,8.74,2060,Available,-360,14.245
+2026-08-24,DVC Resale Market,OK94949,https://www.dvcresalemarket.com/listings/old-key-west/ok94949/,Old Key West,270,June,25650,95.0,11.21,2057,Sale Pending,-540,15.676
+2026-08-24,DVC Resale Market,BCB2145,https://www.dvcresalemarket.com/listings/beach-club/bcb2145/,Beach Club Villas,200,February,26000,130.0,9.81,2042,Sale Pending,-200,19.588
+2026-08-24,DVC Resale Market,PL34475,https://www.dvcresalemarket.com/listings/polynesian/pl34475/,Polynesian Villas,180,December,30960,172.0,8.33,2066,Available,0,12.849
+2026-08-24,DVC Resale Market,AK36332,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak36332/,Animal Kingdom Villas,160,December,19680,123.0,10.16,2057,Available,0,14.41
+2026-08-24,DVC Resale Market,HH71803,https://www.dvcresalemarket.com/listings/hilton-head/hh71803/,Hilton Head Island,30,August,2910,97.0,12.86,2042,Available,27,20.383
+2026-08-24,DVC Resale Market,GF63277,https://www.dvcresalemarket.com/listings/grand-floridian/gf63277/,Grand Floridian Villas,100,March,16000,160.0,8.31,2064,Sale Pending,-200,13.881
+2026-08-24,DVC Resale Market,BCB2554,https://www.dvcresalemarket.com/listings/beach-club/bcb2554/,Beach Club Villas,200,October,30600,153.0,9.81,2042,Available,-85,20.371
+2026-08-24,DVC Resale Market,PL34591,https://www.dvcresalemarket.com/listings/polynesian/pl34591/,Polynesian Villas,200,December,34000,170.0,8.33,2066,Sale Pending,-400,13.737
+2026-08-24,DVC Resale Market,GCF1838,https://www.dvcresalemarket.com/listings/grand-californian/gcf1838/,Grand Californian Villas,160,August,42720,267.0,9.52,2060,Offer Accepted,148,17.08
+2026-08-24,DVC Resale Market,SS78486,https://www.dvcresalemarket.com/listings/saratoga-springs/ss78486/,Saratoga Springs,200,February,20400,102.0,9.19,2054,Available,-200,13.763
+2026-08-24,DVC Resale Market,AK36322,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak36322/,Animal Kingdom Villas,100,October,11900,119.0,10.16,2057,Available,-134,15.236
+2026-08-24,DVC Resale Market,SSB8537,https://www.dvcresalemarket.com/listings/saratoga-springs/ssb8537/,Saratoga Springs,50,August,5900,118.0,9.19,2054,Sale Pending,-22,14.531
+2026-08-24,DVC Resale Market,BR21921,https://www.dvcresalemarket.com/listings/wilderness-lodge/br21921/,Boulder Ridge Villas,50,March,5500,110.0,9.77,2042,Available,-98,20.421
+2026-08-24,DVC Resale Market,OK24997,https://www.dvcresalemarket.com/listings/old-key-west/ok24997/,Old Key West,200,February,19800,99.0,11.21,2057,Available,-395,15.84
+2026-08-24,DVC Resale Market,RR22326,https://www.dvcresalemarket.com/listings/rivieraresort/rr22326/,Riviera Resort,50,April,6400,128.0,9.46,2070,Available,-100,13.769
+2026-08-24,DVC Resale Market,BCC2552,https://www.dvcresalemarket.com/listings/beach-club/bcc2552/,Beach Club Villas,100,March,13500,135.0,9.81,2042,Sale Pending,-99,20.254
+2026-08-24,DVC Resale Market,OK24991,https://www.dvcresalemarket.com/listings/old-key-west/ok24991/,Old Key West,230,September,20470,89.0,11.21,2042,Available,-439,19.422
+2026-08-24,DVC Resale Market,RRB2323,https://www.dvcresalemarket.com/listings/rivieraresort/rrb2323/,Riviera Resort,200,August,22400,112.0,9.46,2070,Sale Pending,-180,12.556
+2026-08-24,DVC Resale Market,AK86396,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak86396/,Animal Kingdom Villas,100,December,12700,127.0,10.16,2057,Available,-200,15.905
+2026-08-24,DVC Resale Market,BWA3337,https://www.dvcresalemarket.com/listings/boardwalk/bwa3337/,BoardWalk Villas,200,August,27000,135.0,9.67,2042,Available,-84,19.078
+2026-08-24,DVC Resale Market,CCE2981,https://www.dvcresalemarket.com/listings/copper-creek/cce2981/,Copper Creek Villas,50,August,8250,165.0,9.02,2068,Offer Accepted,50,13.077
+2026-08-24,DVC Resale Market,CCF2987,https://www.dvcresalemarket.com/listings/copper-creek/ccf2987/,Copper Creek Villas,150,June,19800,132.0,9.02,2068,Sale Pending,-135,12.792
+2026-08-24,DVC Resale Market,AUB3470,https://www.dvcresalemarket.com/listings/aulani/aub3470/,Aulani,250,February,26250,105.0,10.96,2062,Available,-491,15.089
+2026-08-24,DVC Resale Market,BCA2540,https://www.dvcresalemarket.com/listings/beach-club/bca2540/,Beach Club Villas,200,March,27000,135.0,9.81,2042,Sale Pending,-200,19.907
+2026-08-24,DVC Resale Market,OKE4964,https://www.dvcresalemarket.com/listings/old-key-west/oke4964/,Old Key West,350,September,29750,85.0,11.21,2042,Available,-351,17.99
+2026-08-24,DVC Resale Market,OK74983,https://www.dvcresalemarket.com/listings/old-key-west/ok74983/,Old Key West,50,April,5750,115.0,11.21,2042,Available,-50,21.034
+2026-08-24,DVC Resale Market,CCE2985,https://www.dvcresalemarket.com/listings/copper-creek/cce2985/,Copper Creek Villas,50,February,7300,146.0,9.02,2068,Sale Pending,-36,13.393
+2026-08-24,DVC Resale Market,DHB1121,https://www.dvcresalemarket.com/listings/disneyland-hotel/dhb1121/,Villas at Disneyland Hotel,150,August,22950,153.0,10.54,2073,Offer Accepted,-18,14.014
+2026-08-24,DVC Resale Market,AUF3500,https://www.dvcresalemarket.com/listings/aulani/auf3500/,Aulani,100,August,9700,97.0,10.96,2062,Available,-83,14.531
+2026-08-24,DVC Resale Market,DHA1125,https://www.dvcresalemarket.com/listings/disneyland-hotel/dha1125/,Villas at Disneyland Hotel,50,June,8000,160.0,10.54,2073,Offer Accepted,-33,14.714
+2026-08-24,DVC Resale Market,PLB4602,https://www.dvcresalemarket.com/listings/polynesian/plb4602/,Polynesian Villas,150,October,28350,189.0,8.33,2066,Offer Accepted,0,13.31
+2026-08-24,DVC Resale Market,AUC3491,https://www.dvcresalemarket.com/listings/aulani/auc3491/,Aulani,100,December,11000,110.0,10.96,2062,Offer Accepted,-14,14.528
+2026-08-24,DVC Resale Market,OKB4876,https://www.dvcresalemarket.com/listings/old-key-west/okb4876/,Old Key West,270,February,24840,92.0,11.21,2042,Available,-270,18.483
+2026-08-24,DVC Resale Market,RRA2325,https://www.dvcresalemarket.com/listings/rivieraresort/rra2325/,Riviera Resort,50,April,6500,130.0,9.46,2070,Available,-100,13.814
+2026-08-24,DVC Resale Market,SS88532,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88532/,Saratoga Springs,160,December,16320,102.0,9.19,2054,Available,-302,14.419
+2026-08-24,DVC Resale Market,AU33422,https://www.dvcresalemarket.com/listings/aulani/au33422/,Aulani,150,March,14400,96.0,10.96,2062,Available,-247,14.788
+2026-08-24,DVC Resale Market,OKG4956,https://www.dvcresalemarket.com/listings/old-key-west/okg4956/,Old Key West,100,June,9500,95.0,11.21,2042,Available,-65,18.694
+2026-08-24,DVC Resale Market,GF03299,https://www.dvcresalemarket.com/listings/grand-floridian/gf03299/,Grand Floridian Villas,50,August,9000,180.0,8.31,2064,Available,-34,14.039
+2026-08-24,DVC Resale Market,CCA2982,https://www.dvcresalemarket.com/listings/copper-creek/cca2982/,Copper Creek Villas,185,December,29045,157.0,9.02,2068,Available,-107,13.219
+2026-08-24,DVC Resale Market,SSA8527,https://www.dvcresalemarket.com/listings/saratoga-springs/ssa8527/,Saratoga Springs,225,December,28350,126.0,9.19,2054,Sale Pending,-29,14.02
+2026-08-24,DVC Resale Market,AU33474,https://www.dvcresalemarket.com/listings/aulani/au33474/,Aulani,500,September,46500,93.0,10.96,2062,Available,-500,14.159
+2026-08-24,DVC Resale Market,AU33476,https://www.dvcresalemarket.com/listings/aulani/au33476/,Aulani,500,September,46500,93.0,10.96,2062,Available,-500,14.159
+2026-08-24,DVC Resale Market,SSB8534,https://www.dvcresalemarket.com/listings/saratoga-springs/ssb8534/,Saratoga Springs,225,August,24075,107.0,9.19,2054,Available,0,13.241
+2026-08-24,DVC Resale Market,GFB3320,https://www.dvcresalemarket.com/listings/grand-floridian/gfb3320/,Grand Floridian Villas,140,August,25200,180.0,8.31,2064,Available,0,13.323
+2026-08-24,DVC Resale Market,AK96393,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak96393/,Animal Kingdom Villas,220,June,25960,118.0,10.16,2057,Offer Accepted,0,14.182
+2026-08-24,DVC Resale Market,SS98522,https://www.dvcresalemarket.com/listings/saratoga-springs/ss98522/,Saratoga Springs,150,December,16350,109.0,9.19,2054,Available,-300,14.766
+2026-08-24,DVC Resale Market,GCE1850,https://www.dvcresalemarket.com/listings/grand-californian/gce1850/,Grand Californian Villas,250,June,61250,245.0,9.52,2060,Available,124,16.594
+2026-08-24,DVC Resale Market,VB92584,https://www.dvcresalemarket.com/listings/vero-beach/vb92584/,Vero Beach,80,June,4960,62.0,14.89,2042,Sale Pending,-70,20.694
+2026-08-24,DVC Resale Market,SSC8510,https://www.dvcresalemarket.com/listings/saratoga-springs/ssc8510/,Saratoga Springs,210,December,22260,106.0,9.19,2054,Available,-237,13.985
+2026-08-24,DVC Resale Market,GC91849,https://www.dvcresalemarket.com/listings/grand-californian/gc91849/,Grand Californian Villas,75,February,21000,280.0,9.52,2060,Sale Pending,-5,18.262
+2026-08-24,DVC Resale Market,GC21852,https://www.dvcresalemarket.com/listings/grand-californian/gc21852/,Grand Californian Villas,100,August,26000,260.0,9.52,2060,Sale Pending,21,17.403
+2026-08-24,DVC Resale Market,SSB8462,https://www.dvcresalemarket.com/listings/saratoga-springs/ssb8462/,Saratoga Springs,132,October,14256,108.0,9.19,2054,Sale Pending,-115,14.001
+2026-08-24,DVC Resale Market,CC32978,https://www.dvcresalemarket.com/listings/copper-creek/cc32978/,Copper Creek Villas,100,December,14900,149.0,9.02,2068,Offer Accepted,-200,13.791
+2026-08-24,DVC Resale Market,GCE1846,https://www.dvcresalemarket.com/listings/grand-californian/gce1846/,Grand Californian Villas,200,June,49000,245.0,9.52,2060,Available,-262,17.638
+2026-08-24,DVC Resale Market,SSE8515,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8515/,Saratoga Springs,100,October,9900,99.0,9.19,2054,Sale Pending,-300,15.204
+2026-08-24,DVC Resale Market,SS28348,https://www.dvcresalemarket.com/listings/saratoga-springs/ss28348/,Saratoga Springs,160,December,16800,105.0,9.19,2054,Sale Pending,-320,14.603
+2026-08-24,DVC Resale Market,VB92603,https://www.dvcresalemarket.com/listings/vero-beach/vb92603/,Vero Beach,200,October,10600,53.0,14.89,2042,Available,-279,20.256
+2026-08-24,DVC Resale Market,CCE2958,https://www.dvcresalemarket.com/listings/copper-creek/cce2958/,Copper Creek Villas,50,February,7250,145.0,9.02,2068,Offer Accepted,-90,13.858
+2026-08-24,DVC Resale Market,BL23732,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl23732/,Bay Lake Tower,100,August,13500,135.0,8.74,2060,Sale Pending,-78,13.537
+2026-08-24,DVC Resale Market,PLA4606,https://www.dvcresalemarket.com/listings/polynesian/pla4606/,Polynesian Villas,100,December,17900,179.0,8.33,2066,Available,-179,14.0
+2026-08-24,DVC Resale Market,PL24603,https://www.dvcresalemarket.com/listings/polynesian/pl24603/,Polynesian Villas,150,February,26250,175.0,8.33,2066,Sale Pending,-150,13.428
+2026-08-24,DVC Resale Market,VBG2606,https://www.dvcresalemarket.com/listings/vero-beach/vbg2606/,Vero Beach,25,October,1675,67.0,14.89,2042,Sale Pending,-50,24.25
+2026-08-24,DVC Resale Market,SSF8484,https://www.dvcresalemarket.com/listings/saratoga-springs/ssf8484/,Saratoga Springs,200,December,19000,95.0,9.19,2054,Sale Pending,-400,14.19
+2026-08-24,DVC Resale Market,AK36383,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak36383/,Animal Kingdom Villas,180,December,18900,105.0,10.16,2057,Sale Pending,-360,15.022
+2026-08-24,DVC Resale Market,SSE8205,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8205/,Saratoga Springs,160,April,18080,113.0,9.19,2054,Sale Pending,0,13.536
+2026-08-24,DVC Resale Market,SS38536,https://www.dvcresalemarket.com/listings/saratoga-springs/ss38536/,Saratoga Springs,100,June,10500,105.0,9.19,2054,Available,-100,14.072
+2026-08-24,DVC Resale Market,SS38523,https://www.dvcresalemarket.com/listings/saratoga-springs/ss38523/,Saratoga Springs,150,June,16200,108.0,9.19,2054,Available,27,13.251
+2026-08-24,DVC Resale Market,SSB8520,https://www.dvcresalemarket.com/listings/saratoga-springs/ssb8520/,Saratoga Springs,50,December,6150,123.0,9.19,2054,Sale Pending,-50,15.104
+2026-08-24,DVC Resale Market,SSA8497,https://www.dvcresalemarket.com/listings/saratoga-springs/ssa8497/,Saratoga Springs,160,September,17440,109.0,9.19,2054,Available,-227,14.353
+2026-08-24,DVC Resale Market,SSA8507,https://www.dvcresalemarket.com/listings/saratoga-springs/ssa8507/,Saratoga Springs,60,September,7740,129.0,9.19,2054,Available,-60,15.189
+2026-08-24,DVC Resale Market,SSA8531,https://www.dvcresalemarket.com/listings/saratoga-springs/ssa8531/,Saratoga Springs,130,October,14820,114.0,9.19,2054,Available,-255,14.96
+2026-08-24,DVC Resale Market,GCB1828,https://www.dvcresalemarket.com/listings/grand-californian/gcb1828/,Grand Californian Villas,160,August,42080,263.0,9.52,2060,Offer Accepted,96,17.144
+2026-08-24,DVC Resale Market,AKC6330,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/akc6330/,Animal Kingdom Villas,220,June,23980,109.0,10.16,2057,Sale Pending,0,13.887
+2026-08-24,DVC Resale Market,PL84597,https://www.dvcresalemarket.com/listings/polynesian/pl84597/,Polynesian Villas,100,December,16700,167.0,8.33,2066,Sale Pending,-132,13.474
+2026-08-24,DVC Resale Market,SSB8519,https://www.dvcresalemarket.com/listings/saratoga-springs/ssb8519/,Saratoga Springs,50,December,6150,123.0,9.19,2054,Sale Pending,-50,15.104
+2026-08-24,DVC Resale Market,AKA6402,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/aka6402/,Animal Kingdom Villas,160,December,19360,121.0,10.16,2057,Available,-320,15.571
+2026-08-24,DVC Resale Market,SS68518,https://www.dvcresalemarket.com/listings/saratoga-springs/ss68518/,Saratoga Springs,200,December,24000,120.0,9.19,2054,Available,-109,14.104
+2026-08-24,DVC Resale Market,AKE6390,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ake6390/,Animal Kingdom Villas,160,June,17600,110.0,10.16,2057,Sale Pending,-164,14.615
+2026-08-24,DVC Resale Market,VBA2602,https://www.dvcresalemarket.com/listings/vero-beach/vba2602/,Vero Beach,150,March,9000,60.0,14.89,2042,Available,-21,19.323
+2026-08-24,DVC Resale Market,BWA3387,https://www.dvcresalemarket.com/listings/boardwalk/bwa3387/,BoardWalk Villas,440,March,51480,117.0,9.67,2042,Available,0,17.244
+2026-08-24,DVC Resale Market,RR22321,https://www.dvcresalemarket.com/listings/rivieraresort/rr22321/,Riviera Resort,300,October,34500,115.0,9.46,2070,Available,-595,13.056
+2026-08-24,DVC Resale Market,SS38463,https://www.dvcresalemarket.com/listings/saratoga-springs/ss38463/,Saratoga Springs,160,December,19680,123.0,9.19,2054,Sale Pending,0,13.895
+2026-08-24,DVC Resale Market,CC92988,https://www.dvcresalemarket.com/listings/copper-creek/cc92988/,Copper Creek Villas,55,February,8745,159.0,9.02,2068,Available,-40,13.662
+2026-08-24,DVC Resale Market,HHB1801,https://www.dvcresalemarket.com/listings/hilton-head/hhb1801/,Hilton Head Island,225,April,14625,65.0,12.86,2042,Sale Pending,-450,19.644
+2026-08-24,DVC Resale Market,AU23498,https://www.dvcresalemarket.com/listings/aulani/au23498/,Aulani,100,August,10500,105.0,10.96,2062,Available,86,13.862
+2026-08-24,DVC Resale Market,GC31847,https://www.dvcresalemarket.com/listings/grand-californian/gc31847/,Grand Californian Villas,160,February,40800,255.0,9.52,2060,Available,-103,17.603
+2026-08-24,DVC Resale Market,GF83314,https://www.dvcresalemarket.com/listings/grand-floridian/gf83314/,Grand Floridian Villas,150,August,26100,174.0,8.31,2064,Available,-137,13.607
+2026-08-24,DVC Resale Market,CC22990,https://www.dvcresalemarket.com/listings/copper-creek/cc22990/,Copper Creek Villas,175,February,26075,149.0,9.02,2068,Available,-175,13.223
+2026-08-24,DVC Resale Market,CC22989,https://www.dvcresalemarket.com/listings/copper-creek/cc22989/,Copper Creek Villas,50,February,7750,155.0,9.02,2068,Available,-50,13.734
+2026-08-24,DVC Resale Market,SSE8476,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8476/,Saratoga Springs,175,December,19950,114.0,9.19,2054,Sale Pending,0,13.547
+2026-08-24,DVC Resale Market,PL94588,https://www.dvcresalemarket.com/listings/polynesian/pl94588/,Polynesian Villas,75,September,14625,195.0,8.33,2066,Sale Pending,0,13.651
+2026-08-24,DVC Resale Market,CCE2979,https://www.dvcresalemarket.com/listings/copper-creek/cce2979/,Copper Creek Villas,50,February,8100,162.0,9.02,2068,Available,-36,13.783
+2026-08-24,DVC Resale Market,BW23404,https://www.dvcresalemarket.com/listings/boardwalk/bw23404/,BoardWalk Villas,50,February,7750,155.0,9.67,2042,Available,-50,22.044
+2026-08-24,DVC Resale Market,RR82305,https://www.dvcresalemarket.com/listings/rivieraresort/rr82305/,Riviera Resort,405,June,47385,117.0,9.46,2070,Sale Pending,-810,13.083
+2026-08-24,DVC Resale Market,AU83501,https://www.dvcresalemarket.com/listings/aulani/au83501/,Aulani,175,December,17325,99.0,10.96,2062,Available,-238,14.679
+2026-08-24,DVC Resale Market,VBA2588,https://www.dvcresalemarket.com/listings/vero-beach/vba2588/,Vero Beach,135,October,7425,55.0,14.89,2042,Available,-135,20.07
+2026-08-24,DVC Resale Market,HHA1797,https://www.dvcresalemarket.com/listings/hilton-head/hha1797/,Hilton Head Island,165,October,11385,69.0,12.86,2042,Available,-247,19.418
+2026-08-24,DVC Resale Market,RR62320,https://www.dvcresalemarket.com/listings/rivieraresort/rr62320/,Riviera Resort,200,June,22600,113.0,9.46,2070,Sale Pending,-399,13.052
+2026-08-24,DVC Resale Market,HHF1781,https://www.dvcresalemarket.com/listings/hilton-head/hhf1781/,Hilton Head Island,75,December,5925,79.0,12.86,2042,Sale Pending,-74,19.981
+2026-08-24,DVC Resale Market,OKB4990,https://www.dvcresalemarket.com/listings/old-key-west/okb4990/,Old Key West,75,September,10125,135.0,11.21,2057,Available,0,16.111
+2026-08-24,DVC Resale Market,AK86192,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak86192/,Animal Kingdom Villas,150,September,18600,124.0,10.16,2057,Sale Pending,0,14.459
+2026-08-24,DVC Resale Market,CC32986,https://www.dvcresalemarket.com/listings/copper-creek/cc32986/,Copper Creek Villas,200,December,27400,137.0,9.02,2068,Sale Pending,-200,12.914
+2026-08-24,DVC Resale Market,HH61799,https://www.dvcresalemarket.com/listings/hilton-head/hh61799/,Hilton Head Island,275,April,20625,75.0,12.86,2042,Sale Pending,0,17.836
+2026-08-24,DVC Resale Market,BW73364,https://www.dvcresalemarket.com/listings/boardwalk/bw73364/,BoardWalk Villas,100,June,13200,132.0,9.67,2042,Sale Pending,-100,19.938
+2026-08-24,DVC Resale Market,SS28339,https://www.dvcresalemarket.com/listings/saratoga-springs/ss28339/,Saratoga Springs,200,December,19200,96.0,9.19,2054,Sale Pending,-400,14.226
+2026-08-24,DVC Resale Market,AK86400,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak86400/,Animal Kingdom Villas,200,December,24600,123.0,10.16,2057,Available,-12,14.398
+2026-08-24,DVC Resale Market,VBC2583,https://www.dvcresalemarket.com/listings/vero-beach/vbc2583/,Vero Beach,200,December,10000,50.0,14.89,2042,Sale Pending,-400,20.787
+2026-08-24,DVC Resale Market,AK06399,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak06399/,Animal Kingdom Villas,228,October,24624,108.0,10.16,2057,Available,-442,15.037
+2026-08-24,DVC Resale Market,GCF1753,https://www.dvcresalemarket.com/listings/grand-californian/gcf1753/,Grand Californian Villas,100,August,26500,265.0,9.52,2060,Offer Accepted,0,17.667
+2026-08-24,DVC Resale Market,AU63495,https://www.dvcresalemarket.com/listings/aulani/au63495/,Aulani,100,March,10300,103.0,10.96,2062,Available,-199,15.31
+2026-08-24,DVC Resale Market,SSA8528,https://www.dvcresalemarket.com/listings/saratoga-springs/ssa8528/,Saratoga Springs,120,December,14760,123.0,9.19,2054,Available,-120,14.66
+2026-08-24,DVC Resale Market,BR21920,https://www.dvcresalemarket.com/listings/wilderness-lodge/br21920/,Boulder Ridge Villas,50,September,5900,118.0,9.77,2042,Available,-100,20.969
+2026-08-24,DVC Resale Market,SS28529,https://www.dvcresalemarket.com/listings/saratoga-springs/ss28529/,Saratoga Springs,200,October,21400,107.0,9.19,2054,Available,-200,13.943
+2026-08-24,DVC Resale Market,BL23737,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl23737/,Bay Lake Tower,200,February,29400,147.0,8.74,2060,Available,0,13.291
+2026-08-24,DVC Resale Market,BL23736,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl23736/,Bay Lake Tower,250,February,36500,146.0,8.74,2060,Available,0,13.232
+2026-08-24,DVC Resale Market,SS88521,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88521/,Saratoga Springs,50,September,6400,128.0,9.19,2054,Available,-100,15.961
+2026-08-24,DVC Resale Market,CCB2977,https://www.dvcresalemarket.com/listings/copper-creek/ccb2977/,Copper Creek Villas,150,August,21600,144.0,9.02,2068,Sale Pending,-205,13.292
+2026-08-24,DVC Resale Market,HHB1802,https://www.dvcresalemarket.com/listings/hilton-head/hhb1802/,Hilton Head Island,50,April,3500,70.0,12.86,2042,Available,-76,20.558
+2026-08-24,DVC Resale Market,HHF1791,https://www.dvcresalemarket.com/listings/hilton-head/hhf1791/,Hilton Head Island,25,June,2150,86.0,12.86,2042,Sale Pending,0,21.27
+2026-08-24,DVC Resale Market,BWB3401,https://www.dvcresalemarket.com/listings/boardwalk/bwb3401/,BoardWalk Villas,50,April,8500,170.0,9.67,2042,Available,0,21.819
+2026-08-24,DVC Resale Market,SS98250,https://www.dvcresalemarket.com/listings/saratoga-springs/ss98250/,Saratoga Springs,225,April,23625,105.0,9.19,2054,Sale Pending,-225,13.847
+2026-08-24,DVC Resale Market,OKB4967,https://www.dvcresalemarket.com/listings/old-key-west/okb4967/,Old Key West,200,June,17400,87.0,11.21,2042,Sale Pending,-167,18.07
+2026-08-24,DVC Resale Market,BWA3378,https://www.dvcresalemarket.com/listings/boardwalk/bwa3378/,BoardWalk Villas,200,March,25000,125.0,9.67,2042,Available,-197,19.111
+2026-08-24,DVC Resale Market,BCA2541,https://www.dvcresalemarket.com/listings/beach-club/bca2541/,Beach Club Villas,160,March,22400,140.0,9.81,2042,Sale Pending,-160,20.306
+2026-08-24,DVC Resale Market,AU83487,https://www.dvcresalemarket.com/listings/aulani/au83487/,Aulani,210,March,19110,91.0,10.96,2062,Offer Accepted,-210,14.225
+2026-08-24,DVC Resale Market,AKA6374,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/aka6374/,Animal Kingdom Villas,160,December,21760,136.0,10.16,2057,Sale Pending,0,14.833
+2026-08-24,DVC Resale Market,VBB2605,https://www.dvcresalemarket.com/listings/vero-beach/vbb2605/,Vero Beach,210,March,9450,45.0,14.89,2042,Sale Pending,-420,20.446
+2026-08-24,DVC Resale Market,RRA2319,https://www.dvcresalemarket.com/listings/rivieraresort/rra2319/,Riviera Resort,250,February,30500,122.0,9.46,2070,Available,-250,12.808
+2026-08-24,DVC Resale Market,AUB3477,https://www.dvcresalemarket.com/listings/aulani/aub3477/,Aulani,175,December,17500,100.0,10.96,2062,Offer Accepted,-275,14.818
+2026-08-24,DVC Resale Market,OK24978,https://www.dvcresalemarket.com/listings/old-key-west/ok24978/,Old Key West,220,December,20240,92.0,11.21,2042,Sale Pending,-220,18.548
+2026-08-24,DVC Resale Market,BL83547,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl83547/,Bay Lake Tower,160,October,22880,143.0,8.74,2060,Sale Pending,0,13.209
+2026-08-24,DVC Resale Market,SS88451,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88451/,Saratoga Springs,215,August,22790,106.0,9.19,2054,Sale Pending,0,13.213
+2026-08-24,DVC Resale Market,PLB4503,https://www.dvcresalemarket.com/listings/polynesian/plb4503/,Polynesian Villas,50,December,8700,174.0,8.33,2066,Sale Pending,-50,13.764
+2026-08-24,DVC Resale Market,GF03304,https://www.dvcresalemarket.com/listings/grand-floridian/gf03304/,Grand Floridian Villas,50,August,9300,186.0,8.31,2064,Available,-44,14.297
+2026-08-24,DVC Resale Market,DH31117,https://www.dvcresalemarket.com/listings/disneyland-hotel/dh31117/,Villas at Disneyland Hotel,150,August,23850,159.0,10.54,2073,Offer Accepted,35,13.999
+2026-08-24,DVC Resale Market,GCB1853,https://www.dvcresalemarket.com/listings/grand-californian/gcb1853/,Grand Californian Villas,200,August,50400,252.0,9.52,2060,Available,-175,17.601
+2026-08-24,DVC Resale Market,GFF3313,https://www.dvcresalemarket.com/listings/grand-floridian/gff3313/,Grand Floridian Villas,85,August,15300,180.0,8.31,2064,Available,-85,13.964
+2026-08-24,DVC Resale Market,BLF3704,https://www.dvcresalemarket.com/listings/bay-lake-tower/blf3704/,Bay Lake Tower,75,June,10275,137.0,8.74,2060,Sale Pending,-82,13.878
+2026-08-24,DVC Resale Market,HH31777,https://www.dvcresalemarket.com/listings/hilton-head/hh31777/,Hilton Head Island,100,June,6900,69.0,12.86,2042,Sale Pending,0,17.933
+2026-08-24,DVC Resale Market,BCA2553,https://www.dvcresalemarket.com/listings/beach-club/bca2553/,Beach Club Villas,170,February,25160,148.0,9.81,2042,Available,-114,20.396
+2026-08-24,DVC Resale Market,BWE3399,https://www.dvcresalemarket.com/listings/boardwalk/bwe3399/,BoardWalk Villas,100,October,12400,124.0,9.67,2042,Sale Pending,-200,20.613
+2026-08-24,DVC Resale Market,AK96381,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak96381/,Animal Kingdom Villas,200,December,23000,115.0,10.16,2057,Available,-190,14.684
+2026-08-24,DVC Resale Market,PL84595,https://www.dvcresalemarket.com/listings/polynesian/pl84595/,Polynesian Villas,110,December,18590,169.0,8.33,2066,Offer Accepted,-108,13.337
+2026-08-24,DVC Resale Market,BL33705,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl33705/,Bay Lake Tower,200,September,29800,149.0,8.74,2060,Sale Pending,0,13.35
+2026-08-24,DVC Resale Market,AUB3497,https://www.dvcresalemarket.com/listings/aulani/aub3497/,Aulani,200,June,19600,98.0,10.96,2062,Offer Accepted,-7,13.92
+2026-08-24,DVC Resale Market,SSE8517,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8517/,Saratoga Springs,200,October,18600,93.0,9.19,2054,Offer Accepted,-600,14.795
+2026-08-24,DVC Resale Market,BRB1915,https://www.dvcresalemarket.com/listings/wilderness-lodge/brb1915/,Boulder Ridge Villas,100,December,11400,114.0,9.77,2042,Available,-151,19.494
+2026-08-24,DVC Resale Market,BLC3733,https://www.dvcresalemarket.com/listings/bay-lake-tower/blc3733/,Bay Lake Tower,200,September,28000,140.0,8.74,2060,Sale Pending,-57,13.242
+2026-08-24,DVC Resale Market,BC22499,https://www.dvcresalemarket.com/listings/beach-club/bc22499/,Beach Club Villas,230,April,31050,135.0,9.81,2042,Sale Pending,-220,19.818
+2026-08-24,DVC Resale Market,CCE2984,https://www.dvcresalemarket.com/listings/copper-creek/cce2984/,Copper Creek Villas,150,December,20700,138.0,9.02,2068,Sale Pending,-150,12.982
+2026-08-24,DVC Resale Market,CCA2980,https://www.dvcresalemarket.com/listings/copper-creek/cca2980/,Copper Creek Villas,130,March,19370,149.0,9.02,2068,Sale Pending,-33,12.939
+2026-08-24,DVC Resale Market,BR21918,https://www.dvcresalemarket.com/listings/wilderness-lodge/br21918/,Boulder Ridge Villas,30,September,3720,124.0,9.77,2042,Sale Pending,-56,22.068
+2026-08-24,DVC Resale Market,PLA4344,https://www.dvcresalemarket.com/listings/polynesian/pla4344/,Polynesian Villas,50,December,9000,180.0,8.33,2066,Sale Pending,-50,13.925
+2026-08-24,DVC Resale Market,OKB4979,https://www.dvcresalemarket.com/listings/old-key-west/okb4979/,Old Key West,230,December,24840,108.0,11.21,2057,Available,-458,16.118
+2026-08-24,DVC Resale Market,BCB2490,https://www.dvcresalemarket.com/listings/beach-club/bcb2490/,Beach Club Villas,200,March,25000,125.0,9.81,2042,Sale Pending,-399,20.451
+2026-08-24,DVC Resale Market,VBE2589,https://www.dvcresalemarket.com/listings/vero-beach/vbe2589/,Vero Beach,50,August,4350,87.0,14.89,2042,Sale Pending,11,21.49
+2026-08-24,DVC Resale Market,PL34582,https://www.dvcresalemarket.com/listings/polynesian/pl34582/,Polynesian Villas,150,June,26250,175.0,8.33,2066,Sale Pending,-150,13.428
+2026-08-24,DVC Resale Market,VB82585,https://www.dvcresalemarket.com/listings/vero-beach/vb82585/,Vero Beach,150,June,8700,58.0,14.89,2042,Available,0,19.023
+2026-08-24,DVC Resale Market,BL83694,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl83694/,Bay Lake Tower,100,June,14400,144.0,8.74,2060,Available,52,13.079
+2026-08-24,DVC Resale Market,AU63499,https://www.dvcresalemarket.com/listings/aulani/au63499/,Aulani,115,March,12075,105.0,10.96,2062,Available,-115,14.786
+2026-08-24,DVC Resale Market,AKF6376,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/akf6376/,Animal Kingdom Villas,180,March,20880,116.0,10.16,2057,Available,-10,14.188
+2026-08-24,DVC Resale Market,SSE8328,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8328/,Saratoga Springs,450,February,43200,96.0,9.19,2054,Sale Pending,-409,13.374
+2026-08-24,DVC Resale Market,SS38502,https://www.dvcresalemarket.com/listings/saratoga-springs/ss38502/,Saratoga Springs,160,September,17440,109.0,9.19,2054,Available,-225,14.345
+2026-08-24,DVC Resale Market,BC32550,https://www.dvcresalemarket.com/listings/beach-club/bc32550/,Beach Club Villas,150,April,21750,145.0,9.81,2042,Available,-213,21.15
+2026-08-24,DVC Resale Market,SS88417,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88417/,Saratoga Springs,115,December,14260,124.0,9.19,2054,Sale Pending,-69,14.442
+2026-08-24,DVC Resale Market,OK94986,https://www.dvcresalemarket.com/listings/old-key-west/ok94986/,Old Key West,230,October,22540,98.0,11.21,2042,Available,-410,19.84
+2026-08-24,DVC Resale Market,SS88432,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88432/,Saratoga Springs,150,March,15750,105.0,9.19,2054,Sale Pending,-292,14.582
+2026-08-24,DVC Resale Market,AKE6391,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ake6391/,Animal Kingdom Villas,160,December,17600,110.0,10.16,2057,Available,-479,15.821
+2026-08-24,DVC Resale Market,AKC6269,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/akc6269/,Animal Kingdom Villas,250,August,27750,111.0,10.16,2057,Sale Pending,0,13.935
+2026-08-24,DVC Resale Market,BLA3725,https://www.dvcresalemarket.com/listings/bay-lake-tower/bla3725/,Bay Lake Tower,160,February,22400,140.0,8.74,2060,Sale Pending,-320,14.238
+2026-08-24,DVC Resale Market,GCB1845,https://www.dvcresalemarket.com/listings/grand-californian/gcb1845/,Grand Californian Villas,200,June,51800,259.0,9.52,2060,Available,0,17.318
+2026-08-24,DVC Resale Market,SSE8516,https://www.dvcresalemarket.com/listings/saratoga-springs/sse8516/,Saratoga Springs,100,October,10200,102.0,9.19,2054,Available,-252,14.996
+2026-08-24,DVC Resale Market,RR32301,https://www.dvcresalemarket.com/listings/rivieraresort/rr32301/,Riviera Resort,300,August,32400,108.0,9.46,2070,Sale Pending,-277,12.436
+2026-08-24,DVC Resale Market,AKA6388,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/aka6388/,Animal Kingdom Villas,100,August,13300,133.0,10.16,2057,Sale Pending,-2,14.891
+2026-08-24,DVC Resale Market,OKA4969,https://www.dvcresalemarket.com/listings/old-key-west/oka4969/,Old Key West,25,October,3250,130.0,11.21,2042,Sale Pending,-65,25.22
+2026-08-24,DVC Resale Market,BL73718,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl73718/,Bay Lake Tower,25,March,4075,163.0,8.74,2060,Sale Pending,-11,15.12
+2026-08-24,DVC Resale Market,OK24971,https://www.dvcresalemarket.com/listings/old-key-west/ok24971/,Old Key West,30,October,3870,129.0,11.21,2042,Available,-59,23.939
+2026-08-24,DVC Resale Market,SS78472,https://www.dvcresalemarket.com/listings/saratoga-springs/ss78472/,Saratoga Springs,150,September,15300,102.0,9.19,2054,Available,-446,15.172
+2026-08-24,DVC Resale Market,SSC8511,https://www.dvcresalemarket.com/listings/saratoga-springs/ssc8511/,Saratoga Springs,150,December,15150,101.0,9.19,2054,Available,-300,14.475
+2026-08-24,DVC Resale Market,OK74976,https://www.dvcresalemarket.com/listings/old-key-west/ok74976/,Old Key West,450,June,48150,107.0,11.21,2057,Available,450,14.178
+2026-08-24,DVC Resale Market,OKC4985,https://www.dvcresalemarket.com/listings/old-key-west/okc4985/,Old Key West,270,June,25110,93.0,11.21,2042,Available,2,17.354
+2026-08-24,DVC Resale Market,SS28514,https://www.dvcresalemarket.com/listings/saratoga-springs/ss28514/,Saratoga Springs,50,December,5950,119.0,9.19,2054,Available,-100,15.625
+2026-08-24,DVC Resale Market,SS28512,https://www.dvcresalemarket.com/listings/saratoga-springs/ss28512/,Saratoga Springs,100,December,11400,114.0,9.19,2054,Available,-200,15.079
+2026-08-24,DVC Resale Market,GCG1840,https://www.dvcresalemarket.com/listings/grand-californian/gcg1840/,Grand Californian Villas,160,December,42880,268.0,9.52,2060,Offer Accepted,0,17.626
+2026-08-24,DVC Resale Market,BLE3727,https://www.dvcresalemarket.com/listings/bay-lake-tower/ble3727/,Bay Lake Tower,200,February,26000,130.0,8.74,2060,Sale Pending,-400,13.9
+2026-08-24,DVC Resale Market,AKE6346,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ake6346/,Animal Kingdom Villas,160,June,17600,110.0,10.16,2057,Sale Pending,-61,14.22
+2026-08-24,DVC Resale Market,PLF4558,https://www.dvcresalemarket.com/listings/polynesian/plf4558/,Polynesian Villas,150,October,27000,180.0,8.33,2066,Sale Pending,-73,13.313
+2026-08-24,DVC Resale Market,OK84981,https://www.dvcresalemarket.com/listings/old-key-west/ok84981/,Old Key West,230,August,22770,99.0,11.21,2042,Available,-142,18.519
+2026-08-24,DVC Resale Market,SS88455,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88455/,Saratoga Springs,160,June,20160,126.0,9.19,2054,Sale Pending,160,13.326
+2026-08-24,DVC Resale Market,OK94948,https://www.dvcresalemarket.com/listings/old-key-west/ok94948/,Old Key West,150,August,15600,104.0,11.21,2042,Available,0,18.272
+2026-08-24,DVC Resale Market,RRB2303,https://www.dvcresalemarket.com/listings/rivieraresort/rrb2303/,Riviera Resort,500,August,55500,111.0,9.46,2070,Sale Pending,0,12.069
+2026-08-24,DVC Resale Market,GF23311,https://www.dvcresalemarket.com/listings/grand-floridian/gf23311/,Grand Floridian Villas,90,April,14310,159.0,8.31,2064,Available,-269,14.38
+2026-08-24,DVC Resale Market,BW23018,https://www.dvcresalemarket.com/listings/boardwalk/bw23018/,BoardWalk Villas,270,June,34290,127.0,9.67,2042,Sale Pending,-270,19.179
+2026-08-24,DVC Resale Market,VBE2601,https://www.dvcresalemarket.com/listings/vero-beach/vbe2601/,Vero Beach,500,October,26000,52.0,14.89,2042,Available,-964,20.616
+2026-08-24,DVC Resale Market,AUE3494,https://www.dvcresalemarket.com/listings/aulani/aue3494/,Aulani,150,August,15750,105.0,10.96,2062,Available,-114,14.57
+2026-08-24,DVC Resale Market,AK76356,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak76356/,Animal Kingdom Villas,150,March,16800,112.0,10.16,2057,Sale Pending,-28,14.182
+2026-08-24,DVC Resale Market,BC22518,https://www.dvcresalemarket.com/listings/beach-club/bc22518/,Beach Club Villas,220,March,26840,122.0,9.81,2042,Sale Pending,-405,20.044
+2026-08-24,DVC Resale Market,GFA3306,https://www.dvcresalemarket.com/listings/grand-floridian/gfa3306/,Grand Floridian Villas,250,February,42500,170.0,8.31,2064,Sale Pending,-177,13.321
+2026-08-24,DVC Resale Market,SSC8493,https://www.dvcresalemarket.com/listings/saratoga-springs/ssc8493/,Saratoga Springs,220,August,21560,98.0,9.19,2054,Sale Pending,-268,13.747
+2026-08-24,DVC Resale Market,PL24571,https://www.dvcresalemarket.com/listings/polynesian/pl24571/,Polynesian Villas,220,June,35860,163.0,8.33,2066,Sale Pending,-440,13.545
+2026-08-24,DVC Resale Market,BW73370,https://www.dvcresalemarket.com/listings/boardwalk/bw73370/,BoardWalk Villas,314,February,36424,116.0,9.67,2042,Sale Pending,-254,18.215
+2026-08-24,DVC Resale Market,VB92587,https://www.dvcresalemarket.com/listings/vero-beach/vb92587/,Vero Beach,220,February,12980,59.0,14.89,2042,Available,-81,19.387
+2026-08-24,DVC Resale Market,AKE6370,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ake6370/,Animal Kingdom Villas,300,June,30900,103.0,10.16,2057,Sale Pending,-300,14.265
+2026-08-24,DVC Resale Market,SSF8200,https://www.dvcresalemarket.com/listings/saratoga-springs/ssf8200/,Saratoga Springs,160,October,17600,110.0,9.19,2054,Available,-281,14.618
+2026-08-24,DVC Resale Market,BWA3374,https://www.dvcresalemarket.com/listings/boardwalk/bwa3374/,BoardWalk Villas,250,February,32500,130.0,9.67,2042,Available,-250,19.387
+2026-08-24,DVC Resale Market,SS88501,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88501/,Saratoga Springs,150,September,16200,108.0,9.19,2054,Available,-150,14.052
+2026-08-24,DVC Resale Market,SS88504,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88504/,Saratoga Springs,130,September,14300,110.0,9.19,2054,Available,-130,14.165
+2026-08-24,DVC Resale Market,AKE6280,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ake6280/,Animal Kingdom Villas,300,June,30900,103.0,10.16,2057,Sale Pending,-300,14.265
+2026-08-24,DVC Resale Market,SS88458,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88458/,Saratoga Springs,115,August,12535,109.0,9.19,2054,Sale Pending,0,13.489
+2026-08-24,DVC Resale Market,GF73283,https://www.dvcresalemarket.com/listings/grand-floridian/gf73283/,Grand Floridian Villas,100,April,18000,180.0,8.31,2064,Sale Pending,0,13.412
+2026-08-24,DVC Resale Market,BC32549,https://www.dvcresalemarket.com/listings/beach-club/bc32549/,Beach Club Villas,100,December,17000,170.0,9.81,2042,Sale Pending,0,21.297
+2026-08-24,DVC Resale Market,AUC3479,https://www.dvcresalemarket.com/listings/aulani/auc3479/,Aulani,200,August,21000,105.0,10.96,2062,Offer Accepted,200,13.568
+2026-08-24,DVC Resale Market,GF33305,https://www.dvcresalemarket.com/listings/grand-floridian/gf33305/,Grand Floridian Villas,250,February,39750,159.0,8.31,2064,Sale Pending,-491,13.656
+2026-08-24,DVC Resale Market,BW23020,https://www.dvcresalemarket.com/listings/boardwalk/bw23020/,BoardWalk Villas,150,October,19500,130.0,9.67,2042,Available,-284,20.626
+2026-08-24,DVC Resale Market,SS88491,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88491/,Saratoga Springs,160,February,18080,113.0,9.19,2054,Sale Pending,-91,13.922
+2026-08-24,DVC Resale Market,RR92310,https://www.dvcresalemarket.com/listings/rivieraresort/rr92310/,Riviera Resort,150,December,20850,139.0,9.46,2070,Sale Pending,-2,12.838
+2026-08-24,DVC Resale Market,SS98503,https://www.dvcresalemarket.com/listings/saratoga-springs/ss98503/,Saratoga Springs,200,December,23800,119.0,9.19,2054,Sale Pending,0,13.697
+2026-08-24,DVC Resale Market,AU33473,https://www.dvcresalemarket.com/listings/aulani/au33473/,Aulani,320,December,33280,104.0,10.96,2062,Available,0,13.986
+2026-08-24,DVC Resale Market,OK64946,https://www.dvcresalemarket.com/listings/old-key-west/ok64946/,Old Key West,230,June,20700,90.0,11.21,2042,Sale Pending,0,17.218
+2026-08-24,DVC Resale Market,GF63292,https://www.dvcresalemarket.com/listings/grand-floridian/gf63292/,Grand Floridian Villas,75,August,12525,167.0,8.31,2064,Sale Pending,13,13.077
+2026-08-24,DVC Resale Market,AUC3485,https://www.dvcresalemarket.com/listings/aulani/auc3485/,Aulani,150,March,13800,92.0,10.96,2062,Offer Accepted,-150,14.336
+2026-08-24,DVC Resale Market,BLG3693,https://www.dvcresalemarket.com/listings/bay-lake-tower/blg3693/,Bay Lake Tower,160,December,21760,136.0,8.74,2060,Sale Pending,-320,14.118
+2026-08-24,DVC Resale Market,RRA1204,https://www.dvcresalemarket.com/listings/rivieraresort/rra1204/,Riviera Resort,150,December,19500,130.0,9.46,2070,Available,-295,13.476
+2026-08-24,DVC Resale Market,BCB2509,https://www.dvcresalemarket.com/listings/beach-club/bcb2509/,Beach Club Villas,175,February,25025,143.0,9.81,2042,Available,-165,20.392
+2026-08-24,DVC Resale Market,GFE3293,https://www.dvcresalemarket.com/listings/grand-floridian/gfe3293/,Grand Floridian Villas,532,June,74480,140.0,8.31,2064,Sale Pending,-930,12.979
+2026-08-24,DVC Resale Market,SSG6351,https://www.dvcresalemarket.com/listings/saratoga-springs/ssg6351/,Saratoga Springs,100,December,11000,110.0,9.19,2054,Sale Pending,-100,14.258
+2026-08-24,DVC Resale Market,SSB8430,https://www.dvcresalemarket.com/listings/saratoga-springs/ssb8430/,Saratoga Springs,200,June,22000,110.0,9.19,2054,Sale Pending,0,13.374
+2026-08-24,DVC Resale Market,BL93726,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl93726/,Bay Lake Tower,100,February,14700,147.0,8.74,2060,Sale Pending,-94,13.983
+2026-08-24,DVC Resale Market,AKF6271,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/akf6271/,Animal Kingdom Villas,160,December,18080,113.0,10.16,2057,Available,-252,15.051
+2026-08-24,DVC Resale Market,BL93690,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl93690/,Bay Lake Tower,50,October,7350,147.0,8.74,2060,Sale Pending,-71,14.562
+2026-08-24,DVC Resale Market,BWB3189,https://www.dvcresalemarket.com/listings/boardwalk/bwb3189/,BoardWalk Villas,250,August,34750,139.0,9.67,2042,Sale Pending,237,17.646
+2026-08-24,DVC Resale Market,AUC3490,https://www.dvcresalemarket.com/listings/aulani/auc3490/,Aulani,220,June,22880,104.0,10.96,2062,Available,180,13.617
+2026-08-24,DVC Resale Market,VB62600,https://www.dvcresalemarket.com/listings/vero-beach/vb62600/,Vero Beach,225,June,14175,63.0,14.89,2042,Available,0,19.199
+2026-08-24,DVC Resale Market,AKE6379,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ake6379/,Animal Kingdom Villas,160,October,18400,115.0,10.16,2057,Available,-315,15.356
+2026-08-24,DVC Resale Market,HH71786,https://www.dvcresalemarket.com/listings/hilton-head/hh71786/,Hilton Head Island,50,October,3500,70.0,12.86,2042,Sale Pending,-100,21.128
+2026-08-24,DVC Resale Market,GF33301,https://www.dvcresalemarket.com/listings/grand-floridian/gf33301/,Grand Floridian Villas,100,October,18000,180.0,8.31,2064,Sale Pending,-30,13.562
+2026-08-24,DVC Resale Market,SS78398,https://www.dvcresalemarket.com/listings/saratoga-springs/ss78398/,Saratoga Springs,50,December,6000,120.0,9.19,2054,Available,-100,15.675
+2026-08-24,DVC Resale Market,SSG8498,https://www.dvcresalemarket.com/listings/saratoga-springs/ssg8498/,Saratoga Springs,150,December,17250,115.0,9.19,2054,Available,-328,15.109
+2026-08-24,DVC Resale Market,AK76259,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak76259/,Animal Kingdom Villas,320,December,40000,125.0,10.16,2057,Available,-320,14.978
+2026-08-24,DVC Resale Market,SS78317,https://www.dvcresalemarket.com/listings/saratoga-springs/ss78317/,Saratoga Springs,316,September,34444,109.0,9.19,2054,Available,-632,14.627
+2026-08-24,DVC Resale Market,SSC8489,https://www.dvcresalemarket.com/listings/saratoga-springs/ssc8489/,Saratoga Springs,50,October,6350,127.0,9.19,2054,Available,-99,15.911
+2026-08-24,DVC Resale Market,OK74966,https://www.dvcresalemarket.com/listings/old-key-west/ok74966/,Old Key West,36,March,4392,122.0,11.21,2042,Available,0,20.812
+2026-08-24,DVC Resale Market,SS88490,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88490/,Saratoga Springs,75,March,9675,129.0,9.19,2054,Available,0,14.387
+2026-08-24,DVC Resale Market,AUC3484,https://www.dvcresalemarket.com/listings/aulani/auc3484/,Aulani,375,March,33375,89.0,10.96,2062,Available,-336,14.022
+2026-08-24,DVC Resale Market,OK24974,https://www.dvcresalemarket.com/listings/old-key-west/ok24974/,Old Key West,50,October,6100,122.0,11.21,2042,Available,-84,22.304
+2026-08-24,DVC Resale Market,SS28494,https://www.dvcresalemarket.com/listings/saratoga-springs/ss28494/,Saratoga Springs,25,August,3550,142.0,9.19,2054,Available,-25,16.539
+2026-08-24,DVC Resale Market,SS88475,https://www.dvcresalemarket.com/listings/saratoga-springs/ss88475/,Saratoga Springs,100,June,11600,116.0,9.19,2054,Available,-93,14.424
+2026-08-24,DVC Resale Market,GF23288,https://www.dvcresalemarket.com/listings/grand-floridian/gf23288/,Grand Floridian Villas,50,August,9300,186.0,8.31,2064,Available,0,13.857
+2026-08-24,DVC Resale Market,AKC6372,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/akc6372/,Animal Kingdom Villas,250,August,27750,111.0,10.16,2057,Available,0,13.935
+2026-08-24,DVC Resale Market,BWB3350,https://www.dvcresalemarket.com/listings/boardwalk/bwb3350/,BoardWalk Villas,150,March,18000,120.0,9.67,2042,Available,-298,20.108
+2026-08-24,DVC Resale Market,BC22514,https://www.dvcresalemarket.com/listings/beach-club/bc22514/,Beach Club Villas,240,December,32400,135.0,9.81,2042,Available,-480,21.044
+2026-08-24,DVC Resale Market,GCB1829,https://www.dvcresalemarket.com/listings/grand-californian/gcb1829/,Grand Californian Villas,160,August,39840,249.0,9.52,2060,Available,-155,17.608
+2026-08-24,DVC Resale Market,GC61830,https://www.dvcresalemarket.com/listings/grand-californian/gc61830/,Grand Californian Villas,400,August,100000,250.0,9.52,2060,Available,176,16.721
+2026-08-24,DVC Resale Market,SSB8374,https://www.dvcresalemarket.com/listings/saratoga-springs/ssb8374/,Saratoga Springs,275,April,27500,100.0,9.19,2054,Available,-548,14.31
+2026-08-24,DVC Resale Market,BLA3724,https://www.dvcresalemarket.com/listings/bay-lake-tower/bla3724/,Bay Lake Tower,50,February,7500,150.0,8.74,2060,Available,-99,14.964
+2026-08-24,DVC Resale Market,AUC3489,https://www.dvcresalemarket.com/listings/aulani/auc3489/,Aulani,220,October,20680,94.0,10.96,2062,Available,-360,14.634
+2026-08-24,DVC Resale Market,AU83483,https://www.dvcresalemarket.com/listings/aulani/au83483/,Aulani,330,March,29700,90.0,10.96,2062,Available,-286,14.05
+2026-08-24,DVC Resale Market,AU83488,https://www.dvcresalemarket.com/listings/aulani/au83488/,Aulani,400,March,35200,88.0,10.96,2062,Available,-400,14.042
+2026-08-24,DVC Resale Market,OK74961,https://www.dvcresalemarket.com/listings/old-key-west/ok74961/,Old Key West,210,August,19740,94.0,11.21,2042,Available,0,17.501
+2026-08-24,DVC Resale Market,OKA2366,https://www.dvcresalemarket.com/listings/old-key-west/oka2366/,Old Key West,150,June,15000,100.0,11.21,2042,Available,-95,18.774
+2026-08-24,DVC Resale Market,AKA6373,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/aka6373/,Animal Kingdom Villas,150,August,17250,115.0,10.16,2057,Available,-299,15.388
+2026-08-24,DVC Resale Market,AU63364,https://www.dvcresalemarket.com/listings/aulani/au63364/,Aulani,300,August,33000,110.0,10.96,2062,Available,200,13.81
+2026-08-24,DVC Resale Market,HHB1798,https://www.dvcresalemarket.com/listings/hilton-head/hhb1798/,Hilton Head Island,200,August,15000,75.0,12.86,2042,Available,-172,18.96
+2026-08-24,DVC Resale Market,OK24952,https://www.dvcresalemarket.com/listings/old-key-west/ok24952/,Old Key West,50,March,5500,110.0,11.21,2042,Sale Pending,-48,20.674
+2026-08-24,DVC Resale Market,GFB3284,https://www.dvcresalemarket.com/listings/grand-floridian/gfb3284/,Grand Floridian Villas,200,December,33000,165.0,8.31,2064,Sale Pending,-314,13.653
+2026-08-24,DVC Resale Market,CCB2961,https://www.dvcresalemarket.com/listings/copper-creek/ccb2961/,Copper Creek Villas,75,August,11700,156.0,9.02,2068,Sale Pending,0,13.143
+2026-08-24,DVC Resale Market,BLA3699,https://www.dvcresalemarket.com/listings/bay-lake-tower/bla3699/,Bay Lake Tower,25,April,4150,166.0,8.74,2060,Sale Pending,0,14.962
+2026-08-24,DVC Resale Market,BC82543,https://www.dvcresalemarket.com/listings/beach-club/bc82543/,Beach Club Villas,250,February,33750,135.0,9.81,2042,Available,-500,21.032
+2026-08-24,DVC Resale Market,PLE4579,https://www.dvcresalemarket.com/listings/polynesian/ple4579/,Polynesian Villas,100,April,17500,175.0,8.33,2066,Available,-106,13.553
+2026-08-24,DVC Resale Market,BCE2542,https://www.dvcresalemarket.com/listings/beach-club/bce2542/,Beach Club Villas,130,March,21190,163.0,9.81,2042,Available,0,20.68
+2026-08-24,DVC Resale Market,GC21810,https://www.dvcresalemarket.com/listings/grand-californian/gc21810/,Grand Californian Villas,130,August,33020,254.0,9.52,2060,Available,-44,17.453
+2026-08-24,DVC Resale Market,AUB3414,https://www.dvcresalemarket.com/listings/aulani/aub3414/,Aulani,100,August,11000,110.0,10.96,2062,Available,0,14.454
+2026-08-24,DVC Resale Market,AUB3357,https://www.dvcresalemarket.com/listings/aulani/aub3357/,Aulani,100,August,11000,110.0,10.96,2062,Available,0,14.454
+2026-08-24,DVC Resale Market,RRB2302,https://www.dvcresalemarket.com/listings/rivieraresort/rrb2302/,Riviera Resort,500,August,52000,104.0,9.46,2070,Available,-448,12.295
+2026-08-24,DVC Resale Market,HH61788,https://www.dvcresalemarket.com/listings/hilton-head/hh61788/,Hilton Head Island,300,October,21000,70.0,12.86,2042,Available,-292,18.656
+2026-08-24,DVC Resale Market,AK26368,https://www.dvcresalemarket.com/listings/animal-kingdom-lodge/ak26368/,Animal Kingdom Villas,160,December,17440,109.0,10.16,2057,Available,-320,15.18
+2026-08-24,DVC Resale Market,VBC2592,https://www.dvcresalemarket.com/listings/vero-beach/vbc2592/,Vero Beach,200,August,12000,60.0,14.89,2042,Available,-200,20.237
+2026-08-24,DVC Resale Market,GC91848,https://www.dvcresalemarket.com/listings/grand-californian/gc91848/,Grand Californian Villas,160,June,40640,254.0,9.52,2060,Available,-160,17.773
+2026-08-24,DVC Resale Market,SSB8363,https://www.dvcresalemarket.com/listings/saratoga-springs/ssb8363/,Saratoga Springs,250,December,25750,103.0,9.19,2054,Available,-498,14.43
+2026-08-24,DVC Resale Market,BCB2411,https://www.dvcresalemarket.com/listings/beach-club/bcb2411/,Beach Club Villas,250,March,34750,139.0,9.81,2042,Available,-223,19.971
+2026-08-24,DVC Resale Market,BCE2536,https://www.dvcresalemarket.com/listings/beach-club/bce2536/,Beach Club Villas,100,February,15500,155.0,9.81,2042,Available,-92,21.433
+2026-08-24,DVC Resale Market,VB82581,https://www.dvcresalemarket.com/listings/vero-beach/vb82581/,Vero Beach,230,June,13800,60.0,14.89,2042,Available,-230,20.189
+2026-08-24,DVC Resale Market,BLC3707,https://www.dvcresalemarket.com/listings/bay-lake-tower/blc3707/,Bay Lake Tower,50,February,7750,155.0,8.74,2060,Available,-50,14.563
+2026-08-24,DVC Resale Market,SSC8447,https://www.dvcresalemarket.com/listings/saratoga-springs/ssc8447/,Saratoga Springs,160,September,17600,110.0,9.19,2054,Available,-279,14.61
+2026-08-24,DVC Resale Market,VBA2586,https://www.dvcresalemarket.com/listings/vero-beach/vba2586/,Vero Beach,250,March,15500,62.0,14.89,2042,Available,0,19.102
+2026-08-24,DVC Resale Market,BCC2339,https://www.dvcresalemarket.com/listings/beach-club/bcc2339/,Beach Club Villas,150,February,21600,144.0,9.81,2042,Available,-171,20.755
+2026-08-24,DVC Resale Market,SSB8443,https://www.dvcresalemarket.com/listings/saratoga-springs/ssb8443/,Saratoga Springs,210,February,21000,100.0,9.19,2054,Available,-418,14.353
+2026-08-24,DVC Resale Market,GC21825,https://www.dvcresalemarket.com/listings/grand-californian/gc21825/,Grand Californian Villas,250,June,60750,243.0,9.52,2060,Available,-471,17.865
+2026-08-24,DVC Resale Market,GC21768,https://www.dvcresalemarket.com/listings/grand-californian/gc21768/,Grand Californian Villas,210,October,52080,248.0,9.52,2060,Available,-420,18.104
+2026-08-24,DVC Resale Market,DHB1101,https://www.dvcresalemarket.com/listings/disneyland-hotel/dhb1101/,Villas at Disneyland Hotel,150,September,23100,154.0,10.54,2073,Available,-300,14.795
+2026-08-24,DVC Resale Market,CCE2931,https://www.dvcresalemarket.com/listings/copper-creek/cce2931/,Copper Creek Villas,75,October,11175,149.0,9.02,2068,Available,-150,13.882
+2026-08-24,DVC Resale Market,CCE2941,https://www.dvcresalemarket.com/listings/copper-creek/cce2941/,Copper Creek Villas,75,October,11175,149.0,9.02,2068,Available,-150,13.882
+2026-08-24,DVC Resale Market,BL53482,https://www.dvcresalemarket.com/listings/bay-lake-tower/bl53482/,Bay Lake Tower,160,December,23200,145.0,8.74,2060,Available,-300,14.317
+2026-08-24,DVC Resale Market,AUE3424,https://www.dvcresalemarket.com/listings/aulani/aue3424/,Aulani,50,February,5350,107.0,10.96,2062,Available,-50,15.338
+2026-08-24,DVC Resale Market,AU23455,https://www.dvcresalemarket.com/listings/aulani/au23455/,Aulani,100,June,10400,104.0,10.96,2062,Available,-200,15.343
+2026-08-24,The DVC Store,AR150-12-0213,https://www.dvcstore.com/resort/aulani/ar150-12-0213/,Aulani,150,December,15750,105.0,10.9572,2062,Available,0,14.166
+2026-08-24,The DVC Store,AK140-12-0225,https://www.dvcstore.com/resort/animal-kingdom/ak140-12-0225/,Animal Kingdom Villas,140,December,15400,110.0,10.1608,2057,Sold,21,13.877
+2026-08-24,The DVC Store,AK200-10-0112-1,https://www.dvcstore.com/resort/animal-kingdom/ak200-10-0112-1/,Animal Kingdom Villas,200,October,20000,100.0,10.1608,2057,Sold,-399,14.8
+2026-08-24,The DVC Store,AK200-12-1018,https://www.dvcstore.com/resort/animal-kingdom/ak200-12-1018/,Animal Kingdom Villas,200,December,20600,103.0,10.1608,2057,Sold,4,13.664
+2026-08-24,The DVC Store,AK200-12-1102,https://www.dvcstore.com/resort/animal-kingdom/ak200-12-1102/,Animal Kingdom Villas,200,December,22400,112.0,10.1608,2057,Sold,30,13.876
+2026-08-24,The DVC Store,BLT160-02-1208,https://www.dvcstore.com/resort/bay-lake-tower/blt160-02-1208/,Bay Lake Tower,160,February,20000,125.0,8.7415,2060,Sold,-160,13.195
+2026-08-24,The DVC Store,BLT210-02-1112-1,https://www.dvcstore.com/resort/bay-lake-tower/blt210-02-1112-1/,Bay Lake Tower,210,February,28980,138.0,8.7415,2060,Sold,101,12.71
+2026-08-24,The DVC Store,BW150-09-1213,https://www.dvcstore.com/resort/boardwalk-villas/bw150-09-1213/,BoardWalk Villas,150,September,17250,115.0,9.7617,2042,Sold,-83,18.088
+2026-08-24,The DVC Store,GCAL200-06-1210,https://www.dvcstore.com/resort/grand-californian/gcal200-06-1210/,Grand Californian Villas,200,June,49000,245.0,9.5203,2060,Sold,-199,17.46
+2026-08-24,The DVC Store,GF080-04-1012,https://www.dvcstore.com/resort/grand-floridian/gf080-04-1012/,Grand Floridian Villas,80,April,13200,165.0,8.3142,2064,Sold,-80,13.512
+2026-08-24,The DVC Store,GF276-08-0317,https://www.dvcstore.com/resort/grand-floridian/gf276-08-0317/,Grand Floridian Villas,276,August,41124,149.0,8.3142,2064,Sold,-276,12.873
+2026-08-24,The DVC Store,GF100-04-0428,https://www.dvcstore.com/resort/grand-floridian/gf100-04-0428/,Grand Floridian Villas,100,April,15800,158.0,8.3142,2064,Sold,0,12.771
+2026-08-24,The DVC Store,HH200-09-0918,https://www.dvcstore.com/resort/hilton-head/hh200-09-0918/,Hilton Head Island,200,September,10000,50.0,12.8621,2042,Sold,-200,17.561
+2026-08-24,The DVC Store,HH210-12-1113,https://www.dvcstore.com/resort/hilton-head/hh210-12-1113/,Hilton Head Island,210,December,12600,60.0,12.8621,2042,Sold,-191,18.063
+2026-08-24,The DVC Store,OKW100-02-0123,https://www.dvcstore.com/resort/old-key-west/okw100-02-0123/,Old Key West,100,February,8600,86.0,11.2054,2042,Sold,-100,18.407
+2026-08-24,The DVC Store,OKW150-06-1208,https://www.dvcstore.com/resort/old-key-west/okw150-06-1208/,Old Key West,150,June,12300,82.0,11.2054,2042,Sold,-7,16.834
+2026-08-24,The DVC Store,OKW2057230-04-1209,https://www.dvcstore.com/resort/old-key-west-2057/okw2057230-04-1209/,Old Key West (2057),230,April,20470,89.0,11.2054,2057,Sold,-115,14.549
+2026-08-24,The DVC Store,OKW210-04-1110,https://www.dvcstore.com/resort/old-key-west/okw210-04-1110/,Old Key West,210,April,17640,84.0,11.2054,2042,Sold,210,15.609
+2026-08-24,The DVC Store,OKW230-04-1124,https://www.dvcstore.com/resort/old-key-west/okw230-04-1124/,Old Key West,230,April,16790,73.0,11.2054,2042,Sold,22,15.964
+2026-08-24,The DVC Store,RV300-08-0819,https://www.dvcstore.com/resort/riviera/rv300-08-0819/,Riviera Resort,300,August,33000,110.0,9.4553,2070,Sold,0,12.056
+2026-08-24,The DVC Store,SS160-06-1215,https://www.dvcstore.com/resort/saratoga-springs/ss160-06-1215/,Saratoga Springs,160,June,15360,96.0,9.1877,2054,Sold,51,12.652
+2026-08-24,The DVC Store,SS150-09-1126,https://www.dvcstore.com/resort/saratoga-springs/ss150-09-1126/,Saratoga Springs,150,September,15000,100.0,9.1877,2054,Sold,0,13.028
+2026-08-24,The DVC Store,SS180-09-1013,https://www.dvcstore.com/resort/saratoga-springs/ss180-09-1013/,Saratoga Springs,180,September,17280,96.0,9.1877,2054,Sold,-179,13.517
+2026-08-24,The DVC Store,SS500-02-1021,https://www.dvcstore.com/resort/saratoga-springs/ss500-02-1021/,Saratoga Springs,500,February,44000,88.0,9.1877,2054,Sold,-500,13.114
+2026-08-24,The DVC Store,VB150-02-1031,https://www.dvcstore.com/resort/vero-beach/vb150-02-1031/,Vero Beach,150,February,6900,46.0,14.8939,2042,Sold,15,18.072
+2026-08-24,The DVC Store,VB150-02-1209,https://www.dvcstore.com/resort/vero-beach/vb150-02-1209/,Vero Beach,150,February,6450,43.0,14.8939,2042,Sold,8,17.937
+2026-08-24,The DVC Store,VB210-03-0708-1,https://www.dvcstore.com/resort/vero-beach/vb210-03-0708-1/,Vero Beach,210,March,9450,45.0,14.8939,2042,Sold,0,18.011
+2026-08-24,The DVC Store,VB210-12-1216,https://www.dvcstore.com/resort/vero-beach/vb210-12-1216/,Vero Beach,210,December,7980,38.0,14.8939,2042,Sold,-210,18.759
+2026-08-24,The DVC Store,VB225-08-1112-1,https://www.dvcstore.com/resort/vero-beach/vb225-08-1112-1/,Vero Beach,225,August,9000,40.0,14.8939,2042,Sold,0,17.678
+2026-08-24,The DVC Store,VB250-12-0511,https://www.dvcstore.com/resort/vero-beach/vb250-12-0511/,Vero Beach,250,December,11250,45.0,14.8939,2042,Sold,-250,19.161
+2026-08-24,The DVC Store,WLCC175-06-1212,https://www.dvcstore.com/resort/copper-creek/wlcc175-06-1212/,Copper Creek Villas,175,June,23625,135.0,9.0,2068,Sold,9,12.425
+2026-08-24,The DVC Store,SS160-12-1028-1,https://www.dvcstore.com/resort/saratoga-springs/ss160-12-1028-1/,Saratoga Springs,160,December,15680,98.0,9.1877,2054,Sold,0,12.941
+2026-08-24,The DVC Store,VB100-09-0127,https://www.dvcstore.com/resort/vero-beach/vb100-09-0127/,Vero Beach,100,September,4500,45.0,14.8939,2042,Sale Pending,-200,20.707
+2026-08-24,The DVC Store,SS250-12-0127,https://www.dvcstore.com/resort/saratoga-springs/ss250-12-0127/,Saratoga Springs,250,December,24000,96.0,9.1877,2054,Sale Pending,,12.791
+2026-08-24,The DVC Store,AK167-06-0127,https://www.dvcstore.com/resort/animal-kingdom/ak167-06-0127/,Animal Kingdom Villas,167,June,15030,90.0,10.1608,2057,Sold,,13.282
+2026-08-24,The DVC Store,BLT160-06-0215-1,https://www.dvcstore.com/resort/bay-lake-tower/blt160-02-0215-1/,Bay Lake Tower,160,June,20960,131.0,8.7415,2060,Sold,24,12.73
+2026-08-24,The DVC Store,OKW270-12-1118-1,https://www.dvcstore.com/resort/old-key-west/okw270-12-1118-1/,Old Key West,270,December,20250,75.0,11.2054,2042,Sale Pending,-131,16.743
+2026-08-24,The DVC Store,VDH150-02-0418,https://www.dvcstore.com/resort/disneyland-hotel/vdh150-02-0418/,Villas at Disneyland Hotel,150,February,22500,150.0,10.5354,2074,Available,-293,14.606
+2026-08-24,The DVC Store,SS160-09-0421,https://www.dvcstore.com/resort/saratoga-springs/ss160-09-0421/,Saratoga Springs,160,September,15520,97.0,9.1877,2054,Sold,-157,13.57
+2026-08-24,The DVC Store,OKW269-09-0107,https://www.dvcstore.com/resort/old-key-west/okw269-09-0107/,Old Key West,269,September,20175,75.0,11.2054,2042,Sold,-264,17.334
+2026-08-24,The DVC Store,OKW150-02-0409,https://www.dvcstore.com/resort/old-key-west/okw150-02-0409/,Old Key West,150,February,12300,82.0,11.2054,2042,Sold,-52,17.19
+2026-08-24,The DVC Store,BW150-10-0423,https://www.dvcstore.com/resort/boardwalk-villas/bw150-10-0423/,BoardWalk Villas,150,October,17850,119.0,9.7617,2042,Sold,-108,18.532
+2026-08-24,The DVC Store,BC250-03-0429,https://www.dvcstore.com/resort/beach-club-villas/bc250-03-0429/,Beach Club Villas,250,March,33750,135.0,9.8113,2042,Sold,250,17.396
+2026-08-24,The DVC Store,OKW270-10-0416,https://www.dvcstore.com/resort/old-key-west/okw270-10-0416/,Old Key West,270,October,20250,75.0,11.2054,2042,Sold,-460,18.19
+2026-08-24,The DVC Store,BW270-02-0225,https://www.dvcstore.com/resort/boardwalk-villas/bw270-02-0225/,BoardWalk Villas,270,February,30240,112.0,9.7617,2042,Sold,-170,17.81
+2026-08-24,The DVC Store,OKW150-02-0317,https://www.dvcstore.com/resort/old-key-west/okw150-02-0317/,Old Key West,150,February,12600,84.0,11.2054,2042,Sold,-49,17.052
+2026-08-24,The DVC Store,SS160-12-0518,https://www.dvcstore.com/resort/saratoga-springs/ss160-12-0518-2/,Saratoga Springs,160,December,14400,90.0,9.1877,2054,Available,-480,14.68
+2026-08-24,The DVC Store,SS200-12-0518,https://www.dvcstore.com/resort/saratoga-springs/ss200-12-0518/,Saratoga Springs,200,December,18200,91.0,9.1877,2054,Available,-600,14.678
+2026-08-24,The DVC Store,AK050-08-0521,https://www.dvcstore.com/resort/animal-kingdom/ak050-08-0521/,Animal Kingdom Villas,50,August,6000,120.0,10.1608,2057,Sale Pending,50,14.068
+2026-08-24,The DVC Store,BW200-02-0428,https://www.dvcstore.com/resort/boardwalk-villas/bw200-02-0428/,BoardWalk Villas,200,February,25000,125.0,9.7617,2042,Sold,-55,18.292
+2026-08-24,The DVC Store,SS150-02-0520,https://www.dvcstore.com/resort/saratoga-springs/ss150-02-0520/,Saratoga Springs,150,February,14400,96.0,9.1877,2054,Sold,-143,13.532
+2026-08-24,The DVC Store,AR025-03-0526,https://www.dvcstore.com/resort/aulani/ar025-03-0526/,Aulani,25,March,2875,115.0,10.9572,2062,Available,0,15.707
+2026-08-24,The DVC Store,AR220-03-0526,https://www.dvcstore.com/resort/aulani/ar220-03-0526/,Aulani,220,March,23100,105.0,10.9572,2062,Available,2,14.046
+2026-08-24,The DVC Store,BC250-03-0403,https://www.dvcstore.com/resort/beach-club-villas/bc250-03-0403/,Beach Club Villas,250,March,34750,139.0,9.8113,2042,Available,-223,19.895
+2026-08-24,The DVC Store,AK210-12-0518,https://www.dvcstore.com/resort/animal-kingdom/ak210-12-0518/,Animal Kingdom Villas,210,December,19740,94.0,10.1608,2057,Sale Pending,-630,15.214
+2026-08-24,The DVC Store,AR200-04-0409,https://www.dvcstore.com/resort/aulani/ar200-04-0409/,Aulani,200,April,19600,98.0,10.9572,2062,Sale Pending,-72,14.064
+2026-08-24,The DVC Store,BW050-10-0602,https://www.dvcstore.com/resort/boardwalk-villas/bw050-10-0602/,BoardWalk Villas,50,October,6500,130.0,9.7617,2042,Sale Pending,-44,20.197
+2026-08-24,The DVC Store,GF075-10-0602,https://www.dvcstore.com/resort/grand-floridian/gf075-10-0602/,Grand Floridian Villas,75,October,13350,178.0,8.3142,2064,Sale Pending,-80,13.911
+2026-08-24,The DVC Store,AK100-06-0602,https://www.dvcstore.com/resort/animal-kingdom/ak100-06-0602/,Animal Kingdom Villas,100,June,10900,109.0,10.1608,2057,Sale Pending,-100,14.635
+2026-08-24,The DVC Store,BLT100-10-0602,https://www.dvcstore.com/resort/bay-lake-tower/blt100-10-0602/,Bay Lake Tower,100,October,13800,138.0,8.7415,2060,Sale Pending,-116,13.768
+2026-08-24,The DVC Store,SS075-06-0423,https://www.dvcstore.com/resort/saratoga-springs/ss075-06-0423/,Saratoga Springs,75,June,8025,107.0,9.1877,2054,Sale Pending,-75,14.172
+2026-08-24,The DVC Store,PV200-10-0408-1,https://www.dvcstore.com/resort/polynesian-villas-and-bungalows/pv200-10-0408-1/,Polynesian Villas,200,October,32000,160.0,8.3334,2066,Sold,-400,13.448
+2026-08-24,The DVC Store,BC270-02-0519,https://www.dvcstore.com/resort/beach-club-villas/bc270-02-0519/,Beach Club Villas,270,February,33750,125.0,9.8113,2042,Sold,-540,20.309
+2026-08-24,The DVC Store,SS160-12-0505,https://www.dvcstore.com/resort/saratoga-springs/ss160-12-0505/,Saratoga Springs,160,December,15200,95.0,9.1877,2054,Sale Pending,-313,14.16
+2026-08-24,The DVC Store,HH060-03-0518,https://www.dvcstore.com/resort/hilton-head/hh060-03-0518/,Hilton Head Island,60,March,4800,80.0,12.8621,2042,Sold,60,17.942
+2026-08-24,The DVC Store,OKW050-08-0624,https://www.dvcstore.com/resort/old-key-west/okw050-08-0624/,Old Key West,50,August,4500,90.0,11.2054,2042,Sold,-38,18.984
+2026-08-24,The DVC Store,AR100-02-0602,https://www.dvcstore.com/resort/aulani/ar100-02-0602/,Aulani,100,February,9700,97.0,10.9572,2062,Available,-899,18.785
+2026-08-24,The DVC Store,VB100-03-0707,https://www.dvcstore.com/resort/vero-beach/vb100-03-0707/,Vero Beach,100,March,7400,74.0,14.8939,2042,Available,-55,20.808
+2026-08-24,The DVC Store,SS075-06-0707,https://www.dvcstore.com/resort/saratoga-springs/ss075-06-0707/,Saratoga Springs,75,June,8025,107.0,9.1877,2054,Sold,-73,14.154
+2026-08-24,The DVC Store,SS200-12-0505,https://www.dvcstore.com/resort/saratoga-springs/ss200-12-0505-2/,Saratoga Springs,200,December,19000,95.0,9.1877,2054,Sale Pending,-396,14.131
+2026-08-24,The DVC Store,WLCC250-10-0527,https://www.dvcstore.com/resort/copper-creek/wlcc250-10-0527/,Copper Creek Villas,250,October,38750,155.0,9.0,2068,Available,-500,13.727
+2026-08-24,The DVC Store,OKW300-12-0518,https://www.dvcstore.com/resort/old-key-west/okw300-12-0518/,Old Key West,300,December,20700,69.0,11.2054,2042,Available,-900,19.329
+2026-08-24,The DVC Store,HH080-02-0707,https://www.dvcstore.com/resort/hilton-head/hh080-02-0707/,Hilton Head Island,80,February,7600,95.0,12.8621,2042,Sold,80,18.571
+2026-08-24,The DVC Store,OKW100-02-0722,https://www.dvcstore.com/resort/old-key-west/okw100-02-0722/,Old Key West,100,February,9000,90.0,11.2054,2042,Available,-95,18.597
+2026-08-24,The DVC Store,VDH300-06-0727,https://www.dvcstore.com/resort/disneyland-hotel/vdh300-06-0727/,Villas at Disneyland Hotel,300,June,49500,165.0,10.5354,2074,Available,157,13.851
+2026-08-24,The DVC Store,OKW2057125-02-0727,https://www.dvcstore.com/resort/old-key-west-2057/okw2057125-02-0727/,Old Key West (2057),125,February,14375,115.0,11.2054,2057,Available,-110,15.735
+2026-08-24,The DVC Store,BLT100-08-0728,https://www.dvcstore.com/resort/bay-lake-tower/blt100-08-0728/,Bay Lake Tower,100,August,14500,145.0,8.7415,2060,Available,0,13.326
+2026-08-24,The DVC Store,BLT075-08-0728,https://www.dvcstore.com/resort/bay-lake-tower/blt075-08-0728/,Bay Lake Tower,75,August,10875,145.0,8.7415,2060,Available,-18,13.56
+2026-08-24,The DVC Store,BLT100-08-0728-1,https://www.dvcstore.com/resort/bay-lake-tower/blt100-08-0728-1/,Bay Lake Tower,100,August,14300,143.0,8.7415,2060,Available,-100,13.826
+2026-08-24,The DVC Store,VB400-12-0702,https://www.dvcstore.com/resort/vero-beach/vb400-12-0702/,Vero Beach,400,December,16000,40.0,14.8939,2042,Available,-400,18.759
+2026-08-24,The DVC Store,AR100-08-0714,https://www.dvcstore.com/resort/aulani/ar100-08-0714/,Aulani,100,August,10300,103.0,10.9572,2062,Available,-82,14.64
+2026-08-24,The DVC Store,DLH250-08-0627,https://www.dvcstore.com/resort/disneyland-hotel/dlh250-08-0627/,Villas at Disneyland Hotel,250,August,36750,147.0,10.5354,2074,Available,250,13.303
+2026-08-24,The DVC Store,SS150-08-0624,https://www.dvcstore.com/resort/saratoga-springs/ss150-08-0624-2/,Saratoga Springs,150,August,14550,97.0,9.1877,2054,Available,-150,13.599
+2026-08-24,The DVC Store,AR100-08-0720,https://www.dvcstore.com/resort/aulani/ar100-08-0720/,Aulani,100,August,10500,105.0,10.9572,2062,Available,0,14.332
+2026-08-24,The DVC Store,OKW104-08-0621,https://www.dvcstore.com/resort/old-key-west/okw104-08-0621/,Old Key West,104,August,9360,90.0,11.2054,2042,Available,-95,18.529
+2026-08-24,The DVC Store,AK180-12-0729,https://www.dvcstore.com/resort/animal-kingdom/ak180-12-0729/,Animal Kingdom Villas,180,December,20700,115.0,10.1608,2057,Available,-180,14.698
+2026-08-24,The DVC Store,SS160-08-0327,https://www.dvcstore.com/resort/saratoga-springs/ss160-08-0327-2/,Saratoga Springs,160,August,15520,97.0,9.1877,2054,Available,-154,13.558
+2026-08-24,The DVC Store,OKW2057025-04-0731,https://www.dvcstore.com/resort/old-key-west-2057/okw2057025-04-0731/,Old Key West (2057),25,April,3000,120.0,11.2054,2057,Available,-50,17.594
+2026-08-24,The DVC Store,OKW2057100-04-0731,https://www.dvcstore.com/resort/old-key-west-2057/okw2057100-04-0731/,Old Key West (2057),100,April,9800,98.0,11.2054,2057,Available,-200,15.936
+2026-08-24,The DVC Store,AR200-03-0512,https://www.dvcstore.com/resort/aulani/ar200-03-0512/,Aulani,200,March,19600,98.0,10.9572,2062,Available,-73,14.067
+2026-08-24,The DVC Store,OKW046-02-0514,https://www.dvcstore.com/resort/old-key-west/okw046-02-0514/,Old Key West,46,February,4370,95.0,11.2054,2042,Available,-90,20.826
+2026-08-24,The DVC Store,AR035-02-0602,https://www.dvcstore.com/resort/aulani/ar035-02-0602/,Aulani,35,February,3850,110.0,10.9572,2062,Available,-34,15.637
+2026-08-24,The DVC Store,VDL070-02-0702,https://www.dvcstore.com/resort/disneyland-hotel/vdl070-02-0702/,Villas at Disneyland Hotel,70,February,12950,185.0,10.5354,2074,Available,-101,15.282
+2026-08-24,The DVC Store,AR250-02-0713,https://www.dvcstore.com/resort/aulani/ar250-02-0713/,Aulani,250,February,25250,101.0,10.9572,2062,Available,-491,14.955
+2026-08-24,The DVC Store,AR160-02-0805,https://www.dvcstore.com/resort/aulani/ar160-02-0805/,Aulani,160,February,16320,102.0,10.9572,2062,Available,-108,14.39
+2026-08-24,The DVC Store,OKW050-02-0805,https://www.dvcstore.com/resort/old-key-west/okw050-02-0805/,Old Key West,50,February,4750,95.0,11.2054,2042,Available,-79,20.27
+2026-08-24,The DVC Store,SS050-02-0727,https://www.dvcstore.com/resort/saratoga-springs/ss050-02-0727/,Saratoga Springs,50,February,5950,119.0,9.1877,2054,Available,-50,14.835
+2026-08-24,The DVC Store,SS200-08-0810,https://www.dvcstore.com/resort/saratoga-springs/ss200-08-0810/,Saratoga Springs,200,August,19600,98.0,9.1877,2054,Available,-369,14.151
+2026-08-24,The DVC Store,SS130-08-0617,https://www.dvcstore.com/resort/saratoga-springs/ss130-08-0617/,Saratoga Springs,130,August,13130,101.0,9.1877,2054,Sold,-130,13.77
+2026-08-24,The DVC Store,BW025-04-0805,https://www.dvcstore.com/resort/boardwalk-villas/bw025-04-0805/,BoardWalk Villas,25,April,3375,135.0,9.7617,2042,Sold,1,20.654
+2026-08-24,The DVC Store,SS160-06-0620,https://www.dvcstore.com/resort/saratoga-springs/ss160-06-0620/,Saratoga Springs,160,June,14720,92.0,9.1877,2054,Sold,-294,13.972
+2026-08-24,The DVC Store,SS250-12-0723,https://www.dvcstore.com/resort/saratoga-springs/ss250-12-0723/,Saratoga Springs,250,December,23500,94.0,9.1877,2054,Sold,-250,13.398
+2026-08-24,The DVC Store,SS110-10-0702,https://www.dvcstore.com/resort/saratoga-springs/ss110-10-0702/,Saratoga Springs,110,October,11000,100.0,9.1877,2054,Sold,-220,14.464
+2026-08-24,The DVC Store,BW108-03-0413,https://www.dvcstore.com/resort/boardwalk-villas/bw108-03-0413/,BoardWalk Villas,108,March,13284,123.0,9.7617,2042,Sold,-108,19.262
+2026-08-24,The DVC Store,AK300-12-0713,https://www.dvcstore.com/resort/animal-kingdom/ak300-12-0713/,Animal Kingdom Villas,300,December,30900,103.0,10.1608,2057,Sold,-588,14.826
+2026-08-24,The DVC Store,VB150-12-0811,https://www.dvcstore.com/resort/vero-beach/vb150-12-0811/,Vero Beach,150,December,9000,60.0,14.8939,2042,Available,-150,20.257
+2026-08-24,The DVC Store,BW150-03-0413,https://www.dvcstore.com/resort/boardwalk-villas/bw150-03-0413/,BoardWalk Villas,150,March,18450,123.0,9.7617,2042,Sold,-150,19.115
+2026-08-24,The DVC Store,PV500-10-0528,https://www.dvcstore.com/resort/polynesian-villas-and-bungalows/pv500-10-0528/,Polynesian Villas,500,October,81500,163.0,8.3334,2066,Available,-919,13.382
+2026-08-24,The DVC Store,SS250-02-0811,https://www.dvcstore.com/resort/saratoga-springs/ss250-02-0811-2/,Saratoga Springs,250,February,24750,99.0,9.1877,2054,Available,-500,14.257
+2026-08-24,The DVC Store,OKW220-08-0512,https://www.dvcstore.com/resort/old-key-west/okw220-08-0512/,Old Key West,220,August,15180,69.0,11.2054,2042,Sold,-440,18.214
+2026-08-24,The DVC Store,RV200-06-0324,https://www.dvcstore.com/resort/riviera/rv200-06-0324/,Riviera Resort,200,June,26000,130.0,9.4553,2070,Available,-400,13.415
+2026-08-24,The DVC Store,AK220-09-0812,https://www.dvcstore.com/resort/animal-kingdom/ak220-09-0812/,Animal Kingdom Villas,220,September,21780,99.0,10.1608,2057,Available,-498,14.92
+2026-08-24,The DVC Store,AR170-09-0812,https://www.dvcstore.com/resort/aulani/ar170-09-0812/,Aulani,170,September,16830,99.0,10.9572,2062,Available,-351,15.026
+2026-08-24,The DVC Store,AR150-09-0812,https://www.dvcstore.com/resort/aulani/ar150-09-0812/,Aulani,150,September,14850,99.0,10.9572,2062,Available,-300,15.022
+2026-08-24,The DVC Store,OKW190-06-0805,https://www.dvcstore.com/resort/old-key-west/okw190-06-0805/,Old Key West,190,June,16720,88.0,11.2054,2042,Available,0,17.078
+2026-08-24,The DVC Store,OKW320-12-0728,https://www.dvcstore.com/resort/old-key-west/okw320-12-0728/,Old Key West,320,December,28800,90.0,11.2054,2042,Available,-272,18.088
+2026-08-24,The DVC Store,OKW220-12-0814,https://www.dvcstore.com/resort/old-key-west/okw220-12-0814/,Old Key West,220,December,18700,85.0,11.2054,2042,Available,-220,18.034
+2026-08-24,The DVC Store,RV600-08-0417,https://www.dvcstore.com/resort/riviera/rv600-08-0417/,Riviera Resort,600,August,66000,110.0,9.4553,2070,Sale Pending,-426,12.33
+2026-08-24,The DVC Store,BLT160-02-0816,https://www.dvcstore.com/resort/bay-lake-tower/blt160-02-0816/,Bay Lake Tower,160,February,23200,145.0,8.7415,2060,Available,-165,13.805
+2026-08-24,The DVC Store,AR150-03-0706,https://www.dvcstore.com/resort/aulani/ar150-03-0706/,Aulani,150,March,14100,94.0,10.9572,2062,Available,-150,14.355
+2026-08-24,The DVC Store,WLCC100-04-0817,https://www.dvcstore.com/resort/copper-creek/wlcc100-04-0817/,Copper Creek Villas,100,April,14500,145.0,9.0,2068,Available,-100,13.177
+2026-08-24,The DVC Store,WLCC100-04-0817-1,https://www.dvcstore.com/resort/copper-creek/wlcc100-04-0817-1/,Copper Creek Villas,100,April,14200,142.0,9.0,2068,Available,-146,13.313
+2026-08-24,The DVC Store,SS210-10-0808,https://www.dvcstore.com/resort/saratoga-springs/ss210-10-0808/,Saratoga Springs,210,October,21000,100.0,9.1877,2054,Sale Pending,-170,13.512
+2026-08-24,The DVC Store,WLB200-08-0702,https://www.dvcstore.com/resort/boulder-ridge/wlb200-08-0702/,Boulder Ridge Villas,200,August,20400,102.0,9.7672,2042,Sold,0,16.513
+2026-08-24,The DVC Store,WLB130-08-0728,https://www.dvcstore.com/resort/boulder-ridge/wlb130-08-0728/,Boulder Ridge Villas,130,August,14300,110.0,9.7672,2042,Sold,48,16.726
+2026-08-24,The DVC Store,BW210-12-0818,https://www.dvcstore.com/resort/boardwalk-villas/bw210-12-0818/,BoardWalk Villas,210,December,25200,120.0,9.7617,2042,Available,-138,18.409
+2026-08-24,The DVC Store,WLB210-09-0409,https://www.dvcstore.com/resort/boulder-ridge/wlb210-09-0409/,Boulder Ridge Villas,210,September,19950,95.0,9.7672,2042,Sold,-325,17.895
+2026-08-24,The DVC Store,SS150-09-0805,https://www.dvcstore.com/resort/saratoga-springs/ss150-09-0805-2/,Saratoga Springs,150,September,17250,115.0,9.1877,2054,Sale Pending,-140,14.199
+2026-08-24,The DVC Store,AK160-02-0807,https://www.dvcstore.com/resort/animal-kingdom/ak160-02-0807/,Animal Kingdom Villas,160,February,17440,109.0,10.1608,2057,Sold,-109,14.326
+2026-08-24,The DVC Store,AK100-09-0725,https://www.dvcstore.com/resort/animal-kingdom/ak100-09-0725/,Animal Kingdom Villas,100,September,12000,120.0,10.1608,2057,Sold,-118,15.102
+2026-08-24,The DVC Store,AK120-06-0727,https://www.dvcstore.com/resort/animal-kingdom/ak120-06-0727/,Animal Kingdom Villas,120,June,14400,120.0,10.1608,2057,Sold,-10,14.375
+2026-08-24,The DVC Store,AK320-09-0713,https://www.dvcstore.com/resort/animal-kingdom/ak320-09-0713/,Animal Kingdom Villas,320,September,34560,108.0,10.1608,2057,Sold,-166,14.098
+2026-08-24,The DVC Store,AR200-02-0723,https://www.dvcstore.com/resort/aulani/ar200-02-0723/,Aulani,200,February,24000,120.0,8.24,2062,Sold,-219,12.346
+2026-08-24,The DVC Store,BLT160-02-0811,https://www.dvcstore.com/resort/bay-lake-tower/blt160-02-0811/,Bay Lake Tower,160,February,21120,132.0,8.7415,2060,Sold,-160,13.402
+2026-08-24,The DVC Store,BLT134-09-0730,https://www.dvcstore.com/resort/bay-lake-tower/blt134-09-0730/,Bay Lake Tower,134,September,17822,133.0,8.7415,2060,Sold,-185,13.677
+2026-08-24,The DVC Store,BLT160-12-0729,https://www.dvcstore.com/resort/bay-lake-tower/blt160-12-0729/,Bay Lake Tower,160,December,22240,139.0,8.7415,2060,Sold,-132,13.512
+2026-08-24,The DVC Store,BLT160-12-0726,https://www.dvcstore.com/resort/bay-lake-tower/blt160-12-0726/,Bay Lake Tower,160,December,21920,137.0,8.7415,2060,Sold,0,12.992
+2026-08-24,The DVC Store,BLT200-03-0320,https://www.dvcstore.com/resort/bay-lake-tower/blt200-03-0320/,Bay Lake Tower,200,March,27000,135.0,8.7415,2060,Sold,-195,13.441
+2026-08-24,The DVC Store,BC032-08-0815,https://www.dvcstore.com/resort/beach-club-villas/bc032-08-0815/,Beach Club Villas,32,August,4960,155.0,9.8113,2042,Sold,0,21.454
+2026-08-24,The DVC Store,BC100-09-0806,https://www.dvcstore.com/resort/beach-club-villas/bc100-09-0806/,Beach Club Villas,100,September,13800,138.0,9.8113,2042,Sold,-109,20.409
+2026-08-24,The DVC Store,BC250-02-0731,https://www.dvcstore.com/resort/beach-club-villas/bc250-02-0731-2/,Beach Club Villas,250,February,32500,130.0,9.8113,2042,Sold,250,17.078
+2026-08-24,The DVC Store,BC050-02-0731,https://www.dvcstore.com/resort/beach-club-villas/bc050-02-0731/,Beach Club Villas,50,February,7400,148.0,9.8113,2042,Sold,50,19.139
+2026-08-24,The DVC Store,BW200-06-0602,https://www.dvcstore.com/resort/boardwalk-villas/bw200-06-0602/,BoardWalk Villas,200,June,24000,120.0,9.7617,2042,Sold,-13,17.721
+2026-08-24,The DVC Store,WLB170-02-0728,https://www.dvcstore.com/resort/boulder-ridge/wlb170-02-0728/,Boulder Ridge Villas,170,February,17000,100.0,9.7672,2042,Sold,-51,16.792
+2026-08-24,The DVC Store,WLB170-06-0717,https://www.dvcstore.com/resort/boulder-ridge/wlb170-06-0717/,Boulder Ridge Villas,170,June,17680,104.0,9.7672,2042,Sold,-70,17.178
+2026-08-24,The DVC Store,WLB240-06-0617,https://www.dvcstore.com/resort/boulder-ridge/wlb240-06-0617/,Boulder Ridge Villas,240,June,23520,98.0,9.7672,2042,Sold,-234,17.366
+2026-08-24,The DVC Store,WLCC175-09-0802,https://www.dvcstore.com/resort/copper-creek/wlcc175-09-0802/,Copper Creek Villas,175,September,23625,135.0,9.0,2068,Sold,-175,12.833
+2026-08-24,The DVC Store,WLCC175-03-0724,https://www.dvcstore.com/resort/copper-creek/wlcc175-03-0724/,Copper Creek Villas,175,March,23625,135.0,9.0,2068,Sold,68,12.205
+2026-08-24,The DVC Store,GCAL160-06-0602,https://www.dvcstore.com/resort/grand-californian/gcal160-06-0602/,Grand Californian Villas,160,June,38400,240.0,9.5203,2060,Sold,-104,17.165
+2026-08-24,The DVC Store,GCAL060-06-0602,https://www.dvcstore.com/resort/grand-californian/gcal060-06-0602/,Grand Californian Villas,60,June,15120,252.0,9.5203,2060,Sold,-60,18.071
+2026-08-24,The DVC Store,OKW2057100-06-0731,https://www.dvcstore.com/resort/old-key-west-2057/okw2057100-06-0731/,Old Key West (2057),100,June,10300,103.0,11.2054,2057,Sold,-100,15.484
+2026-08-24,The DVC Store,OKW2057025-08-0816,https://www.dvcstore.com/resort/old-key-west-2057/okw2057025-08-0816/,Old Key West (2057),25,August,2875,115.0,11.2054,2057,Sold,19,15.741
+2026-08-24,The DVC Store,PV150-09-0716,https://www.dvcstore.com/resort/polynesian-villas-and-bungalows/pv150-09-0716/,Polynesian Villas,150,September,24600,164.0,8.3334,2066,Sold,-237,13.389
+2026-08-24,The DVC Store,RV500-02-0722,https://www.dvcstore.com/resort/riviera/rv500-02-0722/,Riviera Resort,500,February,59000,118.0,9.4553,2070,Sold,0,12.212
+2026-08-24,The DVC Store,RV200-09-0708,https://www.dvcstore.com/resort/riviera/rv200-09-0708/,Riviera Resort,200,September,26000,130.0,9.4553,2070,Sold,-202,12.987
+2026-08-24,The DVC Store,RV300-03-0603,https://www.dvcstore.com/resort/riviera/rv300-03-0603/,Riviera Resort,300,March,34500,115.0,9.4553,2070,Sold,-352,12.678
+2026-08-24,The DVC Store,SS120-02-0804,https://www.dvcstore.com/resort/saratoga-springs/ss120-02-0804/,Saratoga Springs,120,February,12000,100.0,9.1877,2054,Sold,-120,13.758
+2026-08-24,The DVC Store,SS200-04-0805,https://www.dvcstore.com/resort/saratoga-springs/ss200-04-0805/,Saratoga Springs,200,April,19200,96.0,9.1877,2054,Sold,-172,13.406
+2026-08-24,The DVC Store,SS130-02-0728,https://www.dvcstore.com/resort/saratoga-springs/ss130-02-0728/,Saratoga Springs,130,February,13260,102.0,9.1877,2054,Sold,130,12.449
+2026-08-24,The DVC Store,SS050-02-0723,https://www.dvcstore.com/resort/saratoga-springs/ss050-02-0723/,Saratoga Springs,50,February,5250,105.0,9.1877,2054,Sold,0,13.653
+2026-08-24,The DVC Store,SS255-08-0728,https://www.dvcstore.com/resort/saratoga-springs/ss255-08-0728/,Saratoga Springs,255,August,26775,105.0,9.1877,2054,Sold,106,12.831
+2026-08-24,The DVC Store,SS025-08-0815,https://www.dvcstore.com/resort/saratoga-springs/ss025-08-0815/,Saratoga Springs,25,August,3000,120.0,9.1877,2054,Sold,25,14.225
+2026-08-24,The DVC Store,AR100-02-0411,https://www.dvcstore.com/resort/aulani/ar100-02-0411-2/,Aulani,100,February,10200,102.0,10.9572,2062,Sold,0,14.228
+2026-08-24,The DVC Store,GF125-06-0818,https://www.dvcstore.com/resort/grand-floridian/gf125-06-0818/,Grand Floridian Villas,125,June,21875,175.0,8.3142,2064,Available,-125,13.673
+2026-08-24,The DVC Store,WLCC250-08-0818,https://www.dvcstore.com/resort/copper-creek/wlcc250-08-0818/,Copper Creek Villas,250,August,39000,156.0,9.0,2068,Available,-226,13.255
+2026-08-24,The DVC Store,GF025-12-0715,https://www.dvcstore.com/resort/grand-floridian/gf025-12-0715/,Grand Floridian Villas,25,December,4500,180.0,8.3142,2064,Available,-50,15.105
+2026-08-24,The DVC Store,BC160-08-0819,https://www.dvcstore.com/resort/beach-club-villas/bc160-08-0819/,Beach Club Villas,160,August,22240,139.0,9.8113,2042,Available,-292,21.136
+2026-08-24,The DVC Store,SS200-12-0728,https://www.dvcstore.com/resort/saratoga-springs/ss200-12-0728/,Saratoga Springs,200,December,19400,97.0,9.1877,2054,Sale Pending,-187,13.497
+2026-08-24,The DVC Store,OKW2057110-06-0811,https://www.dvcstore.com/resort/old-key-west-2057/okw2057110-06-0811/,Old Key West (2057),110,June,11770,107.0,11.2054,2057,Sold,33,14.788
+2026-08-24,The DVC Store,RV175-12-0617,https://www.dvcstore.com/resort/riviera/rv175-12-0617/,Riviera Resort,175,December,24500,140.0,9.4553,2070,Sold,0,12.797
+2026-08-24,The DVC Store,VDH150-12-0820,https://www.dvcstore.com/resort/disneyland-hotel/vdh150-12-0820/,Villas at Disneyland Hotel,150,December,26250,175.0,10.5354,2074,Available,-299,15.143
+2026-08-24,The DVC Store,BW200-02-0707,https://www.dvcstore.com/resort/boardwalk-villas/bw200-02-0707/,BoardWalk Villas,200,February,26000,130.0,9.7617,2042,Sale Pending,0,18.275
+2026-08-24,The DVC Store,AK050-09-0820,https://www.dvcstore.com/resort/animal-kingdom/ak050-09-0820/,Animal Kingdom Villas,50,September,6250,125.0,10.1608,2057,Available,-100,16.068
+2026-08-24,The DVC Store,SS075-02-0820,https://www.dvcstore.com/resort/saratoga-springs/ss075-02-0820/,Saratoga Springs,75,February,9000,120.0,9.1877,2054,Available,-75,14.639
+2026-08-24,The DVC Store,PV110-02-0820,https://www.dvcstore.com/resort/polynesian-villas-and-bungalows/pv110-02-0820/,Polynesian Villas,110,February,20350,185.0,8.3334,2066,Available,-109,13.701
+2026-08-24,The DVC Store,BLT160-12-0811,https://www.dvcstore.com/resort/bay-lake-tower/blt160-12-0811/,Bay Lake Tower,160,December,22880,143.0,8.7415,2060,Sale Pending,-107,13.544
+2026-08-24,The DVC Store,BC050-08-0819,https://www.dvcstore.com/resort/beach-club-villas/bc050-08-0819/,Beach Club Villas,50,August,7750,155.0,9.8113,2042,Sold,-50,21.958
+2026-08-24,The DVC Store,BC055-08-0819,https://www.dvcstore.com/resort/beach-club-villas/bc055-08-0819/,Beach Club Villas,55,August,8525,155.0,9.8113,2042,Sold,-55,21.848
+2026-08-24,The DVC Store,AR120-12-0331,https://www.dvcstore.com/resort/aulani/ar120-12-0331/,Aulani,120,December,11760,98.0,10.9572,2062,Available,-127,14.562
+2026-08-24,The DVC Store,OKW230-06-0520,https://www.dvcstore.com/resort/old-key-west/okw230-06-0520/,Old Key West,230,June,15870,69.0,11.2054,2042,Sold,-460,18.201
+2026-08-24,DVC Sales,339,https://dvcsales.com/dvc-resale/aulani/205-points/339,Aulani,205,December,21730,106.0,10.96,2062,Unverified,,14.041
+2026-08-24,DVC Sales,496,https://dvcsales.com/dvc-resale/saratoga-springs/160-points/496,Saratoga Springs,160,August,18880,118.0,9.19,2054,Unverified,,13.609
+2026-08-24,DVC Sales,501,https://dvcsales.com/dvc-resale/animal-kingdom/360-points/501,Animal Kingdom Villas,360,September,38520,107.0,10.16,2057,Unverified,,13.729
+2026-08-24,DVC Sales,710,https://dvcsales.com/dvc-resale/vero-beach/430-points/710,Vero Beach,430,June,18920,44.0,14.89,2042,Unverified,,17.851
+2026-08-24,DVC Sales,854,https://dvcsales.com/dvc-resale/disneyland-hotel/150-points/854,Villas at Disneyland Hotel,150,February,23850,159.0,10.54,2074,Unverified,,13.977
+2026-08-24,DVC Sales,931,https://dvcsales.com/dvc-resale/aulani/160-points/931,Aulani,160,June,16000,100.0,10.96,2062,Unverified,,13.897
+2026-08-24,DVC Sales,945,https://dvcsales.com/dvc-resale/aulani/175-points/945,Aulani,175,June,17325,99.0,10.96,2062,Unverified,,13.86
+2026-08-24,DVC Sales,948,https://dvcsales.com/dvc-resale/disneyland-hotel/250-points/948,Villas at Disneyland Hotel,250,August,42500,170.0,10.54,2074,Unverified,,14.173
+2026-08-24,DVC Sales,949,https://dvcsales.com/dvc-resale/disneyland-hotel/150-points/949,Villas at Disneyland Hotel,150,August,25500,170.0,10.54,2074,Unverified,,14.206
+2026-08-24,DVC Sales,969,https://dvcsales.com/dvc-resale/aulani/115-points/969,Aulani,115,June,11615,101.0,10.96,2062,Unverified,,13.965
+2026-08-24,DVC Sales,981,https://dvcsales.com/dvc-resale/old-key-west57/230-points/981,Old Key West (2057),230,February,27140,118.0,11.21,2057,Unverified,,15.164
+2026-08-24,DVC Sales,999,https://dvcsales.com/dvc-resale/disneyland-hotel/65-points/999,Villas at Disneyland Hotel,65,April,10075,155.0,10.54,2074,Unverified,,14.002
+2026-08-24,DVC Sales,1004,https://dvcsales.com/dvc-resale/saratoga-springs/110-points/1004,Saratoga Springs,110,March,11440,104.0,9.19,2054,Unverified,,13.169
+2026-08-24,DVC Sales,1035,https://dvcsales.com/dvc-resale/vero-beach/80-points/1035,Vero Beach,80,February,4160,52.0,14.89,2042,Unverified,,18.73
+2026-08-24,DVC Sales,1082,https://dvcsales.com/dvc-resale/saratoga-springs/170-points/1082,Saratoga Springs,170,September,17340,102.0,9.19,2054,Unverified,,13.029
+2026-08-24,DVC Sales,1109,https://dvcsales.com/dvc-resale/polynesian/25-points/1109,Polynesian Villas,25,June,4875,195.0,8.33,2066,Unverified,,13.85
+2026-08-24,DVC Sales,1115,https://dvcsales.com/dvc-resale/saratoga-springs/250-points/1115,Saratoga Springs,250,December,23000,92.0,9.19,2054,Unverified,,12.632
+2026-08-24,DVC Sales,1117,https://dvcsales.com/dvc-resale/bay-lake-tower/160-points/1117,Bay Lake Tower,160,June,25600,160.0,8.74,2060,Unverified,,13.614
+2026-08-24,DVC Sales,1118,https://dvcsales.com/dvc-resale/bay-lake-tower/80-points/1118,Bay Lake Tower,80,June,13600,170.0,8.74,2060,Unverified,,14.018
+2026-08-24,DVC Sales,1145,https://dvcsales.com/dvc-resale/saratoga-springs/200-points/1145,Saratoga Springs,200,June,21600,108.0,9.19,2054,Unverified,,13.225
+2026-08-24,DVC Sales,1193,https://dvcsales.com/dvc-resale/disneyland-hotel/75-points/1193,Villas at Disneyland Hotel,75,February,11625,155.0,10.54,2074,Unverified,,13.976
+2026-08-24,DVC Sales,1232,https://dvcsales.com/dvc-resale/old-key-west57/230-points/1232,Old Key West (2057),230,June,25300,110.0,11.21,2057,Unverified,,14.906
+2026-08-24,DVC Sales,1233,https://dvcsales.com/dvc-resale/old-key-west57/80-points/1233,Old Key West (2057),80,March,10400,130.0,11.21,2057,Unverified,,15.708
+2026-08-24,DVC Sales,1239,https://dvcsales.com/dvc-resale/riviera/200-points/1239,Riviera Resort,200,February,25000,125.0,9.46,2070,Unverified,,12.414
+2026-08-24,DVC Sales,1247,https://dvcsales.com/dvc-resale/old-key-west/50-points/1247,Old Key West,50,March,5250,105.0,11.21,2042,Unverified,,18.641
+2026-08-24,DVC Sales,1259,https://dvcsales.com/dvc-resale/animal-kingdom/110-points/1259,Animal Kingdom Villas,110,April,12320,112.0,10.16,2057,Unverified,,14.012
+2026-08-24,DVC Sales,1293,https://dvcsales.com/dvc-resale/saratoga-springs/150-points/1293,Saratoga Springs,150,June,14550,97.0,9.19,2054,Unverified,,12.867
+2026-08-24,DVC Sales,1306,https://dvcsales.com/dvc-resale/aulani/300-points/1306,Aulani,300,December,28200,94.0,10.96,2062,Unverified,,13.682
+2026-08-24,DVC Sales,1308,https://dvcsales.com/dvc-resale/saratoga-springs/100-points/1308,Saratoga Springs,100,April,10100,101.0,9.19,2054,Unverified,,13.081
+2026-08-24,DVC Sales,1314,https://dvcsales.com/dvc-resale/polynesian/150-points/1314,Polynesian Villas,150,September,24900,166.0,8.33,2066,Unverified,,12.629
+2026-08-24,DVC Sales,1352,https://dvcsales.com/dvc-resale/riviera/100-points/1352,Riviera Resort,100,March,17000,170.0,9.46,2070,Unverified,,13.504
+2026-08-24,DVC Sales,1359,https://dvcsales.com/dvc-resale/grand-floridian/100-points/1359,Grand Floridian Villas,100,March,17800,178.0,8.31,2064,Unverified,,13.203
+2026-08-24,DVC Sales,1363,https://dvcsales.com/dvc-resale/boulder-ridge/350-points/1363,Boulder Ridge Villas,350,October,33250,95.0,9.77,2042,Unverified,,15.939
+2026-08-24,DVC Sales,1364,https://dvcsales.com/dvc-resale/vero-beach/75-points/1364,Vero Beach,75,March,4125,55.0,14.89,2042,Unverified,,18.948
+2026-08-24,DVC Sales,1374,https://dvcsales.com/dvc-resale/old-key-west57/150-points/1374,Old Key West (2057),150,March,16800,112.0,11.21,2057,Unverified,,15.015
+2026-08-24,DVC Sales,1409,https://dvcsales.com/dvc-resale/polynesian/100-points/1409,Polynesian Villas,100,June,16500,165.0,8.33,2066,Unverified,,12.654
+2026-08-24,DVC Sales,1418,https://dvcsales.com/dvc-resale/animal-kingdom/290-points/1418,Animal Kingdom Villas,290,December,29870,103.0,10.16,2057,Unverified,,13.613
+2026-08-24,DVC Sales,1426,https://dvcsales.com/dvc-resale/riviera/150-points/1426,Riviera Resort,150,June,18450,123.0,9.46,2070,Unverified,,12.391
+2026-08-24,DVC Sales,1433,https://dvcsales.com/dvc-resale/old-key-west/400-points/1433,Old Key West,400,April,30000,75.0,11.21,2042,Unverified,,16.115
+2026-08-24,DVC Sales,1443,https://dvcsales.com/dvc-resale/bay-lake-tower/110-points/1443,Bay Lake Tower,110,December,14630,133.0,8.74,2060,Unverified,,12.87
+2026-08-24,DVC Sales,1463,https://dvcsales.com/dvc-resale/aulani/300-points/1463,Aulani,300,December,29400,98.0,10.96,2062,Unverified,,13.793
+2026-08-24,DVC Sales,1483,https://dvcsales.com/dvc-resale/aulani/100-points/1483,Aulani,100,August,9800,98.0,10.96,2062,Unverified,,13.903
+2026-08-24,DVC Sales,1487,https://dvcsales.com/dvc-resale/bay-lake-tower/410-points/1487,Bay Lake Tower,410,February,55350,135.0,8.74,2060,Unverified,,12.812
+2026-08-24,DVC Sales,1496,https://dvcsales.com/dvc-resale/beach-club/230-points/1496,Beach Club Villas,230,June,32200,140.0,9.81,2042,Unverified,,18.847
+2026-08-24,DVC Sales,1503,https://dvcsales.com/dvc-resale/aulani/320-points/1503,Aulani,320,December,27840,87.0,10.96,2062,Unverified,,13.484
+2026-08-24,DVC Sales,1509,https://dvcsales.com/dvc-resale/aulani/200-points/1509,Aulani,200,February,19000,95.0,10.96,2062,Unverified,,13.737
+2026-08-24,DVC Sales,1510,https://dvcsales.com/dvc-resale/vero-beach/50-points/1510,Vero Beach,50,August,2800,56.0,14.89,2042,Unverified,,19.259
+2026-08-24,DVC Sales,1526,https://dvcsales.com/dvc-resale/boardwalk/300-points/1526,BoardWalk Villas,300,September,39000,130.0,9.67,2042,Unverified,,18.044
+2026-08-24,DVC Sales,1539,https://dvcsales.com/dvc-resale/disneyland-hotel/150-points/1539,Villas at Disneyland Hotel,150,December,24750,165.0,10.54,2074,Unverified,,14.102
+2026-08-24,DVC Sales,1545,https://dvcsales.com/dvc-resale/old-key-west57/300-points/1545,Old Key West (2057),300,December,34500,115.0,11.21,2057,Unverified,,15.048
+2026-08-24,DVC Sales,1549,https://dvcsales.com/dvc-resale/grand-californian/200-points/1549,Grand Californian Villas,200,June,50400,252.0,9.52,2060,Unverified,,17.078
+2026-08-24,DVC Sales,1552,https://dvcsales.com/dvc-resale/vero-beach/150-points/1552,Vero Beach,150,April,6900,46.0,14.89,2042,Unverified,,18.138
+2026-08-24,DVC Sales,1556,https://dvcsales.com/dvc-resale/beach-club/270-points/1556,Beach Club Villas,270,September,37530,139.0,9.81,2042,Unverified,,18.76
+2026-08-24,DVC Sales,1557,https://dvcsales.com/dvc-resale/saratoga-springs/200-points/1557,Saratoga Springs,200,October,21800,109.0,9.19,2054,Unverified,,13.261
+2026-08-24,DVC Sales,1559,https://dvcsales.com/dvc-resale/beach-club/150-points/1559,Beach Club Villas,150,February,21900,146.0,9.81,2042,Unverified,,19.308
+2026-08-24,DVC Sales,1560,https://dvcsales.com/dvc-resale/beach-club/150-points/1560,Beach Club Villas,150,February,21300,142.0,9.81,2042,Unverified,,19.058

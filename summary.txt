@@ -1,6 +1,6 @@
-DVC Resale Market - 2026-08-23
-14 new | 11 offers accepted | 2 price drops
-487 live listings
+DVC Resale Market - 2026-08-24
+3 new | 14 offers accepted | 3 price drops
+482 live listings
 
 COPPER CREEK VILLAS
   no movement
@@ -9,16 +9,14 @@ BOULDER RIDGE VILLAS
   no movement
 
 ANIMAL KINGDOM VILLAS
-  [off] 160pt Dec $127/pt Offer Accepted
+  [off] 160pt Sep $113/pt Offer Accepted
 
 SARATOGA SPRINGS
-  [off] 160pt Dec $116/pt Offer Accepted
-  [off] 160pt Dec $116/pt Offer Accepted
-  [off] 90pt Apr $112/pt Sale Pending
+  [off] 150pt Dec $120/pt Offer Accepted
 
 ALL OTHERS
-  14 new listings
-  7 offers accepted
-  2 price drops
+  3 new listings
+  12 offers accepted
+  3 price drops
 
 https://tpcolburn.github.io/dvc-market-observer/
