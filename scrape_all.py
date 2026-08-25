@@ -99,22 +99,30 @@ def current_uy_year(use_year, today=None):
     return today.year if today.month >= m else today.year - 1
 
 
-def points_delta(n, use_year, by_year, current_avail=None):
-    """Surplus/deficit against a clean contract, anchored at the CURRENT use
-    year rather than at whichever year the broker happened to list first.
+def points_delta(n, use_year, by_year, current_avail=None, complete=False):
+    """Surplus/deficit against a clean contract.
 
-    by_year: {year: points}. current_avail: points left in the running use year,
-    if the listing states it. Returns None when we cannot tell — an unknown
-    deficit must not be recorded as zero, which is the bug this replaces.
+    Brokers report availability in two incompatible ways, and conflating them
+    is what put CCB2995 at -433 when it is -283:
+
+    complete=True  (DVC Resale Market) — every use year gets a row, including
+        empty ones ("December 2026 - 0 points"). The listed span IS the span;
+        inferring an earlier year invents a deficit that is not there.
+    complete=False (DVC Store) — only years holding points are named, plus
+        "N points currently available" for the year in progress. Here a year
+        the listing never mentions really is a year with nothing in it.
+
+    Returns None when we cannot tell — an unknown deficit must not be
+    recorded as zero.
     """
     if not by_year and current_avail is None:
         return None
-    cy = current_uy_year(use_year)
     years = dict(by_year)
+    cy = None if complete else current_uy_year(use_year)
     if cy is not None:
         # the running year counts even when the listing says nothing about it
         years.setdefault(cy, current_avail if current_avail is not None else 0)
-    elif current_avail is not None:
+    elif current_avail is not None and not complete:
         years.setdefault(min(years) - 1 if years else 0, current_avail)
     if not years:
         return None
@@ -132,7 +140,7 @@ def p_dvcrm(t, url):
     avail = re.findall(r"([A-Za-z]+) (\d{4}) - ([\d,]+) points", t)
     n = int(num(pts))
     uy = g(r"Use Year\s*(" + "|".join(MONTHS) + r")")
-    delta = points_delta(n, uy, {int(y): int(num(p)) for _, y, p in avail})
+    delta = points_delta(n, uy, {int(y): int(num(p)) for _, y, p in avail}, complete=True)
     return dict(listing_id=g(r"Listing ID\s*([A-Z0-9]+)") or url.rstrip("/").split("/")[-1].upper(),
                 points=n, price=int(num(price)),
                 price_per_point=num(g(r"Price Per Point\s*\$([\d,.]+)")),
