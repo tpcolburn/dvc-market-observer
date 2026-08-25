@@ -20,9 +20,9 @@ ANIMAL KINGDOM VILLAS
 SARATOGA SPRINGS
   [new] 50pt Aug $120/pt
   [new] 200pt Sep $100/pt
+  [off] 100pt Oct $102/pt Offer Accepted
   [off] 75pt Mar $129/pt Offer Accepted
   [off] 160pt Dec $90/pt Sale Pending
-  [off] 100pt Oct $102/pt Offer Accepted
   [pri] 200pt Oct $105/pt was $107
 
 ALL OTHERS
