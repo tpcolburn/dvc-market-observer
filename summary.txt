@@ -1,33 +1,36 @@
-DVC Resale Market - 2026-08-25
-17 new | 11 offers accepted | 8 price drops
-472 live listings
+!! INCOMPLETE SWEEP - DVC Sales failed to scrape.
+
+DVC Resale Market - 2026-08-26
+24 new | 12 offers accepted | 6 price drops
+424 live listings
 
 COPPER CREEK VILLAS
-  [new] 400pt Feb $141/pt
-  [new] 400pt Feb $141/pt
-  [new] 150pt Dec $134/pt
+  [new] 150pt Apr $155/pt
+  [off] 185pt Dec $157/pt Sale Pending
+  [off] 100pt Apr $145/pt Sale Pending
 
 BOULDER RIDGE VILLAS
-  no movement
+  [new] 100pt Sep $118/pt
 
 ANIMAL KINGDOM VILLAS
-  [new] 160pt Aug $117/pt
-  [new] 160pt Aug $116/pt
-  [new] 50pt Aug $136/pt
-  [off] 100pt Oct $119/pt Sale Pending
-  [pri] 160pt Apr $112/pt was $114
+  [new] 200pt Oct $116/pt
+  [new] 50pt Aug $124/pt
+  [new] 100pt Mar $134/pt
+  [new] 100pt Mar $134/pt
+  [off] 50pt Aug $136/pt Offer Accepted
 
 SARATOGA SPRINGS
-  [new] 50pt Aug $120/pt
-  [new] 200pt Sep $100/pt
-  [off] 100pt Oct $102/pt Offer Accepted
-  [off] 75pt Mar $129/pt Offer Accepted
-  [off] 160pt Dec $90/pt Sale Pending
-  [pri] 200pt Oct $105/pt was $107
+  [new] 150pt Aug $103/pt
+  [new] 100pt Apr $113/pt
+  [new] 100pt Dec $105/pt
+  [off] 200pt Oct $105/pt Sale Pending
+  [pri] 160pt Sep $108/pt was $109
+  [pri] 150pt Sep $99/pt was $102
+  [pri] 60pt Sep $128/pt was $129
 
 ALL OTHERS
-  9 new listings
-  7 offers accepted
-  6 price drops
+  15 new listings
+  8 offers accepted
+  3 price drops
 
 https://tpcolburn.github.io/dvc-market-observer/
