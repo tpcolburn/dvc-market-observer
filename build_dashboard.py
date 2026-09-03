@@ -329,7 +329,7 @@ def build(rows):
     my_alerts, _, restricted_ref = alerts_mod.score_all(live, acfg)
     write_email(ch, live, dates, prev, dead, health, my_alerts, acfg, restricted_ref)
 
-    # one subject line for the single daily email; the workflow reads this file
+    # one subject line for the single weekly email; the workflow reads this file
     if my_alerts:
         b = my_alerts[0]
         subj = "DVC {} — {} {}pt ${:,.0f}/pt ({})".format(

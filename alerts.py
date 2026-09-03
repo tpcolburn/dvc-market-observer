@@ -1,4 +1,4 @@
-"""Personal buy-list scoring, folded into the daily observer run.
+"""Personal buy-list scoring, folded into the weekly observer run.
 
 This used to live in a separate script on Travis's Mac that read this repo's
 committed CSV. That arrangement had a failure mode we hit on 2026-08-20: the

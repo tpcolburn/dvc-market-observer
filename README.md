@@ -1,21 +1,23 @@
 # DVC Resale Market Observer
 
-Daily snapshot of every DVC resale listing the brokers publish, at every contract
-size, across all 17 resorts. Emails a self-contained dashboard each morning.
+Weekly snapshot of every DVC resale listing the brokers publish, at every contract
+size, across all 17 resorts. Emails a buy-list digest and dashboard link every
+Sunday morning; publishes the dashboard itself to GitHub Pages.
+
+Was daily through 2026-08; moved to weekly on 2026-08-29 — see *Cadence* below
+for what that trades away.
 
 ## How it works
 
-`.github/workflows/daily_scrape.yml` runs at 09:00 UTC on GitHub's servers — no
-local machine involved:
+`.github/workflows/daily_scrape.yml` runs Sundays at 09:00 UTC on GitHub's
+servers — no local machine involved:
 
 1. **`scrape_all.py`** — walks each broker's published listing sitemap, parses every
-   listing, appends today's snapshot to `data/listings_history.csv`.
-2. **`build_dashboard.py`** — turns the full history into `dashboard.html`.
-3. Commits both, then emails the dashboard as an attachment.
-
-`dashboard.html` is entirely self-contained: data inlined as JSON, charts drawn as
-inline SVG, no CDN scripts and no fetch. It opens from an email attachment, from
-disk, or from OneDrive with no network at all.
+   listing, appends the week's snapshot to `data/listings_history.csv`.
+2. **`build_dashboard.py`** — turns the full history into `index.html` (served by
+   GitHub Pages) plus `summary.html`/`summary.txt` (the email body) and the personal
+   buy-list scoring from `alerts.py`.
+3. Commits everything, then emails the digest with `index.html` attached.
 
 ## Setup
 
@@ -30,7 +32,9 @@ Generate one at <https://myaccount.google.com/apppasswords>. This is a second ap
 password, separate from the one the local alert monitor uses — revoking either won't
 affect the other.
 
-Run it on demand from the Actions tab → *Daily DVC Market Snapshot* → *Run workflow*.
+Run it on demand from the Actions tab → *Weekly DVC Market Snapshot* → *Run workflow*
+— useful right after a real-world change (an offer, a counter, ROFR clearing)
+when Sunday is too far off.
 
 ## What the numbers mean
 
@@ -80,7 +84,23 @@ One request per listing, ~1.2s apart, identifying user agent, robots.txt respect
 `2026-01-10` rows are archived from the original scraper and carry only resort,
 points, and price per point — the columns that version recorded.
 
+## Cadence
+
+Weekly since 2026-08-29, previously daily. Traded away by the move:
+
+- **Thin-inventory use years go dark for up to 6 days.** March Copper Creek — the
+  use year contract #2 is locked to — has run at roughly one new listing a week
+  market-wide, and that listing can sell before the next Sunday snapshot. A
+  fast-moving contract in a thin pool can appear and disappear between runs with
+  no alert either way.
+- **Departure-based signals (sold, withdrawn) lose a week of resolution** — a
+  listing that goes pending and closes inside the week never appears as a change.
+- Trigger a manual run (above) around any specific negotiation instead of waiting
+  for Sunday.
+
 ## Related
 
-The personal alert monitor (Copper Creek–focused, point-band filtered, with the
-purchase-plan scoring) is separate and runs locally from `~/.dvc-monitor/`.
+The personal buy-list scoring (Copper Creek–focused, point-band filtered,
+resort-desirability weighted) now runs inside this same workflow via
+`alerts.py`, reading `ALERT_CONFIG` from repo secrets. It no longer runs
+separately from `~/.dvc-monitor/` — that local monitor was retired 2026-08-20.

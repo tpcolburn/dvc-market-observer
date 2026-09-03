@@ -1,8 +1,8 @@
-name: Daily DVC Market Snapshot
+name: Weekly DVC Market Snapshot
 
 on:
   schedule:
-    - cron: '0 9 * * *'      # 09:00 UTC ≈ 5am ET
+    - cron: '0 9 * * 0'      # Sunday 09:00 UTC ≈ 5am ET
   workflow_dispatch:
 
 concurrency:
