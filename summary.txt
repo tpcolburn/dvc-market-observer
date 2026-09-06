@@ -1,27 +1,68 @@
-DVC Resale Market - 2026-09-03
-11 new | 6 offers accepted | 2 price drops
-470 live listings
+DVC Resale Market - 2026-09-06
+74 new | 38 offers accepted | 7 price drops
+472 live listings
 
 COPPER CREEK VILLAS
-  [off] 250pt Oct $155/pt Sale Pending
-  [pri] 50pt Feb $150/pt was $155
+  [new] 200pt ? $9/pt
+  [new] 175pt ? $9/pt
+  [new] 120pt Dec $144/pt
+  [new] 100pt ? $9/pt
+  [off] 200pt Feb $160/pt Offer Accepted
+  [off] 100pt Dec $148/pt Sale Pending
+  [off] 100pt Oct $150/pt Offer Accepted
+  [pri] 75pt Dec $143/pt was $145
 
 BOULDER RIDGE VILLAS
-  no movement
+  [new] 155pt ? $10/pt
+  [new] 150pt Dec $116/pt
+  [new] 170pt Mar $107/pt
+  [new] 25pt Sep $124/pt
+  [off] 100pt Sep $118/pt Sale Pending
+  [off] 50pt Jun $118/pt Sale Pending
 
 ANIMAL KINGDOM VILLAS
-  [new] 160pt Dec $117/pt
-  [new] 270pt Sep $104/pt
-  [new] 160pt Dec $118/pt
-  [new] 50pt Sep $130/pt
+  [new] 325pt ? $10/pt
+  [new] 160pt ? $10/pt
+  [new] 100pt ? $10/pt
+  [new] 60pt ? $10/pt
+  [new] 200pt Dec $134/pt
+  [new] 325pt Apr $123/pt
+  [new] 258pt Jun $107/pt
+  [new] 210pt Dec $112/pt
+  [new] 270pt Apr $118/pt
+  [new] 100pt Feb $121/pt
+  [new] 50pt Apr $128/pt
+  [off] 160pt Dec $127/pt Offer Accepted
+  [off] 160pt Dec $117/pt Sale Pending
+  [off] 180pt Mar $116/pt Sale Pending
+  [off] 160pt Dec $123/pt Offer Accepted
+  [off] 160pt Aug $129/pt Offer Accepted
+  [off] 100pt Mar $134/pt Sale Pending
+  [off] 100pt Feb $132/pt Offer Accepted
 
 SARATOGA SPRINGS
-  [new] 170pt Feb $104/pt
-  [off] 50pt Aug $120/pt Sale Pending
+  [new] 300pt ? $9/pt
+  [new] 300pt ? $9/pt
+  [new] 285pt ? $9/pt
+  [new] 240pt ? $9/pt
+  [new] 210pt ? $9/pt
+  [new] 175pt ? $9/pt
+  [new] 160pt ? $9/pt
+  [new] 150pt ? $9/pt
+  [new] 120pt ? $9/pt
+  [new] 100pt Apr $115/pt
+  [new] 150pt Dec $128/pt
+  [new] 250pt Jun $102/pt
+  [new] 160pt Jun $110/pt
+  [new] 150pt ? $100/pt
+  [off] 200pt Feb $102/pt Sale Pending
+  [off] 200pt Aug $98/pt Sale Pending
+  [off] 150pt Sep $99/pt Offer Accepted
+  [off] 50pt Aug $124/pt Sale Pending
 
 ALL OTHERS
-  6 new listings
-  4 offers accepted
-  1 price drops
+  41 new listings
+  22 offers accepted
+  6 price drops
 
 https://tpcolburn.github.io/dvc-market-observer/
