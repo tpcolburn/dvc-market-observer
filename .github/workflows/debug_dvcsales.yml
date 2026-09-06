@@ -1,0 +1,16 @@
+name: Debug DVC Sales Parsing
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Dump DVC Sales listing text
+        run: python debug_dvcsales.py
