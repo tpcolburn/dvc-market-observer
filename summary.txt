@@ -1,68 +1,37 @@
-DVC Resale Market - 2026-09-06
-74 new | 38 offers accepted | 7 price drops
-472 live listings
+DVC Resale Market - 2026-09-08
+46 new | 15 offers accepted | 3 price drops
+443 live listings
 
 COPPER CREEK VILLAS
-  [new] 200pt ? $9/pt
-  [new] 175pt ? $9/pt
-  [new] 120pt Dec $144/pt
-  [new] 100pt ? $9/pt
-  [off] 200pt Feb $160/pt Offer Accepted
-  [off] 100pt Dec $148/pt Sale Pending
-  [off] 100pt Oct $150/pt Offer Accepted
-  [pri] 75pt Dec $143/pt was $145
+  [off] 325pt Jun $161/pt Offer Accepted
+  [off] 75pt Dec $143/pt Offer Accepted
 
 BOULDER RIDGE VILLAS
-  [new] 155pt ? $10/pt
-  [new] 150pt Dec $116/pt
-  [new] 170pt Mar $107/pt
-  [new] 25pt Sep $124/pt
-  [off] 100pt Sep $118/pt Sale Pending
-  [off] 50pt Jun $118/pt Sale Pending
+  [new] 350pt Oct $95/pt
 
 ANIMAL KINGDOM VILLAS
-  [new] 325pt ? $10/pt
-  [new] 160pt ? $10/pt
-  [new] 100pt ? $10/pt
-  [new] 60pt ? $10/pt
-  [new] 200pt Dec $134/pt
-  [new] 325pt Apr $123/pt
-  [new] 258pt Jun $107/pt
-  [new] 210pt Dec $112/pt
-  [new] 270pt Apr $118/pt
-  [new] 100pt Feb $121/pt
-  [new] 50pt Apr $128/pt
-  [off] 160pt Dec $127/pt Offer Accepted
-  [off] 160pt Dec $117/pt Sale Pending
-  [off] 180pt Mar $116/pt Sale Pending
-  [off] 160pt Dec $123/pt Offer Accepted
-  [off] 160pt Aug $129/pt Offer Accepted
-  [off] 100pt Mar $134/pt Sale Pending
-  [off] 100pt Feb $132/pt Offer Accepted
+  [new] 110pt Apr $112/pt
+  [new] 40pt Sep $128/pt
+  [off] 200pt Oct $116/pt Offer Accepted
 
 SARATOGA SPRINGS
-  [new] 300pt ? $9/pt
-  [new] 300pt ? $9/pt
-  [new] 285pt ? $9/pt
-  [new] 240pt ? $9/pt
-  [new] 210pt ? $9/pt
-  [new] 175pt ? $9/pt
-  [new] 160pt ? $9/pt
-  [new] 150pt ? $9/pt
-  [new] 120pt ? $9/pt
-  [new] 100pt Apr $115/pt
-  [new] 150pt Dec $128/pt
-  [new] 250pt Jun $102/pt
-  [new] 160pt Jun $110/pt
-  [new] 150pt ? $100/pt
-  [off] 200pt Feb $102/pt Sale Pending
-  [off] 200pt Aug $98/pt Sale Pending
-  [off] 150pt Sep $99/pt Offer Accepted
-  [off] 50pt Aug $124/pt Sale Pending
+  [new] 200pt Mar $97/pt
+  [new] 150pt Dec $99/pt
+  [new] 150pt Dec $99/pt
+  [new] 250pt Dec $102/pt
+  [new] 100pt Apr $101/pt
+  [new] 300pt Dec $105/pt
+  [new] 170pt Feb $104/pt
+  [new] 150pt Oct $110/pt
+  [new] 150pt Feb $114/pt
+  [new] 250pt Feb $94/pt
+  [off] 250pt Dec $103/pt Offer Accepted
+  [off] 160pt Sep $110/pt Offer Accepted
+  [off] 200pt Oct $93/pt Offer Accepted
 
 ALL OTHERS
-  41 new listings
-  22 offers accepted
-  6 price drops
+  33 new listings
+  9 offers accepted
+  3 price drops
 
 https://tpcolburn.github.io/dvc-market-observer/
