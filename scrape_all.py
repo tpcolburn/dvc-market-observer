@@ -10,6 +10,7 @@ Standard library only — nothing to pip install.
 """
 
 import csv, gzip, html, re, sys, time, urllib.request, urllib.error
+from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
@@ -184,10 +185,30 @@ def _uy(abbr):
     return None
 
 
+SKIP_REASONS = defaultdict(int)
+
+
 def p_dvcsales(t, url):
     g = lambda p: (re.search(p, t, re.I).group(1) if re.search(p, t, re.I) else None)
     m = re.search(r"/(\d+)-points/", url) or re.search(r"/(\d+)-points", url)
     pts = m.group(1) if m else g(r"([\d,]+)\s*points\b")
+    # A whole-page search for the URL's point count is a false-positive trap --
+    # "285" turned up as a weekly-cost figure buried in a resort's point chart
+    # even on a page that is not that listing. The title is the reliable tell:
+    # a real listing page's title reads "<Resort> DVC Resale -- <N> Points --
+    # <UY> Use Year | DVC Sales"; the generic fallback page is always just
+    # "<Resort> DVC Resale | DVC Sales", with no points segment at all.
+    if pts and not re.search(rf"\b{re.escape(pts)}\s*Points\b", t[:400], re.I):
+        # A sold/delisted contract soft-404s to the generic resort marketing
+        # page instead of a real 404 -- still HTTP 200, still has "$X/pt" and
+        # "$X,XXX" figures on it (resale price ranges, the resort's dues rate),
+        # but none of them are THIS listing's. The real listing page always
+        # echoes its own point count somewhere (title, breadcrumb, body); the
+        # generic page never mentions it. Caught this because every "listing"
+        # missing a use year priced out at exactly the resort's dues rate, not
+        # a plausible sale price -- 449e9e1.
+        SKIP_REASONS["dvcsales:stale-delisted"] += 1
+        return None
     ppp = g(r"\$\s*([\d.]+)\s*(?:/|per )\s*(?:pt|point)")
     price = g(r"(?:asking|price)[^$]{0,20}\$([\d,]{4,})")
     if not pts or not (ppp or price):
@@ -263,6 +284,7 @@ def main():
             health[b["label"]] = dict(ok=False, urls=0, targets=0, parsed=0)
             continue
         log(f"{b['label']}: {len(urls)} urls, {len(targets)} listings")
+        SKIP_REASONS.clear()
         ok = 0
         for i, (u, resort) in enumerate(targets, 1):
             doc = fetch(u)
@@ -286,11 +308,19 @@ def main():
             ok += 1
             if i % 50 == 0:
                 log(f"  {i}/{len(targets)} ({ok} parsed)")
-        log(f"  {ok}/{len(targets)} parsed")
-        rate = ok / len(targets) if targets else 0
-        health[b["label"]] = dict(ok=rate >= 0.5, urls=len(urls), targets=len(targets), parsed=ok)
+        stale = sum(v for k, v in SKIP_REASONS.items() if k.startswith(b["key"] + ":"))
+        log(f"  {ok}/{len(targets)} parsed" +
+            (f" ({stale} skipped as delisted/stale — sitemap lag, not a parse failure)"
+             if stale else ""))
+        # sitemap staleness is normal and not evidence the parser broke, so it
+        # is excluded from the denominator that decides whether to alarm
+        denom = len(targets) - stale
+        rate = ok / denom if denom else 1.0
+        health[b["label"]] = dict(ok=rate >= 0.5, urls=len(urls), targets=len(targets),
+                                  parsed=ok, stale=stale)
         if rate < 0.5:
-            log(f"::error::{b['label']}: only {ok}/{len(targets)} parsed — parser may be broken")
+            log(f"::error::{b['label']}: only {ok}/{denom} of non-stale listings "
+                f"parsed — parser may be broken")
 
     if not rows:
         log("::error::no rows scraped at all — aborting so history is not corrupted")

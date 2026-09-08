@@ -10796,16 +10796,11 @@ date,broker,listing_id,url,resort,points,use_year,price,price_per_point,dues_per
 2026-09-06,The DVC Store,OKW104-08-0621,https://www.dvcstore.com/resort/old-key-west/okw104-08-0621/,Old Key West,104,August,9360,90.0,11.2054,2042,Sale Pending,-95,18.529
 2026-09-06,The DVC Store,OKW220-03-0906,https://www.dvcstore.com/resort/old-key-west/okw220-03-0906/,Old Key West,220,March,20900,95.0,11.2054,2042,Available,-220,18.67
 2026-09-06,The DVC Store,WLB170-03-0906,https://www.dvcstore.com/resort/boulder-ridge/wlb170-03-0906/,Boulder Ridge Villas,170,March,18190,107.0,9.7672,2042,Available,-296,18.947
-2026-09-06,DVC Sales,96,https://dvcsales.com/dvc-resale/saratoga-springs/285-points/96,Saratoga Springs,285,,2619,9.19,1.0,2054,Unverified,,1.474
-2026-09-06,DVC Sales,158,https://dvcsales.com/dvc-resale/saratoga-springs/175-points/158,Saratoga Springs,175,,1608,9.19,1.0,2054,Unverified,,1.521
 2026-09-06,DVC Sales,339,https://dvcsales.com/dvc-resale/aulani/205-points/339,Aulani,205,December,21730,106.0,10.96,2062,Unverified,,14.041
 2026-09-06,DVC Sales,496,https://dvcsales.com/dvc-resale/saratoga-springs/160-points/496,Saratoga Springs,160,August,18880,118.0,9.19,2054,Unverified,,13.609
 2026-09-06,DVC Sales,501,https://dvcsales.com/dvc-resale/animal-kingdom/360-points/501,Animal Kingdom Villas,360,September,38520,107.0,10.16,2057,Unverified,,13.729
-2026-09-06,DVC Sales,574,https://dvcsales.com/dvc-resale/boardwalk/350-points/574,BoardWalk Villas,350,,3384,9.67,1.0,2042,Unverified,,1.836
 2026-09-06,DVC Sales,710,https://dvcsales.com/dvc-resale/vero-beach/430-points/710,Vero Beach,430,June,18060,42.0,14.89,2042,Unverified,,17.726
 2026-09-06,DVC Sales,751,https://dvcsales.com/dvc-resale/grand-floridian/200-points/751,Grand Floridian Villas,200,February,32000,160.0,8.31,2064,Unverified,,12.651
-2026-09-06,DVC Sales,841,https://dvcsales.com/dvc-resale/bay-lake-tower/200-points/841,Bay Lake Tower,200,,1748,8.74,1.0,2060,Unverified,,1.403
-2026-09-06,DVC Sales,854,https://dvcsales.com/dvc-resale/disneyland-hotel/150-points/854,Villas at Disneyland Hotel,150,,1581,10.54,1.0,2074,Unverified,,1.344
 2026-09-06,DVC Sales,931,https://dvcsales.com/dvc-resale/aulani/160-points/931,Aulani,160,June,16000,100.0,10.96,2062,Unverified,,13.897
 2026-09-06,DVC Sales,945,https://dvcsales.com/dvc-resale/aulani/175-points/945,Aulani,175,June,17325,99.0,10.96,2062,Unverified,,13.86
 2026-09-06,DVC Sales,948,https://dvcsales.com/dvc-resale/disneyland-hotel/250-points/948,Villas at Disneyland Hotel,250,August,42500,170.0,10.54,2074,Unverified,,14.173
@@ -10813,55 +10808,23 @@ date,broker,listing_id,url,resort,points,use_year,price,price_per_point,dues_per
 2026-09-06,DVC Sales,952,https://dvcsales.com/dvc-resale/boardwalk/220-points/952,BoardWalk Villas,220,August,26180,119.0,9.67,2042,Unverified,,17.402
 2026-09-06,DVC Sales,969,https://dvcsales.com/dvc-resale/aulani/115-points/969,Aulani,115,June,11615,101.0,10.96,2062,Unverified,,13.965
 2026-09-06,DVC Sales,970,https://dvcsales.com/dvc-resale/aulani/115-points/970,Aulani,115,June,11615,101.0,10.96,2062,Unverified,,13.965
-2026-09-06,DVC Sales,972,https://dvcsales.com/dvc-resale/riviera/200-points/972,Riviera Resort,200,,1892,9.46,1.0,2070,Unverified,,1.328
 2026-09-06,DVC Sales,981,https://dvcsales.com/dvc-resale/old-key-west57/230-points/981,Old Key West (2057),230,February,27140,118.0,11.21,2057,Unverified,,15.164
 2026-09-06,DVC Sales,999,https://dvcsales.com/dvc-resale/disneyland-hotel/65-points/999,Villas at Disneyland Hotel,65,April,10075,155.0,10.54,2074,Unverified,,14.002
-2026-09-06,DVC Sales,1001,https://dvcsales.com/dvc-resale/grand-floridian/200-points/1001,Grand Floridian Villas,200,,1662,8.31,1.0,2064,Unverified,,1.35
 2026-09-06,DVC Sales,1004,https://dvcsales.com/dvc-resale/saratoga-springs/110-points/1004,Saratoga Springs,110,March,11440,104.0,9.19,2054,Unverified,,13.169
-2026-09-06,DVC Sales,1010,https://dvcsales.com/dvc-resale/saratoga-springs/160-points/1010,Saratoga Springs,160,,1470,9.19,1.0,2054,Unverified,,1.532
 2026-09-06,DVC Sales,1035,https://dvcsales.com/dvc-resale/vero-beach/80-points/1035,Vero Beach,80,February,4160,52.0,14.89,2042,Unverified,,18.73
-2026-09-06,DVC Sales,1069,https://dvcsales.com/dvc-resale/aulani/220-points/1069,Aulani,220,,2411,10.96,1.0,2062,Unverified,,1.435
-2026-09-06,DVC Sales,1074,https://dvcsales.com/dvc-resale/aulani/150-points/1074,Aulani,150,,1644,10.96,1.0,2062,Unverified,,1.47
 2026-09-06,DVC Sales,1082,https://dvcsales.com/dvc-resale/saratoga-springs/170-points/1082,Saratoga Springs,170,September,17340,102.0,9.19,2054,Unverified,,13.029
-2026-09-06,DVC Sales,1108,https://dvcsales.com/dvc-resale/polynesian/150-points/1108,Polynesian Villas,150,,1250,8.33,1.0,2075,Unverified,,1.292
 2026-09-06,DVC Sales,1109,https://dvcsales.com/dvc-resale/polynesian/25-points/1109,Polynesian Villas,25,June,4875,195.0,8.33,2066,Unverified,,13.85
 2026-09-06,DVC Sales,1115,https://dvcsales.com/dvc-resale/saratoga-springs/250-points/1115,Saratoga Springs,250,December,24750,99.0,9.19,2054,Unverified,,12.882
 2026-09-06,DVC Sales,1117,https://dvcsales.com/dvc-resale/bay-lake-tower/160-points/1117,Bay Lake Tower,160,June,25600,160.0,8.74,2060,Unverified,,13.614
 2026-09-06,DVC Sales,1118,https://dvcsales.com/dvc-resale/bay-lake-tower/80-points/1118,Bay Lake Tower,80,June,13600,170.0,8.74,2060,Unverified,,14.018
-2026-09-06,DVC Sales,1121,https://dvcsales.com/dvc-resale/boardwalk/240-points/1121,BoardWalk Villas,240,,2321,9.67,1.0,2042,Unverified,,1.884
 2026-09-06,DVC Sales,1125,https://dvcsales.com/dvc-resale/aulani/200-points/1125,Aulani,200,March,19400,97.0,10.96,2062,Unverified,,13.793
-2026-09-06,DVC Sales,1141,https://dvcsales.com/dvc-resale/grand-californian/240-points/1141,Grand Californian Villas,240,,2285,9.52,1.0,2060,Unverified,,1.412
 2026-09-06,DVC Sales,1145,https://dvcsales.com/dvc-resale/saratoga-springs/200-points/1145,Saratoga Springs,200,June,21600,108.0,9.19,2054,Unverified,,13.225
-2026-09-06,DVC Sales,1150,https://dvcsales.com/dvc-resale/old-key-west/1000-points/1150,Old Key West,1000,,13500,11.21,1.0,2042,Unverified,,2.006
-2026-09-06,DVC Sales,1181,https://dvcsales.com/dvc-resale/animal-kingdom/325-points/1181,Animal Kingdom Villas,325,,3302,10.16,1.0,2057,Unverified,,1.451
-2026-09-06,DVC Sales,1182,https://dvcsales.com/dvc-resale/saratoga-springs/300-points/1182,Saratoga Springs,300,,2757,9.19,1.0,2054,Unverified,,1.47
-2026-09-06,DVC Sales,1183,https://dvcsales.com/dvc-resale/saratoga-springs/120-points/1183,Saratoga Springs,120,,1103,9.19,1.0,2054,Unverified,,1.577
-2026-09-06,DVC Sales,1185,https://dvcsales.com/dvc-resale/saratoga-springs/210-points/1185,Saratoga Springs,210,,1930,9.19,1.0,2054,Unverified,,1.501
-2026-09-06,DVC Sales,1190,https://dvcsales.com/dvc-resale/bay-lake-tower/160-points/1190,Bay Lake Tower,160,,1398,8.74,1.0,2060,Unverified,,1.425
 2026-09-06,DVC Sales,1193,https://dvcsales.com/dvc-resale/disneyland-hotel/75-points/1193,Villas at Disneyland Hotel,75,February,11400,152.0,10.54,2074,Unverified,,13.914
-2026-09-06,DVC Sales,1217,https://dvcsales.com/dvc-resale/animal-kingdom/100-points/1217,Animal Kingdom Villas,100,,1016,10.16,1.0,2057,Unverified,,1.584
 2026-09-06,DVC Sales,1232,https://dvcsales.com/dvc-resale/old-key-west57/230-points/1232,Old Key West (2057),230,June,25300,110.0,11.21,2057,Unverified,,14.906
 2026-09-06,DVC Sales,1233,https://dvcsales.com/dvc-resale/old-key-west57/80-points/1233,Old Key West (2057),80,March,10400,130.0,11.21,2057,Unverified,,15.708
-2026-09-06,DVC Sales,1235,https://dvcsales.com/dvc-resale/polynesian/100-points/1235,Polynesian Villas,100,,833,8.33,1.0,2075,Unverified,,1.332
-2026-09-06,DVC Sales,1236,https://dvcsales.com/dvc-resale/polynesian/100-points/1236,Polynesian Villas,100,,833,8.33,1.0,2075,Unverified,,1.332
 2026-09-06,DVC Sales,1239,https://dvcsales.com/dvc-resale/riviera/200-points/1239,Riviera Resort,200,February,25000,125.0,9.46,2070,Unverified,,12.414
-2026-09-06,DVC Sales,1242,https://dvcsales.com/dvc-resale/boulder-ridge/155-points/1242,Boulder Ridge Villas,155,,1514,9.77,1.0,2042,Unverified,,1.975
 2026-09-06,DVC Sales,1245,https://dvcsales.com/dvc-resale/disneyland-hotel/250-points/1245,Villas at Disneyland Hotel,250,August,35500,142.0,10.54,2074,Unverified,,13.59
 2026-09-06,DVC Sales,1247,https://dvcsales.com/dvc-resale/old-key-west/50-points/1247,Old Key West,50,March,5250,105.0,11.21,2042,Unverified,,18.641
-2026-09-06,DVC Sales,1253,https://dvcsales.com/dvc-resale/aulani/125-points/1253,Aulani,125,,1370,10.96,1.0,2062,Unverified,,1.492
-2026-09-06,DVC Sales,1256,https://dvcsales.com/dvc-resale/aulani/385-points/1256,Aulani,385,,4220,10.96,1.0,2062,Unverified,,1.403
 2026-09-06,DVC Sales,1257,https://dvcsales.com/dvc-resale/old-key-west/210-points/1257,Old Key West,210,February,17010,81.0,11.21,2042,Unverified,,16.575
-2026-09-06,DVC Sales,1260,https://dvcsales.com/dvc-resale/animal-kingdom/160-points/1260,Animal Kingdom Villas,160,,1626,10.16,1.0,2057,Unverified,,1.512
-2026-09-06,DVC Sales,1262,https://dvcsales.com/dvc-resale/saratoga-springs/150-points/1262,Saratoga Springs,150,,15000,100.0,,,Unverified,,
 2026-09-06,DVC Sales,1264,https://dvcsales.com/dvc-resale/bay-lake-tower/350-points/1264,Bay Lake Tower,350,December,47950,137.0,8.74,2060,Unverified,,12.878
-2026-09-06,DVC Sales,1268,https://dvcsales.com/dvc-resale/bay-lake-tower/160-points/1268,Bay Lake Tower,160,,1398,8.74,1.0,2060,Unverified,,1.425
-2026-09-06,DVC Sales,1273,https://dvcsales.com/dvc-resale/copper-creek/100-points/1273,Copper Creek Villas,100,,21000,9.02,1.0,2042,Unverified,,14.622
-2026-09-06,DVC Sales,1274,https://dvcsales.com/dvc-resale/copper-creek/200-points/1274,Copper Creek Villas,200,,21000,9.02,1.0,2042,Unverified,,7.873
 2026-09-06,DVC Sales,1275,https://dvcsales.com/dvc-resale/boardwalk/220-points/1275,BoardWalk Villas,220,March,27500,125.0,9.67,2042,Unverified,,17.777
-2026-09-06,DVC Sales,1279,https://dvcsales.com/dvc-resale/riviera/50-points/1279,Riviera Resort,50,,473,9.46,1.0,2070,Unverified,,1.531
-2026-09-06,DVC Sales,1281,https://dvcsales.com/dvc-resale/boardwalk/150-points/1281,BoardWalk Villas,150,,1450,9.67,1.0,2042,Unverified,,1.977
-2026-09-06,DVC Sales,1287,https://dvcsales.com/dvc-resale/copper-creek/175-points/1287,Copper Creek Villas,175,,21000,9.02,1.0,2042,Unverified,,8.838
-2026-09-06,DVC Sales,1288,https://dvcsales.com/dvc-resale/saratoga-springs/150-points/1288,Saratoga Springs,150,,1378,9.19,1.0,2054,Unverified,,1.541
-2026-09-06,DVC Sales,1289,https://dvcsales.com/dvc-resale/animal-kingdom/60-points/1289,Animal Kingdom Villas,60,,610,10.16,1.0,2057,Unverified,,1.712
-2026-09-06,DVC Sales,1290,https://dvcsales.com/dvc-resale/saratoga-springs/300-points/1290,Saratoga Springs,300,,2757,9.19,1.0,2054,Unverified,,1.47
-2026-09-06,DVC Sales,1291,https://dvcsales.com/dvc-resale/saratoga-springs/240-points/1291,Saratoga Springs,240,,2206,9.19,1.0,2054,Unverified,,1.488
