@@ -1,61 +1,91 @@
-DVC Resale Market - 2026-09-13
-57 new | 40 offers accepted | 19 price drops
-406 live listings
+DVC Resale Market - 2026-09-20
+109 new | 24 offers accepted | 29 price drops
+396 live listings
 
 COPPER CREEK VILLAS
-  [new] 200pt Feb $146/pt
-  [off] 75pt Oct $149/pt Sale Pending
+  [new] 200pt Mar $144/pt
+  [new] 75pt Mar $154/pt
+  [new] 175pt Dec $144/pt
+  [new] 100pt Oct $148/pt
+  [off] 120pt Dec $144/pt Offer Accepted
+  [off] 100pt Apr $137/pt Sale Pending
+  [off] 150pt Dec $134/pt Offer Accepted
+  [off] 50pt Feb $150/pt Sale Pending
+  [pri] 100pt Apr $137/pt was $142
 
 BOULDER RIDGE VILLAS
-  [new] 170pt Oct $110/pt
-  [off] 150pt Dec $116/pt Sale Pending
-  [off] 50pt Mar $110/pt Sale Pending
-  [off] 25pt Sep $124/pt Offer Accepted
+  [new] 130pt Mar $99/pt
+  [new] 200pt Feb $106/pt
+  [new] 150pt Feb $102/pt
+  [new] 100pt Apr $115/pt
 
 ANIMAL KINGDOM VILLAS
-  [new] 160pt Dec $115/pt
-  [new] 135pt Aug $115/pt
-  [new] 150pt Dec $121/pt
-  [new] 200pt Jun $128/pt
-  [new] 110pt Mar $134/pt
-  [new] 120pt Jun $118/pt
-  [off] 200pt Dec $123/pt Sale Pending
-  [off] 250pt Aug $111/pt Sale Pending
-  [off] 200pt Dec $134/pt Sale Pending
-  [off] 325pt Apr $123/pt Offer Accepted
-  [off] 228pt Oct $108/pt Sale Pending
-  [off] 270pt Sep $104/pt Offer Accepted
-  [off] 160pt Dec $110/pt Sale Pending
-  [off] 50pt Sep $125/pt Sale Pending
-  [off] 100pt Feb $121/pt Sale Pending
+  [new] 200pt Apr $109/pt
+  [new] 160pt Dec $114/pt
+  [new] 100pt Apr $113/pt
+  [new] 400pt Feb $110/pt
+  [new] 160pt Feb $125/pt
+  [new] 200pt Jun $108/pt
+  [new] 100pt Dec $141/pt
+  [new] 200pt Oct $115/pt
+  [new] 240pt Dec $118/pt
+  [new] 220pt Oct $118/pt
+  [new] 120pt Feb $134/pt
+  [new] 160pt Aug $118/pt
+  [new] 160pt Feb $104/pt
+  [new] 200pt Mar $110/pt
+  [new] 100pt Dec $125/pt
+  [new] 100pt Mar $125/pt
+  [new] 52pt Dec $133/pt
+  [new] 25pt Dec $138/pt
+  [off] 150pt Dec $121/pt Sale Pending
+  [off] 200pt Jun $128/pt Sale Pending
+  [pri] 160pt Dec $116/pt was $121
+  [pri] 160pt Aug $111/pt was $116
+  [pri] 100pt Dec $124/pt was $127
+  [pri] 50pt Aug $131/pt was $136
+  [pri] 50pt Sep $128/pt was $130
 
 SARATOGA SPRINGS
-  [new] 150pt Aug $101/pt
-  [new] 400pt Dec $105/pt
-  [new] 75pt Aug $104/pt
-  [new] 150pt Dec $123/pt
-  [new] 600pt Sep $104/pt
-  [new] 175pt Dec $108/pt
-  [new] 300pt Feb $112/pt
-  [new] 100pt Dec $112/pt
-  [new] 150pt Oct $104/pt
-  [new] 100pt Jun $109/pt
-  [off] 160pt Dec $116/pt Sale Pending
-  [off] 160pt Dec $116/pt Sale Pending
-  [off] 225pt Aug $107/pt Sale Pending
-  [off] 250pt Jun $118/pt Offer Accepted
-  [off] 170pt Sep $121/pt Offer Accepted
-  [off] 600pt Mar $105/pt Sale Pending
-  [off] 160pt Oct $108/pt Sale Pending
-  [pri] 200pt Mar $95/pt was $97
-  [pri] 170pt Feb $103/pt was $104
-  [pri] 130pt Sep $109/pt was $110
-  [pri] 160pt Dec $98/pt was $100
-  [pri] 130pt Oct $106/pt was $114
+  [new] 220pt Dec $105/pt
+  [new] 160pt Sep $105/pt
+  [new] 100pt Dec $108/pt
+  [new] 50pt Oct $105/pt
+  [new] 150pt Aug $105/pt
+  [new] 200pt Dec $119/pt
+  [new] 250pt Dec $108/pt
+  [new] 300pt Aug $108/pt
+  [new] 150pt Aug $117/pt
+  [new] 210pt Mar $113/pt
+  [new] 270pt Dec $109/pt
+  [new] 250pt Dec $109/pt
+  [new] 200pt Dec $108/pt
+  [new] 234pt Aug $111/pt
+  [new] 230pt Aug $110/pt
+  [new] 150pt Mar $108/pt
+  [new] 150pt Dec $109/pt
+  [new] 150pt Oct $110/pt
+  [new] 450pt Mar $97/pt
+  [new] 150pt Feb $107/pt
+  [new] 200pt Mar $108/pt
+  [new] 110pt Dec $114/pt
+  [new] 110pt Dec $114/pt
+  [new] 100pt Mar $110/pt
+  [new] 50pt Aug $118/pt
+  [off] 400pt Dec $105/pt Sale Pending
+  [off] 200pt Dec $120/pt Sale Pending
+  [off] 150pt Dec $123/pt Offer Accepted
+  [off] 150pt Feb $114/pt Sale Pending
+  [pri] 75pt Aug $100/pt was $104
+  [pri] 150pt Oct $108/pt was $109
+  [pri] 250pt Feb $95/pt was $99
+  [pri] 200pt Feb $96/pt was $98
+  [pri] 50pt Dec $117/pt was $119
+  [pri] 50pt Dec $117/pt was $120
 
 ALL OTHERS
-  39 new listings
-  20 offers accepted
-  14 price drops
+  58 new listings
+  14 offers accepted
+  17 price drops
 
 https://tpcolburn.github.io/dvc-market-observer/
