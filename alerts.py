@@ -61,6 +61,14 @@ def load_config():
             cfg.update(json.loads(raw))
         except json.JSONDecodeError as exc:
             print(f"::warning::ALERT_CONFIG is not valid JSON ({exc}); using defaults")
+    # The lock arrives separately so it can change without rewriting the buy
+    # criteria, which cannot be read back out of a GitHub secret once stored.
+    raw = os.environ.get("ALERT_LOCK", "").strip()
+    if raw:
+        try:
+            cfg["lock"] = json.loads(raw)
+        except json.JSONDecodeError as exc:
+            print(f"::warning::ALERT_LOCK is not valid JSON ({exc}); lock ignored")
     return cfg
 
 
@@ -180,11 +188,18 @@ def score_all(rows, cfg, today_year=None):
     alerts = []
     for rec in scored:
         resort = rec["resort"]
+        uy_unknown = False
         if lock.get("active"):
-            # once contract #1 closes only an exact resort + use-year match pools with it
-            if resort != lock.get("resort") or (lock.get("use_year")
-                                                and rec.get("use_year") != lock["use_year"]):
+            # Contracts pool only within one use year. Resort is optional: points
+            # from different resorts combine on one reservation, they just lose
+            # 11-month home priority when mixed.
+            if lock.get("resort") and resort != lock["resort"]:
                 continue
+            if lock.get("use_year"):
+                if not rec.get("use_year"):
+                    uy_unknown = True       # could be a match; nobody said
+                elif rec["use_year"] != lock["use_year"]:
+                    continue
 
         notes = []
         band = "PASS"
@@ -200,7 +215,7 @@ def score_all(rows, cfg, today_year=None):
         # Never call a contract a definite buy when nobody has published what
         # points come with it — that is precisely how WLCC100-04-0817 read as
         # unstripped while missing an entire use year.
-        if rec["points_unknown"] and band == "ACT NOW":
+        if (rec["points_unknown"] or uy_unknown) and band == "ACT NOW":
             band = "WATCH"
 
         # Cheap for its own resort is worth seeing but it is not a buy signal,
@@ -214,6 +229,8 @@ def score_all(rows, cfg, today_year=None):
         if band == "PASS":
             continue
 
+        if uy_unknown:
+            notes.append(f"use year not published — confirm {lock['use_year']} before offering")
         if rec["points_unknown"]:
             notes.append("points breakdown not published — verify before offering")
         elif rec["surplus"] < 0:

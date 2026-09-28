@@ -385,6 +385,14 @@ def _card(r, kind):
 BAND_COLOR = {"ACT NOW": "#1a7f37", "WATCH": "#9a6700", "NOTABLE": "#57606a"}
 
 
+def lock_label(cfg):
+    lock = cfg.get("lock") or {}
+    if not lock.get("active"):
+        return ""
+    bits = [b for b in (lock.get("resort"), lock.get("use_year") and f"{lock['use_year']} UY") if b]
+    return " &middot; " + e(" ".join(bits)) + " only" if bits else ""
+
+
 def alert_block(alerts, cfg, ref=None):
     """Your buy list, at the top of the email. This replaced the separate 7:15am
     local monitor on 2026-08-20 — same scoring, but on the snapshot the scraper
@@ -394,8 +402,8 @@ def alert_block(alerts, cfg, ref=None):
                 'font-size:13px;color:#57606a">No contracts clear your bands today.</div>')
     lo, hi = cfg["point_band"]
     H = ['<div style="margin:16px 0 4px;font-size:11.5px;font-weight:650;letter-spacing:.05em;'
-         'text-transform:uppercase;color:#57606a">Your candidates &nbsp;({}&ndash;{} pts)</div>'
-         .format(lo, hi)]
+         'text-transform:uppercase;color:#57606a">Your candidates &nbsp;({}&ndash;{} pts{})</div>'
+         .format(lo, hi, lock_label(cfg))]
     # Only ACT NOW earns a full card. WATCH became 36 listings once the
     # point-delta fix widened the distribution, and 36 cards is not a buy list,
     # it is a spreadsheet.

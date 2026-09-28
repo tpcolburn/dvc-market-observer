@@ -35,6 +35,7 @@ jobs:
         run: python build_dashboard.py
         env:
           ALERT_CONFIG: ${{ secrets.ALERT_CONFIG }}
+          ALERT_LOCK: ${{ secrets.ALERT_LOCK }}
 
       - name: Commit snapshot
         run: |

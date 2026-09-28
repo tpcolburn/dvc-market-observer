@@ -89,7 +89,7 @@ points, and price per point — the columns that version recorded.
 Weekly since 2026-08-29, previously daily. Traded away by the move:
 
 - **Thin-inventory use years go dark for up to 6 days.** March Copper Creek — the
-  use year contract #2 is locked to — has run at roughly one new listing a week
+  closest match for contract #2 — has run at roughly one new listing a week
   market-wide, and that listing can sell before the next Sunday snapshot. A
   fast-moving contract in a thin pool can appear and disappear between runs with
   no alert either way.
@@ -104,3 +104,10 @@ The personal buy-list scoring (Copper Creek–focused, point-band filtered,
 resort-desirability weighted) now runs inside this same workflow via
 `alerts.py`, reading `ALERT_CONFIG` from repo secrets. It no longer runs
 separately from `~/.dvc-monitor/` — that local monitor was retired 2026-08-20.
+
+The buy list can be locked with a second secret, `ALERT_LOCK`, e.g.
+`{"active": true, "use_year": "March"}` (add `"resort"` to pin one resort too).
+Only a matching use year pools with an owned contract; any resort does. Listings
+that publish no use year stay on the list, capped at WATCH, with a note to confirm.
+It is separate from `ALERT_CONFIG` so it can change without rewriting the buy
+criteria, which a GitHub secret never gives back once stored.
