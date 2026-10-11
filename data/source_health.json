@@ -1,25 +1,25 @@
 {
- "date": "2026-10-04",
+ "date": "2026-10-11",
  "brokers": {
   "DVC Resale Market": {
    "ok": true,
-   "urls": 401,
-   "targets": 400,
-   "parsed": 400,
+   "urls": 398,
+   "targets": 397,
+   "parsed": 397,
    "stale": 0
   },
   "The DVC Store": {
    "ok": true,
-   "urls": 148,
-   "targets": 143,
-   "parsed": 143,
+   "urls": 150,
+   "targets": 144,
+   "parsed": 144,
    "stale": 0
   },
   "DVC Sales": {
    "ok": true,
-   "urls": 71,
-   "targets": 71,
-   "parsed": 69,
+   "urls": 75,
+   "targets": 75,
+   "parsed": 73,
    "stale": 0
   }
  }
