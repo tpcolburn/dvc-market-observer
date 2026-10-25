@@ -1,92 +1,91 @@
-DVC Resale Market - 2026-10-18
-109 new | 53 offers accepted | 33 price drops
-544 live listings
+DVC Resale Market - 2026-10-25
+95 new | 39 offers accepted | 45 price drops
+551 live listings
 
 COPPER CREEK VILLAS
-  [new] 100pt Mar $148/pt
-  [new] 250pt Jun $155/pt
-  [new] 100pt Oct $160/pt
-  [new] 100pt Mar $148/pt
-  [pri] 100pt Sep $139/pt was $142
+  [new] 250pt Mar $139/pt
+  [new] 100pt Feb $146/pt
+  [new] 50pt Dec $169/pt
+  [new] 100pt Apr $148/pt
+  [new] 100pt Apr $148/pt
+  [new] 100pt Apr $148/pt
+  [new] 100pt Apr $148/pt
+  [off] 400pt Apr $143/pt Sale Pending
+  [off] 100pt Sep $139/pt Offer Accepted
+  [pri] 100pt Mar $145/pt was $148
 
 BOULDER RIDGE VILLAS
-  [new] 500pt Dec $98/pt
-  [new] 270pt Oct $103/pt
-  [off] 350pt Dec $108/pt Sale Pending
-  [pri] 300pt Mar $95/pt was $97
-  [pri] 270pt Mar $103/pt was $107
+  [new] 150pt Oct $119/pt
+  [new] 50pt Apr $130/pt
+  [off] 80pt Apr $115/pt Sale Pending
+  [pri] 270pt Mar $100/pt was $103
 
 ANIMAL KINGDOM VILLAS
-  [new] 150pt Feb $108/pt
-  [new] 160pt Oct $105/pt
-  [new] 75pt Feb $134/pt
-  [new] 100pt Jun $125/pt
-  [new] 270pt Dec $121/pt
-  [new] 200pt Dec $110/pt
-  [new] 180pt Dec $121/pt
-  [new] 160pt Dec $121/pt
-  [new] 160pt Dec $119/pt
-  [new] 220pt Aug $117/pt
-  [new] 250pt Dec $108/pt
-  [new] 300pt Oct $130/pt
-  [new] 100pt Aug $126/pt
-  [new] 140pt Jun $114/pt
-  [new] 60pt Jun $129/pt
-  [new] 75pt Feb $134/pt
-  [new] 50pt Aug $131/pt
-  [off] 200pt Dec $118/pt Sale Pending
-  [off] 150pt Aug $119/pt Sale Pending
-  [off] 160pt Dec $109/pt Sale Pending
-  [off] 160pt Sep $130/pt Sale Pending
-  [off] 160pt Aug $104/pt Sale Pending
-  [off] 160pt Apr $111/pt Sale Pending
-  [off] 46pt Mar $135/pt Sale Pending
-  [pri] 160pt Dec $118/pt was $119
-  [pri] 120pt Sep $131/pt was $132
-  [pri] 170pt Sep $114/pt was $117
+  [new] 160pt Dec $123/pt
+  [new] 100pt Dec $111/pt
+  [new] 120pt Sep $114/pt
+  [new] 160pt Dec $133/pt
+  [new] 120pt Oct $130/pt
+  [new] 320pt Dec $119/pt
+  [new] 225pt Dec $129/pt
+  [new] 270pt Apr $118/pt
+  [new] 125pt Oct $131/pt
+  [new] 100pt Feb $132/pt
+  [new] 120pt Dec $125/pt
+  [new] 100pt Dec $124/pt
+  [new] 120pt Dec $124/pt
+  [new] 120pt Dec $124/pt
+  [new] 100pt Apr $123/pt
+  [new] 110pt Mar $125/pt
+  [off] 220pt Dec $124/pt Sale Pending
+  [off] 110pt Apr $133/pt Sale Pending
+  [off] 200pt Sep $110/pt Sale Pending
+  [pri] 160pt Dec $117/pt was $118
+  [pri] 200pt Dec $117/pt was $119
+  [pri] 400pt Feb $105/pt was $110
+  [pri] 200pt Apr $114/pt was $116
+  [pri] 150pt Dec $114/pt was $116
 
 SARATOGA SPRINGS
-  [new] 160pt Dec $115/pt
-  [new] 300pt Jun $106/pt
-  [new] 160pt Jun $123/pt
-  [new] 250pt Sep $126/pt
-  [new] 160pt Dec $129/pt
-  [new] 250pt Dec $123/pt
-  [new] 150pt Jun $115/pt
-  [new] 350pt Aug $105/pt
-  [new] 150pt Oct $119/pt
-  [new] 150pt Dec $105/pt
-  [new] 160pt Aug $108/pt
-  [new] 200pt Dec $111/pt
-  [new] 175pt Oct $117/pt
-  [new] 100pt Dec $124/pt
-  [new] 100pt Aug $113/pt
-  [new] 160pt Dec $100/pt
-  [new] 50pt Oct $115/pt
-  [new] 50pt Dec $115/pt
-  [off] 200pt Dec $125/pt Sale Pending
-  [off] 200pt Jun $107/pt Sale Pending
-  [off] 200pt Oct $115/pt Sale Pending
-  [off] 200pt Oct $120/pt Sale Pending
-  [off] 210pt Mar $103/pt Sale Pending
-  [off] 150pt Apr $120/pt Sale Pending
-  [off] 200pt Mar $98/pt Offer Accepted
-  [off] 150pt Aug $119/pt Sale Pending
-  [off] 160pt Dec $106/pt Offer Accepted
-  [off] 210pt Mar $113/pt Sale Pending
-  [off] 230pt Aug $110/pt Sale Pending
-  [off] 150pt Oct $110/pt Sale Pending
-  [off] 450pt Mar $97/pt Sale Pending
-  [off] 150pt Dec $102/pt Sale Pending
-  [off] 100pt Apr $108/pt Offer Accepted
-  [pri] 230pt Dec $97/pt was $98
-  [pri] 250pt Dec $100/pt was $102
-  [pri] 220pt Dec $103/pt was $105
-  [pri] 150pt Aug $94/pt was $105
+  [new] 160pt Dec $103/pt
+  [new] 225pt Feb $101/pt
+  [new] 210pt Oct $109/pt
+  [new] 160pt Aug $107/pt
+  [new] 275pt Oct $113/pt
+  [new] 160pt Jun $112/pt
+  [new] 270pt Oct $116/pt
+  [new] 200pt Aug $103/pt
+  [new] 225pt Aug $101/pt
+  [new] 200pt Aug $119/pt
+  [new] 160pt Dec $120/pt
+  [new] 100pt Sep $118/pt
+  [new] 150pt Dec $104/pt
+  [new] 200pt Apr $108/pt
+  [new] 210pt Apr $103/pt
+  [new] 150pt Apr $109/pt
+  [new] 150pt Aug $114/pt
+  [new] 150pt Jun $108/pt
+  [new] 200pt Apr $105/pt
+  [new] 246pt Dec $100/pt
+  [new] 120pt Feb $109/pt
+  [new] 110pt Apr $114/pt
+  [new] 60pt Jun $125/pt
+  [off] 160pt Dec $115/pt Sale Pending
+  [off] 250pt Sep $126/pt Sale Pending
+  [off] 160pt Dec $129/pt Offer Accepted
+  [off] 200pt Feb $93/pt Sale Pending
+  [off] 150pt Aug $94/pt Sale Pending
+  [off] 275pt Apr $100/pt Offer Accepted
+  [off] 50pt Oct $115/pt Sale Pending
+  [pri] 165pt Sep $101/pt was $103
+  [pri] 200pt Aug $100/pt was $106
+  [pri] 200pt Aug $106/pt was $108
+  [pri] 200pt Oct $90/pt was $93
+  [pri] 50pt Oct $120/pt was $127
 
 ALL OTHERS
-  68 new listings
-  30 offers accepted
-  23 price drops
+  47 new listings
+  26 offers accepted
+  33 price drops
 
 https://tpcolburn.github.io/dvc-market-observer/
